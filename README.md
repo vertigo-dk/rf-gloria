@@ -1,4 +1,3 @@
-Obscura-RF2013
+Tools for Roskilde Festival 2015
 ==============
-
-Generative Visuals for roskilde festival 2013 Gloria stage
+Generative Visuals for roskilde festival 2015 Gloria stage
