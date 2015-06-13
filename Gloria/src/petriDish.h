@@ -12,6 +12,7 @@
 #include "ContentScene.h"
 #include "mapping.h"
 #include "ofxFX.h"
+#include "ofxGrayScott.h"
 
 #include <math.h>
 
