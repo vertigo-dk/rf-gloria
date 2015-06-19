@@ -181,13 +181,17 @@ void Mapping::generate() {
     
     svg.load(svgFilename);
     
-    int numTriangles = 0;
-    int numCorners = 0;
-    int maxTriangleSize = 1000000;
+    int numTriangles      = 0;
+    int numCorners        = 0;
+    int maxTriangleSize   = 1000000;
     float cornerThreshold = 10;
+    
+    int svgHeight = svg.getHeight();
+    int svgWidth  = svg.getWidth();
     
     for (int i = 0; i < svg.getNumPath(); i++){
 		ofPath p = svg.getPathAt(i);
+        
 		// svg defaults to non zero winding which doesn't look so good as contours
 		//p.setPolyWindingMode(OF_POLY_WINDING_ODD);
 		vector<ofPolyline>& lines = p.getOutline();
@@ -203,12 +207,14 @@ void Mapping::generate() {
                 triangle->centroid = lines[j].getCentroid2D();
                 
                 //cout<<"Creating triangle..."<<endl;
-                
                 // For each of 3 vertices in triangle create a corner pointer
                 for(int vi=0; vi<3; vi++) {
                     
                     bool set = false;
                     ofVec2f vert = triangle->polyline.getVertices()[vi];
+                    
+                    // if we are scaling the output differently than the mapping
+                    vert = vert / ofVec2f(svgWidth/OUTWIDTH, svgHeight/OUTHEIGHT);
                     
                     // Loop through all corners in all triangels and set a pointer if the corner already exists
                     for(int ti=0; ti<triangles.size(); ti++) {
@@ -248,11 +254,9 @@ void Mapping::generate() {
                 
                 triangles.push_back(triangle);
                 ++numTriangles;
-                
             }
         }
 	}
-    
     
     for(int i=0;i<corners.size();i++){
         cout<<corners[i]->pos.x<<endl;

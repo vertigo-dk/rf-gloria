@@ -20,7 +20,7 @@ void Particle::draw(float lineWidth) {
     ofSetColor(color,ofMap(age,0,mapFactor,255,0,true));
 
     ofSetLineWidth(lineWidth*(20-age)*0.1);
-    ofLine(oldpos,pos);
+    ofDrawLine(oldpos,pos);
 }
 
 void Particle::update() {

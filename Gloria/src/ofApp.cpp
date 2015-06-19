@@ -2,19 +2,16 @@
 
 void ofApp::setup() {
     
+    ofEnableAlphaBlending();
     
     oscReceiver.setup(OSCRECEIVEPORT);
 
-    
     //try {
     oscSenderOne = new ofxOscSender();
     oscSenderOne->setup(OSCCLIENTONE, OSCSENDPORT);
 
     oscSenderTwo = new ofxOscSender();
     oscSenderTwo->setup(OSCCLIENTTWO, OSCSENDPORT);
-    //} catch () {
-      //  
-    //}
     
     ofSetLogLevel(OF_LOG_NOTICE);
     ofSetFrameRate(TARGET_FRAMERATE);
@@ -23,7 +20,6 @@ void ofApp::setup() {
     ofSetWindowTitle("Obscure Glorius Control 2014");
     
     syphonOut.setName("Gloria Main");
-    fboOut.allocate(OUTWIDTH, OUTHEIGHT);
     
     syphonIn = new ofxSyphonClient();
     
@@ -39,10 +35,6 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
     
-    ofEnableSmoothing();
-    ofEnableAlphaBlending();
-    ofEnableDepthTest();
-    
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
     
@@ -51,23 +43,23 @@ void ofApp::setup() {
     // Set up the scenes, all scenes is a subclass of SceneContent, don't call draw, setup and update directly it is taken care of thorugh the scene.
     
     scenes.push_back(new FluidScene());
-    
     //transformer = new Transformer();
     //scenes.push_back(transformer);
-
     scenes.push_back(new QuickTrail());
     scenes.push_back(new Triangles());
     scenes.push_back(new PerlinWaves());
     scenes.push_back(new BasicParticles());
-    scenes.push_back(new PetriDish());
+    //scenes.push_back(new PetriDish());
     
     ofFbo::Settings fboSettings;
     fboSettings.height = OUTHEIGHT;
-    fboSettings.width = OUTWIDTH;
+    fboSettings.width  = OUTWIDTH;
     fboSettings.numSamples = 4;
-    fboSettings.useDepth = false;
+    fboSettings.useDepth   = false;
     
     fboOut.allocate(fboSettings);
+    
+    fboOut.setUseTexture(true);
     
     fboOut.begin();
     ofBackground(0,0,0,255);
@@ -75,7 +67,7 @@ void ofApp::setup() {
     
         
     for(int i=0; i<scenes.size(); i++) {
-        scenes[i]->mapping = mapping;
+        scenes[i]->mapping  = mapping;
         scenes[i]->syphonIn = syphonIn;
         scenes[i]->oscClients.push_back(oscSenderOne);
         scenes[i]->oscClients.push_back(oscSenderTwo);
@@ -83,10 +75,7 @@ void ofApp::setup() {
     }
     
     setGUI();
-    
-
 }
-
 
 void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
 {
@@ -112,21 +101,8 @@ void ofApp::serverRetired(ofxSyphonServerDirectoryEventArgs &arg)
     dirIdx = 0;
 }
 
-
 //--------------------------------------------------------------
 void ofApp::update() {
-    
-    
-    // send some fun stuff to the sharpy army
-    /*
-    ofxOscMessage m;
-    
-    m.setAddress("/sharpy");
-    m.addIntArg(0); // device number
-    m.addFloatArg(sin(ofGetElapsedTimeMillis()/4500.) * 8.); // x
-    m.addFloatArg(0); // y
-    m.addFloatArg(sin(ofGetElapsedTimeMillis()/4000.) * 2.); // z
-    oscSender.sendMessage(m);*/
     
     while(oscReceiver.hasWaitingMessages()){
         
@@ -146,10 +122,7 @@ void ofApp::update() {
     }
     
     // OSC in listen
-    
-
 }
-
 
 void ofApp::draw() {
     
@@ -165,7 +138,7 @@ void ofApp::draw() {
     }
     ofPopStyle();
     
-   /* ofPushStyle();{
+   ofPushStyle();{
         fboOut.begin();{
             ofEnableAlphaBlending();
             ofClear(0, 0);
@@ -179,12 +152,11 @@ void ofApp::draw() {
             }
             
             //glBlendFunc(GL_FUNC_SUBTRACT​);
-            
             if(drawMask) mapping->drawMask();
             
         }fboOut.end();
     } ofPopStyle();
-    */
+    
     ofDisableDepthTest();
     ofBackground(0, 0, 0);
     ofSetColor(255,255,255,255);
@@ -206,7 +178,7 @@ void ofApp::draw() {
                 ofSetColor(255,0,0,100);
             }
 
-            ofRect(-1, -1, scale*fboOut.getWidth()+2, scale*fboOut.getHeight()+2);
+            ofDrawRectangle(-1, -1, scale*fboOut.getWidth()+2, scale*fboOut.getHeight()+2);
            // fboOut.draw(0, 0);
             ofSetColor(255,255,255,scenes[i]->opacity*255);
             
@@ -237,7 +209,7 @@ void ofApp::draw() {
     
         ofSetColor(0,0,255);
         ofSetLineWidth(1);
-        ofRect(-1, -1, scale*syphonIn->getWidth()+2, scale*syphonIn->getHeight()+2);
+        ofDrawRectangle(-1, -1, scale*syphonIn->getWidth()+2, scale*syphonIn->getHeight()+2);
         
         ofSetColor(255);
         ofDrawBitmapString("Syphon input - (Press 'i' to change)",  ofPoint(0,-18));
@@ -268,7 +240,6 @@ void ofApp::draw() {
         }
     }ofPopMatrix();*/
     
-    
     ofSetColor(255);
     ofDrawBitmapString("FPS: " + ofToString(ofGetFrameRate()), ofGetWidth()-200, 20);
     
@@ -276,17 +247,14 @@ void ofApp::draw() {
         ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
     }
     
-    
     for(int i=0; i<scenes.size(); i++) {
         if(scenes[i]->enabled) {
             scenes[i]->publishSyphonTexture();
         }
     }
     
-    syphonOut.publishTexture(&fboOut.getTextureReference());
-    
+    //syphonOut.publishTexture(&fboOut.getTexture());
 }
-
 
 //------------------------------------------------------------
 void ofApp::debugDraw() {
@@ -318,7 +286,6 @@ void ofApp::setGUI()
     guiTabBar->setWidgetFontSize(OFX_UI_FONT_SMALL);
     
     mainGui->addLabel("Gloria");
-    
     mainGui->addLabel("OSC info");
     mainGui->addLabel("In: " + ofToString(OSCRECEIVEPORT));
     mainGui->addLabel("Out: " + string(OSCCLIENTONE) + " & " + string(OSCCLIENTTWO) + ":" + ofToString(OSCSENDPORT));
@@ -327,7 +294,6 @@ void ofApp::setGUI()
     mainGui->addToggle("Draw mask", &drawMask);
     mainGui->autoSizeToFitWidgets();
     ofAddListener(mainGui->newGUIEvent,this,&ofApp::guiEvent);
-    
     
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->setSceneGui();
@@ -358,7 +324,6 @@ void ofApp::keyPressed(int key){
         dirIdx = 0;
         
         if(directory.isValidIndex(dirIdx)){
-            
             syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
             syphonIn->setApplicationName(directory.getServerList()[dirIdx].appName);
         }
@@ -387,42 +352,34 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){
-    
 }
 
 //--------------------------------------------------------------

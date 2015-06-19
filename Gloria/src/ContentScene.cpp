@@ -29,13 +29,13 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     ofFbo::Settings settings;
     
     height = _height;
-    width = _width;
+    width  = _width;
     
-    settings.height = _height;
-    settings.width = _width;
+    settings.height     = _height;
+    settings.width      = _width;
     settings.numSamples = numSamples;
-    settings.useDepth = false;
-    //settings.colorFormats = GL_RGBA;
+    settings.useDepth   = false;
+    settings.internalformat = GL_RGBA;
     
     fbo.allocate(settings);
     
@@ -46,7 +46,6 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     setup();
     syphonOut.setName(name);
 }
-
 
 void ContentScene::setSceneGui(){
     
@@ -68,7 +67,6 @@ void ContentScene::setSceneGui(){
     
     setGui();
     gui->autoSizeToFitWidgets();
-
     ofAddListener(gui->newGUIEvent,this,&ContentScene::guiEvent);
 }
 
@@ -77,7 +75,6 @@ void ContentScene::guiEvent(ofxUIEventArgs &e)
     string name = e.widget->getName();
     int kind = e.widget->getKind();
     string canvasParent = e.widget->getCanvasParent()->getName();
-    
     //cout << canvasParent << endl;
 }
 
@@ -85,7 +82,7 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage * m){
 
     // you can change values of widgets in gui with osc just send to its name
     
-    // supports either /sceneadress/paramtername or /sceneadress_parametername
+    // supports either /sceneaddress/parametername or /sceneadress_parametername
     // everything is case insensitive
     
     bool isScene = false;
@@ -113,9 +110,7 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage * m){
             
             // have it match the original / formatting
             rest = "/" + rest;
-            
             isScene = true;
-            
         }
             
         }
@@ -124,64 +119,49 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage * m){
     
     if(isScene) {
         
-        //cout<<"    scene:"<<rest<<endl;
-        
         for(int i=0; i< gui->getWidgets().size(); i++ ) {
             
             ofxUIWidget * widget = gui->getWidgets()[i];
             
             if(ofToLower(widget->getName()) == rest) {
-                
                 //cout<<widget->getKind()<<endl;
-
                 if(widget->getKind() == OFX_UI_WIDGET_SLIDER_H || widget->getKind() == OFX_UI_WIDGET_SLIDER_V) {
                     
                     ofxUISlider *slider = (ofxUISlider *) widget;
-                    
                     slider->setValue(ofMap(m->getArgAsFloat(0), 0, 1, slider->getMin(), slider->getMax()));
                     
                 } else if(widget->getKind() == OFX_UI_WIDGET_INTSLIDER_H || widget->getKind() == OFX_UI_WIDGET_INTSLIDER_V) {
                     
                     ofxUISlider *slider = (ofxUISlider *) widget;
                     slider->setValue(ofMap(m->getArgAsInt32(0), 0, 1, slider->getMin(), slider->getMax()));
-                    
                 } else if(widget->getKind() == OFX_UI_WIDGET_TOGGLE) {
-                    
                     ofxUIToggle *toggle = (ofxUIToggle *) widget;
                     toggle->setValue(m->getArgAsFloat(0));
                     
                 } else if(widget->getKind() == OFX_UI_WIDGET_BUTTON) {
-                    
                     ofxUIToggle *toggle = (ofxUIToggle *) widget;
                     toggle->setValue(m->getArgAsFloat(0));
-                    
                 }
-                
-                
                 for(int o=0; o<oscClients.size(); o++) {
-                    
                     oscClients[o]->sendMessage(*(m));
-                    
                 }
-                
             }
-            
         }
     }
 }
 
-
 void ContentScene::updateScene() {
-    
-    
-    
     if(enabled) {
         update();
     }
 }
 
 void ContentScene::drawScene() {
+    
+    
     if(enabled) {
+        
+        
         ofPushMatrix();
         ofPushStyle();
         fbo.begin();
@@ -193,8 +173,9 @@ void ContentScene::drawScene() {
 }
 
 void ContentScene::publishSyphonTexture(bool _force) {
-    if ( (solo && enabled) || _force ) {
-        syphonOut.publishTexture(&fbo.getTextureReference());
+    if ((solo && enabled) || _force ) {
+        ofFill();
+        syphonOut.publishTexture(&fbo.getTexture());
     }
 }
 

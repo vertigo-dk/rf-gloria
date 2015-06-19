@@ -30,7 +30,7 @@ void BasicParticle::draw() {
     ofSetColor(color,ofMap(age*fadeWithAge,0,mapFactor,255,0,true));
     
     ofFill();
-    ofCircle(pos.x,pos.y,radius);
+    ofDrawCircle(pos.x,pos.y,radius);
 }
 
 void BasicParticle::update() {

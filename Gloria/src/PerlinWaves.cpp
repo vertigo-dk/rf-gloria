@@ -24,6 +24,8 @@ void PerlinWaves::update(){
 
 void PerlinWaves::draw(){;
     
+    ofClear(0,0,0,0);
+    
     ofSetLineWidth(4);
     glEnable(GL_LINES);
     

@@ -45,5 +45,5 @@ void LampWalker::draw(){;
 
 	ofSetColor(255, 0, 0);
     ofFill();
-	ofCircle(interpolate.x, interpolate.y, 10);
+	ofDrawCircle(interpolate.x, interpolate.y, 10);
 }

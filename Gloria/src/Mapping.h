@@ -22,7 +22,6 @@ public:
     Corner(){
         anchor1 = nil;
         anchor2 = nil;
-        
         randomSeed = ofVec3f(ofRandom(-1,1),ofRandom(-1,1),ofRandom(-1,1));
 
     }
