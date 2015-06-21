@@ -25,10 +25,14 @@ void ofApp::setup() {
     syphonOut.setName("Gloria Main");
     fboOut.allocate(OUTWIDTH, OUTHEIGHT);
     
-    syphonIn = new ofxSyphonClient();
-    
+    /*syphonIn = new ofxSyphonClient();
     syphonIn->setApplicationName("Millumin");
     syphonIn->setServerName("");
+    syphonIn->setup();*/
+    
+    syphonIn = new ofxSyphonClient();
+    syphonIn->setApplicationName("Modul8");
+    syphonIn->setServerName("Main View");
     syphonIn->setup();
     
     directory.setup();
