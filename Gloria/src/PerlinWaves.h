@@ -21,7 +21,6 @@ public:
     void update();
     
     void parseOscMessage(ofxOscMessage * m);
-    void setGui();
     
     ofParameter<float> frequency;
     //float lineWidth;

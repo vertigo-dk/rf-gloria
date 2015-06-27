@@ -81,22 +81,48 @@ void FluidScene::setup(){
     // Adding constant forces
     //
     //fluid.addConstantForce(ofPoint(drawWidth*0.4,drawHeight*0.95), ofPoint(0,-2), ofFloatColor(1.0,0.1,0.0), 15.5f);
+    
+    
+    /*gui->addSlider("/gravity/x", -1, 1, &gravity.x);
+    gui->addSlider("/gravity/y", -1, 1, &gravity.y);
+    
+    gui->addSlider("/emit/x", 10, drawWidth-10, &emitPos.x);
+    gui->addSlider("/emit/y", 10, drawHeight-10, &emitPos.y);
+    
+    gui->addButton("/clear/x", &clear);
+    
+    gui->addToggle("/drawobstacles/x", &drawObstacles);
+    
+    gui->addSlider("/intensity/x", 0, 30, &intensity);
+    */
+    
+    params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)));
+    params.add(emitPos.set("emit", ofVec2f(0.5,0.5), ofVec2f(0,0), ofVec2f(1,1)));
+    
+    params.add(intensity.set("intensity", 0, 0, 30));
+    
+    params.add(clear.set("clear", false));
+    
+    
+    
+    drawObstacles = false;
+    
+    
 }
 
 void FluidScene::update(){
     // Adding temporal Force
     //
     
-    fluid.setGravity(gravity);
+    fluid.setGravity(gravity.get());
 
-    ofPoint m = emitPos;
+    ofPoint m = emitPos.get() * ofVec2f(drawWidth, drawHeight);
     ofPoint d = (m - oldM)*10.0;
     oldM = m;
     
     fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),intensity);
     
     //fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),16.0f);
-    
     //fluid.addTemporalForce(m, d, ofFloatColor(c.x,c.y,0.5)*sin(ofGetElapsedTimef()),3.0f);
     //  Update
     //
@@ -106,7 +132,7 @@ void FluidScene::update(){
     if(clear) {
         fluid.clear();
         fluid.setObstacles(obstacles);
-    } clear = false;
+    } clear.set(false);
     
     
     //if(ofGetFrameNum() % 2 == 1) {
@@ -135,20 +161,3 @@ void FluidScene::draw(){;
 void FluidScene::parseOscMessage(ofxOscMessage *m){
 }
 
-void FluidScene::setGui(){
-    
-    gui->addSlider("/gravity/x", -1, 1, &gravity.x);
-    gui->addSlider("/gravity/y", -1, 1, &gravity.y);
-    
-    gui->addSlider("/emit/x", 10, drawWidth-10, &emitPos.x);
-    gui->addSlider("/emit/y", 10, drawHeight-10, &emitPos.y);
-    
-    gui->addButton("/clear/x", &clear);
-    
-    gui->addToggle("/drawobstacles/x", &drawObstacles);
-    
-    gui->addSlider("/intensity/x", 0, 30, &intensity);
-    
-    drawObstacles = false;
-    
-}
