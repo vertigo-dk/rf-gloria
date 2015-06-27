@@ -141,9 +141,11 @@ void Triangles::setup(){
 
 
     
-    depthFbo.allocate(OUTWIDTH, OUTHEIGHT, GL_RGB);
+    debugShader.setGeometryInputType(GL_TRIANGLES);
+    debugShader.setGeometryOutputType(GL_TRIANGLES);
+    debugShader.setGeometryOutputCount(3);
     
-    debugShader.load("shaders/TrianglesDebug");
+    debugShader.load("shaders/TrianglesDebug.vert","shaders/TrianglesDebug.frag","shaders/TrianglesDebug.geom");
 }
 
 
@@ -217,10 +219,17 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
               ofVec3f pos = triangle->getPos(u) ;
               ofVec3f center = triangle->getCenter();
 
-              glTexCoord2d(syphonIn->getWidth()* center.x/OUTWIDTH
+          /*    glTexCoord2d(syphonIn->getWidth()* center.x/OUTWIDTH
                            , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
-
-            glVertex3d(pos.x, pos.y, 0/*triangle->corners[u]->pos.z*/);
+*/
+              
+              glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
+                                , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+              
+              glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
+                                , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
+              
+              glVertex3d(pos.x, pos.y, 0/*triangle->corners[u]->pos.z*/);
         }
 
     }
@@ -258,12 +267,15 @@ void Triangles::drawTriangle(SubTriangle * triangle, float opacity, ofVec3f pare
     
         //Tegn billede 1 pixel pr trekant
         for(int u=0;u<3;u++){
-            glNormal3f(n.x, n.y, n.z);
-            
-            glTexCoord2d(syphonIn->getWidth()* center.x/OUTWIDTH
-                         , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
-            
+            //glNormal3f(n.x, n.y, n.z);
             ofVec3f pos = triangle->getPos(u) ;
+
+            glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
+                         , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+
+            glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
+                         , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
+            
             glVertex3d(pos.x, pos.y, 0/*pos.z*/);
         }
         
@@ -289,20 +301,13 @@ void Triangles::drawTriangle(SubTriangle * triangle, float opacity, ofVec3f pare
 void Triangles::draw(){
     ofClear(0);
     ofSetColor(255,255,255);
-   /*
-    depthFbo.begin();{
-        ofFill();
-        ofClear(255);
-        ofSetColor(255,255,255);
-        syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
-    }depthFbo.end();
- */
-    
+   
+  
     if(fillAlpha > 0){
         ofSetColor(255*colorR,255*colorG,255*colorB, 255*fillAlpha);
         
         debugShader.begin();
-        // debugShader.setUniformTexture("depthTex", depthFbo.getTextureReference(), 1);
+        //debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 2);
         debugShader.setUniform1f("lightAmount", light);
         debugShader.setUniform1f("textureAmount", syphonOpacity);
         syphonIn->bind();
@@ -330,10 +335,7 @@ void Triangles::draw(){
         debugShader.end();
         syphonIn->unbind();
     }
-    
-    /*    ofDisableDepthTest();
-     depthFbo.draw(0,0);
-     */
+      /*
     ofNoFill();
     ofEnableAlphaBlending();
     if(wireframeAlpha > 0){
@@ -341,7 +343,7 @@ void Triangles::draw(){
 
         debugShader.begin();
 
-        // debugShader.setUniformTexture("depthTex", depthFbo.getTextureReference(), 1);
+     //   debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 1);
         debugShader.setUniform1f("lightAmount", light);
         debugShader.setUniform1f("textureAmount", syphonOpacity);
         syphonIn->bind();
@@ -370,6 +372,7 @@ void Triangles::draw(){
         debugShader.end();
     }
     ofDisableLighting();
+     */
 
     ofSetColor(255);
     //  glDisable(GL_LINE_SMOOTH);
@@ -377,6 +380,19 @@ void Triangles::draw(){
 }
 
 void Triangles::update(){
+  /*  if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
+        depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
+    }
+    
+    depthFbo.begin();{
+        ofFill();
+        ofClear(255);
+        ofSetColor(255,255,255);
+        syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
+    }depthFbo.end();
+    
+*/
+    
     noiseSeed += noiseSeedSpeed * 1.0/MAX(10,ofGetFrameRate());
     if(noiseSeed > 1)
         noiseSeed = 0;

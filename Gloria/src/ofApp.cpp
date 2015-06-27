@@ -17,7 +17,7 @@ void ofApp::setup() {
     ofSetFrameRate(TARGET_FRAMERATE);
     ofSetVerticalSync(true);
     glEnable(GL_LINES);
-    ofSetWindowTitle("Obscure Glorius Control 2014");
+    ofSetWindowTitle("Obscure Glorius Control 2015");
     
     syphonOut.setName("Gloria Main");
     
@@ -49,6 +49,7 @@ void ofApp::setup() {
     scenes.push_back(new Triangles());
     scenes.push_back(new PerlinWaves());
     scenes.push_back(new BasicParticles());
+    //scenes.push_back(new ColorPalette());
     //scenes.push_back(new PetriDish());
     
     ofFbo::Settings fboSettings;

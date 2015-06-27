@@ -1,4 +1,6 @@
+#version 120
 uniform sampler2DRect tex0;
+//uniform sampler2DRect depthTex;
 
 uniform float lightAmount;
 uniform float textureAmount;
@@ -6,6 +8,7 @@ uniform float textureAmount;
 varying vec4 ambientGlobal, eyeSpaceVertexPos;
 varying vec4 vertexPos;
 varying vec3 vertexNormal;
+varying vec3 eyeSpaceNormal;
 
 
 float PI = 3.14159265359;
@@ -121,10 +124,10 @@ vec4 calc_lighting_color(in vec3 normal) {
         }
         else {
             if (gl_LightSource[i].spotCutoff <= 90.0) {
-                lightingColor +=spot_light(i, normal);
+               lightingColor +=spot_light(i, normal);
             }
             else {
-                lightingColor += point_light(i, normal);
+                lightingColor += directional_light(i, normal);
             }
         }
     }
@@ -137,16 +140,21 @@ void main()
 {
 
     vec3 color = texture2DRect(tex0, gl_TexCoord[0].xy).rgb;
-    color =color*textureAmount* gl_Color.rgb + (1.-textureAmount) * gl_Color.rgb;
- //   vec3 bump = texture2DRect(depthTex, gl_TexCoord[0].xy).rgb;
+    //float bump = length(color);
     
-    vec3 n = (vertexNormal);
+    color = color*textureAmount* gl_Color.rgb + (1.-textureAmount) * gl_Color.rgb;
+    
+    vec3 n = (eyeSpaceNormal);
     n = normalize(n);
+    if(n.z < 0)
+        n *= -1;
     
-    color *= 2.*calc_lighting_color(n).rgb * lightAmount + (1. - lightAmount) ;
+   color *= calc_lighting_color(n).rgb * lightAmount + (1. - lightAmount) ;
+    //color = n;
 
-    gl_FragColor.rgb += color;
+    gl_FragColor.rgb = color;
 	gl_FragColor.a +=  gl_Color.a;
     
+   // gl_FragColor.rgb = vec3(gl_TexCoord[0].y/100.00);
 	//gl_FragColor = gl_Color;//vec4(normal, 1.0);// vec4(1.0) * length(vec3(0.0, 0.0, 1.0) * normal); // vec4(normal.x, 0., 0.0, 1.0);//gl_Color; //* texture2D(tex, gl_TexCoord[0].xy);
 }

@@ -14,6 +14,7 @@
 #include "FluidScene.h"
 #include "BasicParticles.h"
 #include "petriDish.h"
+#include "ColorPalette.h"
 
 class ofApp : public ofBaseApp {
 public:

@@ -1,10 +1,12 @@
+#version 120
+
 //uniform sampler2D bump_tex;
 uniform sampler2DRect tex0;
 
 uniform float lightAmount;
 uniform float textureAmount;
 
-varying vec4 ambientGlobal, eyeSpaceVertexPos;
+varying vec4 ambientGlobal, _eyeSpaceVertexPos;
 varying vec4 vertexPos;
 varying vec3 vertexNormal;
 
@@ -26,7 +28,7 @@ vec4 directional_light(in int lightIndex, in vec3 normal) {
     intensity = max(dot(normal, lightDir), 0.0);
     if (intensity > 0.0) {
         vec3 reflection;
-        vec3 eyeSpaceVertexPos_n = normalize(vec3(eyeSpaceVertexPos));
+        vec3 eyeSpaceVertexPos_n = normalize(vec3(_eyeSpaceVertexPos));
         vec3 eyeVector = normalize(-eyeSpaceVertexPos_n); // in eye space, eye is at (0,0,0)
         
         diffuse = gl_FrontMaterial.diffuse * gl_LightSource[lightIndex].diffuse;
@@ -47,13 +49,13 @@ vec4 point_light(in int lightIndex, in vec3 normal) {
     
     pointLightColor = vec4(0.0);
     // Compute the light direction
-    lightDir = vec3(gl_LightSource[lightIndex].position - eyeSpaceVertexPos);
+    lightDir = vec3(gl_LightSource[lightIndex].position - _eyeSpaceVertexPos);
     /* compute the distance to the light source */
     dist = length(lightDir);
     intensity = max(dot(normal, normalize(lightDir)), 0.0);
     if (intensity > 0.0) {
         vec3 reflection;
-        vec3 eyeSpaceVertexPos_n = normalize(vec3(eyeSpaceVertexPos));
+        vec3 eyeSpaceVertexPos_n = normalize(vec3(_eyeSpaceVertexPos));
         vec3 eyeVector = normalize(-eyeSpaceVertexPos_n);
         float att, dist;
         
@@ -81,7 +83,7 @@ vec4 spot_light(in int lightIndex, in vec3 normal) {
     
     spotLightColor = vec4(0.0);
     // Compute the light direction
-    lightDir = vec3(gl_LightSource[lightIndex].position - eyeSpaceVertexPos);
+    lightDir = vec3(gl_LightSource[lightIndex].position - _eyeSpaceVertexPos);
     /* compute the distance to the light source */
     dist = length(lightDir);
     intensity = max(dot(normal, normalize(lightDir)), 0.0);
@@ -91,7 +93,7 @@ vec4 spot_light(in int lightIndex, in vec3 normal) {
         spotEffect = dot(normalize(gl_LightSource[lightIndex].spotDirection), normalize(-lightDir));
         if (spotEffect > gl_LightSource[lightIndex].spotCosCutoff) {
             vec3 reflection;
-            vec3 eyeSpaceVertexPos_n = normalize(vec3(eyeSpaceVertexPos));
+            vec3 eyeSpaceVertexPos_n = normalize(vec3(_eyeSpaceVertexPos));
             vec3 eyeVector = normalize(-eyeSpaceVertexPos_n);
             float att, dist;
             
@@ -135,9 +137,18 @@ void main()
 {
 	vertexPos = gl_Vertex;
 	vertexNormal = normalize(gl_NormalMatrix * gl_Normal);
-	eyeSpaceVertexPos = gl_ModelViewMatrix * gl_Vertex;
+	_eyeSpaceVertexPos = gl_ModelViewMatrix * gl_Vertex;
+    
+    gl_TexCoord[0] = gl_MultiTexCoord0;
 
+    
+    vec3 color = texture2DRect(tex0, gl_MultiTexCoord1.xy).rgb;
+    
 	gl_FrontColor = gl_Color;
-	gl_TexCoord[0] = gl_MultiTexCoord0;
 	gl_Position = ftransform();
+
+    gl_Position.z = length(color)*150.0;
+    
+    vec2 midOffset = (vec2(0.5,0.5)-gl_Position.xy);
+    gl_Position.xy -= length(color) * midOffset/10;
 }
