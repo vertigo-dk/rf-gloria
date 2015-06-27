@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "Defines.h"
 #include "ofxOsc.h"
-#include "ofxUI.h"
 #include "ofxGui.h"
 #include "mapping.h"
 #include "ofxSyphon.h"
@@ -24,7 +23,6 @@ public:
     
     Mapping * mapping;
     ofxSyphonClient * syphonIn;
-    ofxUICanvas* gui;
     ofxSyphonServer syphonOut;
     
     ofParameterGroup params;
@@ -57,7 +55,6 @@ public:
     virtual void setGui();
     virtual void parseOscMessage(ofxOscMessage * m);
     
-    void guiEvent(ofxUIEventArgs &e);
     void parameterChanged(ofAbstractParameter & parameter);
     
     void setSceneGui();

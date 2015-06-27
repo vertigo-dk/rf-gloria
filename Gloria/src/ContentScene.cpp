@@ -69,36 +69,6 @@ void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
 
 
 void ContentScene::setSceneGui(){
-    
-    /*gui = new ofxUICanvas();
-    
-    string i = "["+ ofToString(index) + "] ";
-    gui->setName(name);
-    
-    gui->addWidgetDown(new ofxUILabel(name, OFX_UI_FONT_SMALL));
-    gui->addWidgetDown(new ofxUILabel("OSC Address: " + oscAddress, OFX_UI_FONT_SMALL));
-    
-    gui->addSpacer(GUIWIDTH, 1);
-    gui->addSlider("/opacity/x", 0., 1., &opacity);
-    
-    gui->addSpacer(GUIWIDTH, 1);
-    //gui->addSlider(i+"speed", minSpeed, maxSpeed, &speed);
-    //gui->addToggle("/enabled/x", &enabled);
-    
-    //gui->addToggle("/syphonout/x", &solo);
-    
-    setGui();
-    gui->autoSizeToFitWidgets();
-    ofAddListener(gui->newGUIEvent,this,&ContentScene::guiEvent);
-    */
-}
-
-void ContentScene::guiEvent(ofxUIEventArgs &e)
-{
-    string name = e.widget->getName();
-    int kind = e.widget->getKind();
-    string canvasParent = e.widget->getCanvasParent()->getName();
-    //cout << canvasParent << endl;
 }
 
 void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
@@ -150,6 +120,10 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
         oscReceiver->getParameter(params);
         ofAbstractParameter * p = &params;
         
+        /// potential issue with lemur sending address/z val
+        /// anything here goes addres/fesr/sfdgfsdg/fdgsdfg
+        /// still hits addres
+        
         for(unsigned int i=0;i<adrSplit.size();i++){
             
             if(p) {
@@ -180,15 +154,12 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
             }
         }
         
-        /*if(oscReceiver.hasWaitingMessages()){
-            updatingParameter = true;
-            receiver.getParameter(syncGroup);
-            updatingParameter = false;
-        }*/
-        
         
         // backward compatibility with lemur style adresses
+        
+        
         if(params.contains(adrSplit[2])) {
+            
             string type = params.get(adrSplit[2]).type();
             
             if(typeid(ofParameter<ofVec2f>).name() == type) {
@@ -219,54 +190,9 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
                     p->set(ofVec3f(p->get().x, p->get().y, m.getArgAsFloat(0)));
                 }
             }
-
-    
-            //params.get
-            
         }
-        
-        //for(int i=0; i<scenes.size();i++) {
-        
-            //oscReceiver->getParameter(params);
-        
-        
-        
             updatingParameter = false;
         }
-        
-        
-        
-        /*for(int i=0; i< gui->getWidgets().size(); i++ ) {
-            
-            ofxUIWidget * widget = gui->getWidgets()[i];
-            
-            if(ofToLower(widget->getName()) == rest) {
-                //cout<<widget->getKind()<<endl;
-                if(widget->getKind() == OFX_UI_WIDGET_SLIDER_H || widget->getKind() == OFX_UI_WIDGET_SLIDER_V) {
-                    
-                    ofxUISlider *slider = (ofxUISlider *) widget;
-                    slider->setValue(ofMap(m->getArgAsFloat(0), 0, 1, slider->getMin(), slider->getMax()));
-                    
-                } else if(widget->getKind() == OFX_UI_WIDGET_INTSLIDER_H || widget->getKind() == OFX_UI_WIDGET_INTSLIDER_V) {
-                    
-                    ofxUISlider *slider = (ofxUISlider *) widget;
-                    slider->setValue(ofMap(m->getArgAsInt32(0), 0, 1, slider->getMin(), slider->getMax()));
-                } else if(widget->getKind() == OFX_UI_WIDGET_TOGGLE) {
-                    ofxUIToggle *toggle = (ofxUIToggle *) widget;
-                    toggle->setValue(m->getArgAsFloat(0));
-                    
-                } else if(widget->getKind() == OFX_UI_WIDGET_BUTTON) {
-                    ofxUIToggle *toggle = (ofxUIToggle *) widget;
-                    toggle->setValue(m->getArgAsFloat(0));
-                }
-          */
-                /*for(int o=0; o<oscClients.size(); o++) {
-                    oscClients[o]->sendMessage(*(m));
-                }*/ // Move this to a small max patch
-            /*
-        
-            }
-        }*/
     
 }
 
