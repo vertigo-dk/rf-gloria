@@ -287,30 +287,31 @@ public:
     
     ofVec2f center;
     
-    float syphonOpacity;
+    ofParameter<float> syphonOpacity;
     float directTextureOpacity;
 
-    float transitionTime;
-    float divideTriangleSize;
-    float divideRadius;
-    bool divideInvert;
-    float wireframeAlpha, fillAlpha;
+    ofParameter<float> transitionTime;
+    ofParameter<float> divideTriangleSize;
+    ofParameter<float> divideRadius;
+    ofParameter<bool> divideInvert;
+    ofParameter<float> wireframeAlpha, fillAlpha;
     
-    float noise, noiseSeed, noiseSeedSpeed;
+    ofParameter<float> noise, noiseSeedSpeed;
     
-    float light;
-    float lightSpeed;
+    float noiseSeed; ;
+    
+    ofParameter<float> light;
+    ofParameter<float> lightSpeed;
     ofVec3f lightPos;
     
     ofLight pointLight;
     ofMaterial material;
 
-    
-    float colorR, colorG, colorB;
+    ofParameter<ofColor> color;
+    //float colorR, colorG, colorB;
     
     ofxAutoReloadedShader debugShader;
     
-    void setGui();
     void parseOscMessage(ofxOscMessage *m);
     
     ofFbo depthFbo;

@@ -15,6 +15,7 @@
 #include "FluidScene.h"
 #include "BasicParticles.h"
 #include "petriDish.h"
+#include "ChaoticAttractor.h"
 
 class ofApp : public ofBaseApp {
 public:

@@ -49,5 +49,8 @@ public:
     ofParameter<bool> drawObstacles;
     
     ofParameter<float> intensity;
-    
+    ofParameter<float> dissipation;
+    ofParameter<float> velocityDissipation;
+    ofParameter<float> temperatureDissipation;
+    ofParameter<float> pressureDissipation;
 };

@@ -9,39 +9,23 @@
 #include "Triangles.h"
 
 
-void Triangles::setGui(){
-    gui->addSlider("/SyphonOpacity/x", 0,1, &syphonOpacity);
-    
-    gui->addSlider("/DivideTriangleSize/x", 0,5, &divideTriangleSize);
-    
-    gui->addSlider("/DivideRadius/x", 0,5100, &divideRadius);
-    gui->addToggle("/DivideInvert/x", &divideInvert);
-    //gui->addSlider("TransitionTime", 0,10, &transitionTime);
-    
-    
-    
-    gui->addSlider("/light/x", 0,1, &light);
-    gui->addSlider("/LightSpeed/x", 0,1, &lightSpeed);
-    
-    //gui->addSlider("Direct Opactiry", 0,1, &directTextureOpacity);
-    
-    gui->addSlider("/ColorR/x", 0,1, &colorR);
-    gui->addSlider("/ColorG/x", 0,1, &colorG);
-    gui->addSlider("/ColorB/x", 0,1, &colorB);
-
-    gui->addSlider("/Wireframe/x", 0,1, &wireframeAlpha);
-    gui->addSlider("/Fill/x", 0,1, &fillAlpha);
-
-    gui->addSlider("/Noise/x", 0,2, &noise);
-    gui->addSlider("/NoiseSeed/x", 0,1, &noiseSeed);
-    gui->addSlider("/NoiseSeedSpeed/x", 0,1, &noiseSeedSpeed);
-
-}
-
-
 void Triangles::setup(){
     name = "Triangles";
     oscAddress = "/tri";
+    
+    params.add(
+        syphonOpacity.set("SyphonOpacity", 0, 0, 1),
+        divideTriangleSize.set("DivideTriangleSize", 0, 0, 5),
+        divideRadius.set("DivideRadius", 0, 0, 5100),
+        divideInvert.set("DivideInvert", false),
+        light.set("light", 0, 0, 1),
+        lightSpeed.set("lightSpeed", 0, 0, 1),
+        color.set("color", ofFloatColor(1,1,1), ofFloatColor(0,0,0), ofFloatColor(1,1,1)),
+        wireframeAlpha.set("wireframe", 1, 0, 1),
+        fillAlpha.set("fill", 1, 0, 1),
+        noise.set("noise", 0, 0, 2),
+        noiseSeedSpeed.set("NoiseSeedSpeed", 0, 0,1)
+        );
     
     map<Corner*, Corner*> cornerRefs;
     
@@ -299,7 +283,7 @@ void Triangles::draw(){
  */
     
     if(fillAlpha > 0){
-        ofSetColor(255*colorR,255*colorG,255*colorB, 255*fillAlpha);
+        ofSetColor(color.get(), 255*fillAlpha);
         
         debugShader.begin();
         // debugShader.setUniformTexture("depthTex", depthFbo.getTextureReference(), 1);
@@ -337,7 +321,7 @@ void Triangles::draw(){
     ofNoFill();
     ofEnableAlphaBlending();
     if(wireframeAlpha > 0){
-        ofSetColor(255*colorR,255*colorG,255*colorB, 255*wireframeAlpha);
+        ofSetColor(color.get(), 255*wireframeAlpha);
 
         debugShader.begin();
 
@@ -385,9 +369,9 @@ void Triangles::update(){
         float dist = triangle->getCenter().distance(ofPoint(OUTWIDTH*0.5,OUTHEIGHT));
         
         if(divideInvert){
-            triangle->drawLevelGoal = MIN(divideTriangleSize,MAX(1,divideTriangleSize * ((3000-dist)/divideRadius)));
+            triangle->drawLevelGoal = MIN(divideTriangleSize.get(),MAX(1,divideTriangleSize.get() * ((3000-dist)/divideRadius.get())));
         } else {
-            triangle->drawLevelGoal = MIN(divideTriangleSize,MAX(1,divideTriangleSize * dist/divideRadius));
+            triangle->drawLevelGoal = MIN(divideTriangleSize.get(),MAX(1,divideTriangleSize.get() * dist/divideRadius.get()));
         }
         
         triangle->noise = noise;
@@ -412,7 +396,7 @@ void Triangles::update(){
 
 void Triangles::parseOscMessage(ofxOscMessage *m){
     ContentScene::parseOscMessage(m);
-    
+   /*
     
  	vector<string> adrSplit = ofSplitString(m->getAddress(), "/");
 	string rest = ofSplitString(m->getAddress(), "/"+adrSplit[1])[1];
@@ -421,9 +405,10 @@ void Triangles::parseOscMessage(ofxOscMessage *m){
         if( rest == "/syphonopacity/x" ) {
             syphonOpacity = m->getArgAsFloat(0);
 	    }
-/*        if( rest == "/dividecount/x" ) {
+       if( rest == "/dividecount/x" ) {
             divideCount = m->getArgAsFloat(0) * 6;
 	    }*/
+    /*
         if( rest == "/divideradius/x" ) {
             divideRadius = m->getArgAsFloat(0) * 2400;
 	    }
@@ -451,8 +436,8 @@ void Triangles::parseOscMessage(ofxOscMessage *m){
 	    }
         if( rest == "/triangleColorB/x" ) {
             colorB = m->getArgAsFloat(0);
-	    }
-        
-    }
+	    }*/
+    
+    //}
     
 }

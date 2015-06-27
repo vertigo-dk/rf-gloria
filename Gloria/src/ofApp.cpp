@@ -41,12 +41,12 @@ void ofApp::setup() {
     // Set up the scenes, all scenes is a subclass of SceneContent, don't call draw, setup and update directly it is taken care of thorugh the scene.
     
     scenes.push_back(new FluidScene());
-    //transformer = new Transformer();
-    //scenes.push_back(transformer);
     scenes.push_back(new QuickTrail());
     scenes.push_back(new Triangles());
     scenes.push_back(new PerlinWaves());
     scenes.push_back(new BasicParticles());
+    scenes.push_back(new ChaoticAttractor());
+    
     //scenes.push_back(new PetriDish());
     
     /*ofFbo::Settings fboSettings;

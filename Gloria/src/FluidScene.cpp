@@ -41,7 +41,7 @@ void FluidScene::setup(){
     obstacles.begin();
     
     ofScale(1.0/scaleFactor, 1.0/scaleFactor);
-    ofBackground(0, 0, 0, 0);
+    ofBackground(0, 0, 0, 255);
     
     for(int i =0; i<mapping->triangles.size();i++) {
         
@@ -101,18 +101,25 @@ void FluidScene::setup(){
     
     params.add(intensity.set("intensity", 0, 0, 30));
     
+    params.add(dissipation.set("dissipation", 0.99, 0, 1));
+    
+    params.add(velocityDissipation.set("velocityDissipation", 0.99, 0, 1));
+    params.add(temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1));
+    params.add(pressureDissipation.set("pressureDissipation", 0.99, 0, 1));
+    
     params.add(clear.set("clear", false));
     
-    
-    
-    drawObstacles = false;
-    
-    
+    drawObstacles = true;
 }
 
 void FluidScene::update(){
     // Adding temporal Force
-    //
+    
+    fluid.dissipation = dissipation;
+    fluid.velocityDissipation = velocityDissipation;
+    fluid.temperatureDissipation = temperatureDissipation;
+    fluid.pressureDissipation = pressureDissipation;
+    
     
     fluid.setGravity(gravity.get());
 
@@ -122,11 +129,12 @@ void FluidScene::update(){
     
     fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),intensity);
     
+    // add velocity or add color based on image
+    
     //fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),16.0f);
     //fluid.addTemporalForce(m, d, ofFloatColor(c.x,c.y,0.5)*sin(ofGetElapsedTimef()),3.0f);
     //  Update
     //
-    
     
     
     if(clear) {
@@ -134,12 +142,9 @@ void FluidScene::update(){
         fluid.setObstacles(obstacles);
     } clear.set(false);
     
-    
     //if(ofGetFrameNum() % 2 == 1) {
         fluid.update();
     //}
-    
-    
     
 }
 
@@ -148,14 +153,19 @@ void FluidScene::draw(){;
     ofClear(0,0,0);
     
     ofSetColor(255,255,255,255);
-    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
-    //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
     
     if(drawObstacles) {
         ofSetColor(255,255,255,255);
         obstacles.draw(0,0,OUTWIDTH, OUTHEIGHT);
         //fluid.drawVelocity();
     }
+    
+    
+    
+    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
+    //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
+    
+
 }
 
 void FluidScene::parseOscMessage(ofxOscMessage *m){
