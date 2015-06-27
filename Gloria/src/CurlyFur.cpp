@@ -46,7 +46,7 @@ void CurlyFur::draw(){;
     //Fade out the old stuff
     ofSetColor(0,0,0,fade);
     ofFill();
-    ofRect(0,0,OUTWIDTH,OUTHEIGHT);
+    ofDrawRectangle(0,0,OUTWIDTH,OUTHEIGHT);
     
     ofDisableAlphaBlending();
     
