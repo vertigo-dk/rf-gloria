@@ -27,6 +27,7 @@ void LampWalker::update(){
 	pct = 0;
 	lastSrc = src;
 	src = dst;
+        
       //  cout<<src->joinedCorners.size()<<endl;
 	while (src == dst || lastSrc == dst){
 	    int i=roundf(ofRandom(src->joinedCorners.size()-1));

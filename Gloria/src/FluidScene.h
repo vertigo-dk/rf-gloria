@@ -22,7 +22,6 @@ public:
     void update();
     
     void parseOscMessage(ofxOscMessage * m);
-    void setGui();
     
     float	lastTime;
 	float   deltaTime;
@@ -44,13 +43,14 @@ public:
     ofVec2f oldM;
     bool    bPaint, bObstacle, bBounding, bClear, bUpdate;
     
-    ofVec2f gravity;
-    ofVec2f emitPos;
+    ofParameter<ofVec2f> gravity;
+    ofParameter<ofVec2f> emitPos;
+    ofParameter<bool> clear;
+    ofParameter<bool> drawObstacles;
     
-    bool clear;
-    
-    bool drawObstacles;
-    
-    float intensity; 
-    
+    ofParameter<float> intensity;
+    ofParameter<float> dissipation;
+    ofParameter<float> velocityDissipation;
+    ofParameter<float> temperatureDissipation;
+    ofParameter<float> pressureDissipation;
 };

@@ -3,9 +3,9 @@
 void ofApp::setup() {
     
     ofEnableAlphaBlending();
-    
     oscReceiver.setup(OSCRECEIVEPORT);
-
+    
+    // todo - vector of OSC clients / MAX patch to parse things around
     //try {
     oscSenderOne = new ofxOscSender();
     oscSenderOne->setup(OSCCLIENTONE, OSCSENDPORT);
@@ -17,10 +17,9 @@ void ofApp::setup() {
     ofSetFrameRate(TARGET_FRAMERATE);
     ofSetVerticalSync(true);
     glEnable(GL_LINES);
-    ofSetWindowTitle("Obscure Glorius Control 2015");
     
-    syphonOut.setName("Gloria Main");
-    
+    ofSetWindowTitle("Gloria 2015");
+    //syphonOut.setName("Gloria Main");
     syphonIn = new ofxSyphonClient();
     
     syphonIn->setApplicationName("Millumin");
@@ -39,43 +38,60 @@ void ofApp::setup() {
     mapping->load("mapping.xml", "input1.svg");
     
     // effects scenes
-    
     // Set up the scenes, all scenes is a subclass of SceneContent, don't call draw, setup and update directly it is taken care of thorugh the scene.
     
     scenes.push_back(new FluidScene());
-    //transformer = new Transformer();
-    //scenes.push_back(transformer);
     scenes.push_back(new QuickTrail());
     scenes.push_back(new Triangles());
     scenes.push_back(new PerlinWaves());
     scenes.push_back(new BasicParticles());
     //scenes.push_back(new ColorPalette());
+    scenes.push_back(new ChaoticAttractor());
     //scenes.push_back(new PetriDish());
     
-    ofFbo::Settings fboSettings;
+    /*ofFbo::Settings fboSettings;
     fboSettings.height = OUTHEIGHT;
     fboSettings.width  = OUTWIDTH;
     fboSettings.numSamples = 4;
     fboSettings.useDepth   = false;
     
     fboOut.allocate(fboSettings);
-    
     fboOut.setUseTexture(true);
     
     fboOut.begin();
     ofBackground(0,0,0,255);
     fboOut.end();
+      */
     
-        
+    
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->mapping  = mapping;
         scenes[i]->syphonIn = syphonIn;
-        scenes[i]->oscClients.push_back(oscSenderOne);
-        scenes[i]->oscClients.push_back(oscSenderTwo);
+        scenes[i]->oscSender = oscSenderOne;
+        scenes[i]->oscReceiver = &oscReceiver;
+        
+        //scenes[i]->oscCli
+        //nts.push_back(oscSenderOne);
+        //scenes[i]->oscClients.push_back(oscSenderTwo);
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
     
-    setGUI();
+    
+    globalParameters.add(drawMapping.set("Draw mapping", true));
+    
+    mainGui.setup(globalParameters);
+    mainGui.setName("Gloria");
+    
+    for(int i=0; i<scenes.size(); i++) {
+        
+        // maybe we need to have this here and sync osc with parameters on top level
+        // scenes[i]->params.setParent(globalParameters);
+        
+        //mainGui.add(scenes[i]->parameters);
+        //scenes[i]->parameters.
+        
+        scenes[i]->panel.setPosition((i+1)*scenes[i]->panel.getWidth()+10, 5);
+    }
 }
 
 void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
@@ -107,13 +123,13 @@ void ofApp::update() {
     
     while(oscReceiver.hasWaitingMessages()){
         
-		// get the next message
+        // get the next message
 		ofxOscMessage m;
 		oscReceiver.getNextMessage(&m);
 
         //cout<<m.getAddress()<<endl;
         for(int i=0; i<scenes.size();i++) {
-            scenes[i]->parseSceneOscMessage(&m);
+            scenes[i]->parseSceneOscMessage(m);
         }
     }
 
@@ -139,32 +155,13 @@ void ofApp::draw() {
     }
     ofPopStyle();
     
-   ofPushStyle();{
-        fboOut.begin();{
-            ofEnableAlphaBlending();
-            ofClear(0, 0);
-            
-            for(int i=0; i<scenes.size(); i++) {
-                ofSetColor(255,255,255,scenes[i]->opacity*255);
-                
-                if(scenes[i]->enabled) {
-                    scenes[i]->fbo.draw(0,0);
-                }
-            }
-            
-            //glBlendFunc(GL_FUNC_SUBTRACT​);
-            if(drawMask) mapping->drawMask();
-            
-        }fboOut.end();
-    } ofPopStyle();
-    
     ofDisableDepthTest();
     ofBackground(0, 0, 0);
     ofSetColor(255,255,255,255);
 
     float scale = 0.08;
     ofPushMatrix();{
-        ofTranslate(ofGetWidth()-scale*fboOut.getWidth()-40, 40);
+        ofTranslate(ofGetWidth()-scale*OUTWIDTH-40, 40);
         
         //ofScale(0.08, 0.08);
         
@@ -173,13 +170,18 @@ void ofApp::draw() {
         ofSetLineWidth(1);
         
         for(int i=0; i<scenes.size(); i++) {
+            
+            ofPushMatrix();
+            
+            ofTranslate(0, (i*scale*scenes[i]->fbo.getHeight())+30);
+            
             if(scenes[i]->enabled){
                 ofSetColor(255);
             } else {
                 ofSetColor(255,0,0,100);
             }
 
-            ofDrawRectangle(-1, -1, scale*fboOut.getWidth()+2, scale*fboOut.getHeight()+2);
+            ofDrawRectangle(-1, -1, scenes[i]->fbo.getWidth()*scale+2, scenes[i]->fbo.getHeight()*scale+2);
            // fboOut.draw(0, 0);
             ofSetColor(255,255,255,scenes[i]->opacity*255);
             
@@ -200,7 +202,8 @@ void ofApp::draw() {
                 ofPopMatrix();
             }
             
-            ofTranslate(0, scale*fboOut.getHeight()+30);
+            ofPopMatrix();
+            
         }
         
     
@@ -222,31 +225,21 @@ void ofApp::draw() {
         
     }ofPopMatrix();
    
-    /*ofPushMatrix();{
-        ofTranslate(80, 520);
-        
-        if(syphonIn->isSetup()){
-            
-            ofPushMatrix();
-            
-            ofSetColor(255);
-            ofSetLineWidth(1);
-            ofRect(-1, -1, scale*syphonIn->getWidth()+2, scale*syphonIn->getHeight()+2);
-            syphonIn->draw(0, 0, scale*syphonIn->getWidth(), scale*syphonIn->getHeight());
-            
-            ofPopMatrix();
-            
-            ofDrawBitmapString("Syphon input - (Press 'i' to change)", 10,18);
-            ofDrawBitmapString(syphonIn->getApplicationName()+" "+syphonIn->getServerName(), 10,34);
-        }
-    }ofPopMatrix();*/
-    
     ofSetColor(255);
     ofDrawBitmapString("FPS: " + ofToString(ofGetFrameRate()), ofGetWidth()-200, 20);
     
-    if(mapping->selectedCorner) {
+    /*if(mapping->selectedCorner) {
         ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
+    }*/
+    
+    
+    mainGui.draw();
+    
+    for(int i=0; i<scenes.size(); i++) {
+        // maybe we need to have this here and sync osc with parameters on top level
+        scenes[i]->panel.draw();
     }
+    
     
     for(int i=0; i<scenes.size(); i++) {
         if(scenes[i]->enabled) {
@@ -272,29 +265,12 @@ void ofApp::drawGrid() {
 void ofApp::setGUI()
 {
     
-    float dim = 16;
+   /* float dim = 16;
     float xInit = OFX_UI_GLOBAL_WIDGET_SPACING;
     float width = 255-xInit;
     hideGUI = false;
     
     guiTabBar = new ofxUITabBar();
-    mainGui = new ofxUICanvas();
-    
-    mainGui->setFont("GUI/Arial.ttf");
-    mainGui->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    
-    guiTabBar->setFont("GUI/Arial.ttf");
-    guiTabBar->setWidgetFontSize(OFX_UI_FONT_SMALL);
-    
-    mainGui->addLabel("Gloria");
-    mainGui->addLabel("OSC info");
-    mainGui->addLabel("In: " + ofToString(OSCRECEIVEPORT));
-    mainGui->addLabel("Out: " + string(OSCCLIENTONE) + " & " + string(OSCCLIENTTWO) + ":" + ofToString(OSCSENDPORT));
-    
-    mainGui->addToggle("Draw guide", &drawGuide);
-    mainGui->addToggle("Draw mask", &drawMask);
-    mainGui->autoSizeToFitWidgets();
-    ofAddListener(mainGui->newGUIEvent,this,&ofApp::guiEvent);
     
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->setSceneGui();
@@ -305,15 +281,15 @@ void ofApp::setGUI()
     
     guiTabBar->autoSizeToFitWidgets();
     ofAddListener(guiTabBar->newGUIEvent,this,&ofApp::guiEvent);
-    
-    guiTabBar->setPosition(0, mainGui->getRect()->height+10);
+    */
+    //guiTabBar->setPosition(0, mainGui->getRect()->height+10);
     //guiTabBar->setScrollAreaToScreenHeight();
-    
-    mainGui->setColorBack(ofColor(0,150,200,255));
+    /*
     guiTabBar->setColorBack(ofColor(0,100,0,255));
     
-    mainGui->loadSettings("GUI/guiMainSettings.xml");
     guiTabBar->loadSettings("GUI/guiSettings.xml", "ui-");
+
+*/
 }
 
 //--------------------------------------------------------------
@@ -386,8 +362,7 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 //--------------------------------------------------------------
 void ofApp::exit()
 {
-    mainGui->saveSettings("GUI/guiMainSettings.xml");
-    guiTabBar->saveSettings("GUI/guiSettings.xml", "ui-");
+    //guiTabBar->saveSettings("GUI/guiSettings.xml", "ui-");
     mapping->save();
     
     delete guiTabBar;

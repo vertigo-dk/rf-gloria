@@ -78,7 +78,6 @@ void Mapping::load(string _xmlfile, string _svgfile) {
     }
     
     generate();
-    
     generateMask();
     
     if(settings.tagExists("corners")){
@@ -315,7 +314,7 @@ void Mapping::debugDraw() {
     ofFill();
     ofSetColor(255, 0, 0);
     if(selectedCorner) {
-        ofCircle(selectedCorner->pos.x, selectedCorner->pos.y, 40);
+        ofDrawCircle(selectedCorner->pos.x, selectedCorner->pos.y, 40);
     }
     
     ofPopStyle();

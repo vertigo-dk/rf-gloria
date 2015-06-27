@@ -52,9 +52,7 @@ void QuickTrail::update(){
             } else {
 
                 if(time - lastadded > interval ) {
-
                     walkers[i].corners.erase(walkers[i].corners.begin());
-
                 }
             }
         }
@@ -86,15 +84,15 @@ void QuickTrail::draw(){;
 
                     ofVec2f interpolate = srcPt + (dstPt - srcPt) * pct;
 
-                    ofLine(interpolate, dstPt);
-                    ofCircle(interpolate.x, interpolate.y, circleRadius);
+                    ofDrawLine(interpolate, dstPt);
+                    ofDrawCircle(interpolate.x, interpolate.y, circleRadius);
                     //ofVertex(walkers[i].points[p].x,w alkers[i].points[p].y);
 
                 } else {
 
-                    ofCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
+                    ofDrawCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
 
-                    ofLine(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, walkers[i].corners[p-1]->pos.x, walkers[i].corners[p-1]->pos.y);
+                    ofDrawLine(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, walkers[i].corners[p-1]->pos.x, walkers[i].corners[p-1]->pos.y);
 
             }
         }

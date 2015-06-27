@@ -41,7 +41,7 @@ void FluidScene::setup(){
     obstacles.begin();
     
     ofScale(1.0/scaleFactor, 1.0/scaleFactor);
-    ofBackground(0, 0, 0, 0);
+    ofBackground(0, 0, 0, 255);
     
     for(int i =0; i<mapping->triangles.size();i++) {
         
@@ -63,7 +63,7 @@ void FluidScene::setup(){
                 nPos = mapping->triangles[i]->corners[c+1]->pos;
             }
             
-            ofLine(pos.getInterpolated(nPos, 0.1), nPos.getInterpolated(pos, 0.1));
+            ofDrawLine(pos.getInterpolated(nPos, 0.1), nPos.getInterpolated(pos, 0.1));
         }
         
         //ofFill();
@@ -81,63 +81,9 @@ void FluidScene::setup(){
     // Adding constant forces
     //
     //fluid.addConstantForce(ofPoint(drawWidth*0.4,drawHeight*0.95), ofPoint(0,-2), ofFloatColor(1.0,0.1,0.0), 15.5f);
-}
-
-void FluidScene::update(){
-    // Adding temporal Force
-    //
-    
-    fluid.setGravity(gravity);
-
-    ofPoint m = emitPos;
-    ofPoint d = (m - oldM)*10.0;
-    oldM = m;
-    
-    fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),intensity);
-    
-    //fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),16.0f);
-    
-    //fluid.addTemporalForce(m, d, ofFloatColor(c.x,c.y,0.5)*sin(ofGetElapsedTimef()),3.0f);
-    //  Update
-    //
     
     
-    
-    if(clear) {
-        fluid.clear();
-        fluid.setObstacles(obstacles);
-    } clear = false;
-    
-    
-    //if(ofGetFrameNum() % 2 == 1) {
-        fluid.update();
-    //}
-    
-    
-    
-}
-
-void FluidScene::draw(){;
-    
-    ofClear(0,0,0);
-    
-    ofSetColor(255,255,255,255);
-    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
-    //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
-    
-    if(drawObstacles) {
-        ofSetColor(255,255,255,255);
-        obstacles.draw(0,0,OUTWIDTH, OUTHEIGHT);
-        //fluid.drawVelocity();
-    }
-}
-
-void FluidScene::parseOscMessage(ofxOscMessage *m){
-}
-
-void FluidScene::setGui(){
-    
-    gui->addSlider("/gravity/x", -1, 1, &gravity.x);
+    /*gui->addSlider("/gravity/x", -1, 1, &gravity.x);
     gui->addSlider("/gravity/y", -1, 1, &gravity.y);
     
     gui->addSlider("/emit/x", 10, drawWidth-10, &emitPos.x);
@@ -148,7 +94,80 @@ void FluidScene::setGui(){
     gui->addToggle("/drawobstacles/x", &drawObstacles);
     
     gui->addSlider("/intensity/x", 0, 30, &intensity);
+    */
     
-    drawObstacles = false;
+    params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)));
+    params.add(emitPos.set("emit", ofVec2f(0.5,0.5), ofVec2f(0,0), ofVec2f(1,1)));
+    
+    params.add(intensity.set("intensity", 0, 0, 30));
+    
+    params.add(dissipation.set("dissipation", 0.99, 0, 1));
+    
+    params.add(velocityDissipation.set("velocityDissipation", 0.99, 0, 1));
+    params.add(temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1));
+    params.add(pressureDissipation.set("pressureDissipation", 0.99, 0, 1));
+    
+    params.add(clear.set("clear", false));
+    
+    drawObstacles = true;
+}
+
+void FluidScene::update(){
+    // Adding temporal Force
+    
+    fluid.dissipation = dissipation;
+    fluid.velocityDissipation = velocityDissipation;
+    fluid.temperatureDissipation = temperatureDissipation;
+    fluid.pressureDissipation = pressureDissipation;
+    
+    
+    fluid.setGravity(gravity.get());
+
+    ofPoint m = emitPos.get() * ofVec2f(drawWidth, drawHeight);
+    ofPoint d = (m - oldM)*10.0;
+    oldM = m;
+    
+    fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),intensity);
+    
+    // add velocity or add color based on image
+    
+    //fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),16.0f);
+    //fluid.addTemporalForce(m, d, ofFloatColor(c.x,c.y,0.5)*sin(ofGetElapsedTimef()),3.0f);
+    //  Update
+    //
+    
+    
+    if(clear) {
+        fluid.clear();
+        fluid.setObstacles(obstacles);
+    } clear.set(false);
+    
+    //if(ofGetFrameNum() % 2 == 1) {
+        fluid.update();
+    //}
     
 }
+
+void FluidScene::draw(){;
+    
+    ofClear(0,0,0);
+    
+    ofSetColor(255,255,255,255);
+    
+    if(drawObstacles) {
+        ofSetColor(255,255,255,255);
+        obstacles.draw(0,0,OUTWIDTH, OUTHEIGHT);
+        //fluid.drawVelocity();
+    }
+    
+    
+    
+    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
+    //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
+    
+
+}
+
+void FluidScene::parseOscMessage(ofxOscMessage *m){
+}
+
