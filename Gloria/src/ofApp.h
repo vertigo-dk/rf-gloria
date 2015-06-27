@@ -10,6 +10,7 @@
 #include "Triangles.h"
 #include "PerlinWaves.h"
 #include "ofxUI.h"
+#include "ofxGui.h"
 #include "Mapping.h"
 #include "FluidScene.h"
 #include "BasicParticles.h"
@@ -40,8 +41,10 @@ public:
     ofxOscSender * oscSenderOne;
     ofxOscSender * oscSenderTwo;
     
-    ofxSyphonServer syphonOut;
+    //ofxSyphonServer syphonOut;
     ofxSyphonClient * syphonIn;
+    
+    // TODO: list of syphonClients
     
     ofxSyphonServerDirectory directory;
     void serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg);
@@ -50,15 +53,20 @@ public:
     int dirIdx;
 
     ofColor bg;
-    ofFbo fboOut;
+    //ofFbo fboOut;
     Mapping * mapping;
     ofxXmlSettings XML;
     
     // gui
+    
+    ofParameterGroup globalParameters; 
+    ofxPanel mainGui;
+    ofParameter<bool> drawMapping;
+    
     void setGUI();
     ofxUITabBar *guiTabBar;
-    ofxUICanvas *mainGui;
     vector<ofxUICanvas *> guis;
+    
     void guiEvent(ofxUIEventArgs &e);
     
     bool hideGUI;
@@ -69,5 +77,4 @@ public:
     bool drawMask;
     
     vector<ContentScene*> scenes;
-    
 };

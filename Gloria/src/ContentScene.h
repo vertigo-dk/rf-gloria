@@ -4,6 +4,7 @@
 #include "Defines.h"
 #include "ofxOsc.h"
 #include "ofxUI.h"
+#include "ofxGui.h"
 #include "mapping.h"
 #include "ofxSyphon.h"
 
@@ -11,24 +12,37 @@ class ContentScene {
     
 public:
     
-    ContentScene(){}
-    virtual ~ContentScene(){};
+    ContentScene(){
+        updatingParameter = false;
+    }
+    
+    virtual ~ContentScene(){
+        ofRemoveListener(params.parameterChangedE(),this,&ContentScene::parameterChanged);
+    };
+    
+    bool updatingParameter;
     
     Mapping * mapping;
     ofxSyphonClient * syphonIn;
     ofxUICanvas* gui;
     ofxSyphonServer syphonOut;
     
-    vector<ofxOscSender *> oscClients;
+    ofParameterGroup params;
+    ofxPanel panel;
+    
+    // vector<ofxOscSender *> oscClients;
+    ofxOscSender   * oscSender;
+    ofxOscReceiver * oscReceiver;
     
     int index;
     string name;
     string oscAddress = "/default";
     
     ofFbo fbo;
-    bool enabled;
-    bool solo = true;
-    float opacity;
+    //bool enabled;
+    ofParameter<bool>  enabled;
+    ofParameter<float> opacity;
+    
     float speed;
     
     int width;
@@ -44,14 +58,16 @@ public:
     virtual void parseOscMessage(ofxOscMessage * m);
     
     void guiEvent(ofxUIEventArgs &e);
+    void parameterChanged(ofAbstractParameter & parameter);
+    
     void setSceneGui();
+    void setSceneParameters();
     void addSlider();
     void checkMsg();
-    void parseSceneOscMessage(ofxOscMessage * m);
+    void parseSceneOscMessage(ofxOscMessage & m);
     void setupScene(int _width, int _height, int _i);
     void updateScene();
     void drawScene();
     
-    void publishSyphonTexture(bool force=false);
-    
+    void publishSyphonTexture();
 };

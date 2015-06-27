@@ -19,11 +19,9 @@ void CurlyFur::setup(){
 }
 
 void CurlyFur::update(){
-    
     for (int i=0; i<particles.size(); i++) {
         particles[i].update();
     }
-
 }
 
 void CurlyFur::draw(){;

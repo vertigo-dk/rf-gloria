@@ -63,7 +63,7 @@ void FluidScene::setup(){
                 nPos = mapping->triangles[i]->corners[c+1]->pos;
             }
             
-            ofLine(pos.getInterpolated(nPos, 0.1), nPos.getInterpolated(pos, 0.1));
+            ofDrawLine(pos.getInterpolated(nPos, 0.1), nPos.getInterpolated(pos, 0.1));
         }
         
         //ofFill();

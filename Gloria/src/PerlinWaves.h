@@ -23,13 +23,13 @@ public:
     void parseOscMessage(ofxOscMessage * m);
     void setGui();
     
-    float frequency;
+    ofParameter<float> frequency;
     //float lineWidth;
-    bool crazySpeed;
-    bool reverse;
+    ofParameter<bool> crazySpeed;
+    ofParameter<bool> reverse;
     
-    ofVec2f speed;
-    ofVec2f scatter;
+    ofParameter<ofVec2f> speed;
+    ofParameter<ofVec2f> scatter;
     ofVec2f time;
     
     
