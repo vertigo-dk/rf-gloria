@@ -4,14 +4,7 @@ void ofApp::setup() {
     
     ofEnableAlphaBlending();
     oscReceiver.setup(OSCRECEIVEPORT);
-    
-    // todo - vector of OSC clients / MAX patch to parse things around
-    //try {
-    oscSenderOne = new ofxOscSender();
-    oscSenderOne->setup(OSCCLIENTONE, OSCSENDPORT);
-
-    oscSenderTwo = new ofxOscSender();
-    oscSenderTwo->setup(OSCCLIENTTWO, OSCSENDPORT);
+    oscSenderOne.setup(OSCCLIENTONE, OSCSENDPORT);
     
     ofSetLogLevel(OF_LOG_NOTICE);
     ofSetFrameRate(TARGET_FRAMERATE);
@@ -19,12 +12,6 @@ void ofApp::setup() {
     glEnable(GL_LINES);
     
     ofSetWindowTitle("Gloria 2015");
-    //syphonOut.setName("Gloria Main");
-    //syphonIn = new ofxSyphonClient();
-    
-    /*syphonIn->setApplicationName("Millumin");
-    syphonIn->setServerName("");
-    syphonIn->setup();*/
     
     directory.setup();
     
@@ -33,6 +20,11 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverUpdated, this, &ofApp::serverUpdated);
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
+    
+    
+    syphonIn = new ofxSyphonClient();
+    syphonIn->setup();
+
     
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
@@ -49,6 +41,8 @@ void ofApp::setup() {
     scenes.push_back(new ChaoticAttractor());
     //scenes.push_back(new PetriDish());
     
+    
+    // we composite in millumin via syphon, uncomment this to compsite locally + section where scenes are drawn into fbo's
     /*ofFbo::Settings fboSettings;
     fboSettings.height = OUTHEIGHT;
     fboSettings.width  = OUTWIDTH;
@@ -67,12 +61,8 @@ void ofApp::setup() {
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->mapping  = mapping;
         scenes[i]->syphonIn = syphonIn;
-        scenes[i]->oscSender = oscSenderOne;
+        scenes[i]->oscSender = &oscSenderOne;
         scenes[i]->oscReceiver = &oscReceiver;
-        
-        //scenes[i]->oscCli
-        //nts.push_back(oscSenderOne);
-        //scenes[i]->oscClients.push_back(oscSenderTwo);
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
     
@@ -83,15 +73,10 @@ void ofApp::setup() {
     mainGui.setName("Gloria");
     
     for(int i=0; i<scenes.size(); i++) {
-        
-        // maybe we need to have this here and sync osc with parameters on top level
-        // scenes[i]->params.setParent(globalParameters);
-        
-        //mainGui.add(scenes[i]->parameters);
-        //scenes[i]->parameters.
-        
+        // layout scene gui panels horizontally
         scenes[i]->panel.setPosition((i+1)*scenes[i]->panel.getWidth()+10, 5);
     }
+    
 }
 
 void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
@@ -171,8 +156,6 @@ void ofApp::update() {
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->updateScene();
     }
-    
-    // OSC in listen
 }
 
 void ofApp::draw() {
@@ -245,7 +228,6 @@ void ofApp::draw() {
         ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
     }*/
     
-    
     for(int i=0; i<syphonInputs.size(); i++) {
         
         //
@@ -314,12 +296,16 @@ void ofApp::keyPressed(int key){
             /*syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
             syphonIn->setApplicationName(directory.getServerList()[dirIdx].appName);*/
             
-            syphonIn = &syphonInputs[dirIdx];
+            //syphonIn = &syphonInputs[dirIdx];
+            for(int i=0; i<scenes.size(); i++) {
+                scenes[i]->syphonIn = &syphonInputs[dirIdx];
+            }
+            
             
         }
     }
     
-    if(key == 'n') {
+    /*if(key == 'n') {
         mapping->nextCorner();
     }
     
@@ -337,7 +323,7 @@ void ofApp::keyPressed(int key){
             mapping->selectedCorner->pos.z -= 1;
             mapping->updateMeshes();
         }
-    }
+    }*/
 }
 
 //--------------------------------------------------------------
