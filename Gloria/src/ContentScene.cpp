@@ -42,7 +42,7 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     fbo.end();
     
     params.add(enabled.set("Enabled", false));
-    params.add(opacity.set("opacity", 1, 0, 1));
+    //params.add(opacity.set("opacity", 1, 0, 1));
     
     setup();
     
@@ -81,13 +81,6 @@ void ContentScene::setSceneGui(){
 }
 
 void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
-
-    // you can change values of widgets in gui with osc just send to its name
-    
-    // supports either /sceneaddress/parametername or /sceneadress_parametername
-    // everything is case insensitive
-    
-    // you can use multiple formattings
     
     bool isScene = false;
     //string loweraddr = ofToLower(m.getAddress());
@@ -130,8 +123,8 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
         ofAbstractParameter * p = &params;
         
         /// potential issue with lemur sending address/z val
-        /// anything here goes addres/fesr/sfdgfsdg/fdgsdfg
-        /// still hits addres
+        /// anything here goes address/fesr/sfdgfsdg/fdgsdfg
+        /// still hits address
         
         for(unsigned int i=0;i<adrSplit.size();i++){
             
@@ -202,11 +195,7 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
         }
             updatingParameter = false;
         }
-    
 }
-
-
-
 
 void ContentScene::updateScene() {
     if(enabled) {
