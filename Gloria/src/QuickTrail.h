@@ -41,7 +41,7 @@ public:
     bool clear;
     
     void parseOscMessage(ofxOscMessage * m);
-    void setGui();
+    //void setGui();
     
     float time;
     float interval = 1;

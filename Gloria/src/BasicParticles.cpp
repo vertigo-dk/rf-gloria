@@ -147,6 +147,7 @@ void BasicParticles::draw(){;
     //syphonFbo.draw(0,0);
 }
 
+/*
 void BasicParticles::setGui(){
     
     gui->addSlider("/size/x", 5, 50, &psize);
@@ -156,7 +157,7 @@ void BasicParticles::setGui(){
     gui->addSlider("/fadeparticle/x", 0, 1, &pFadeWithAge);
     gui->addSlider("/fade/x", 0, 10, &fade);
     gui->addToggle("/trace/x", &trace);
-}
+}*/
 
 void BasicParticles::createParticle() {
     BasicParticle p;

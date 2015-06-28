@@ -46,7 +46,7 @@ void CurlyFur::draw(){;
     //Fade out the old stuff
     ofSetColor(0,0,0,fade);
     ofFill();
-    ofRect(0,0,OUTWIDTH,OUTHEIGHT);
+    ofDrawRectangle(0,0,OUTWIDTH,OUTHEIGHT);
     
     ofDisableAlphaBlending();
     
@@ -58,14 +58,14 @@ void CurlyFur::draw(){;
     //myfbo.draw(0,0);
 }
 
-void CurlyFur::setGui(){
+/*void CurlyFur::setGui(){
 
     gui->addSlider("/length/x", 1, 10, &plength);
     gui->addSlider("/density/x", 50, 500, &density);
     gui->addSlider("/totalcount/x", 500, 5000, &totalCount);
     gui->addSlider("/fade/x", 1, 10, &fade);
 
-}
+}*/
 
 void CurlyFur::createParticle() {
     float randomX = ofRandom(1.0);

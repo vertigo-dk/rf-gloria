@@ -35,7 +35,7 @@ public:
     
     ofVec3f normal(){
 
-        ofVec3f n = (getPos(1) - getPos(0)).cross(( getPos(2) - getPos(0) )).normalized();
+        ofVec3f n = (getPos(1) - getPos(0)).cross(( getPos(2) - getPos(0) )).getNormalized();
         if(n.z < 0){
             n *= -1.;
         }

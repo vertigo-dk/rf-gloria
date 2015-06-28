@@ -132,7 +132,7 @@ public:
     void draw() {
         glPointSize(4);
         
-        mesh.drawVertices();
+        mesh.draw();
     }
     
     
@@ -242,6 +242,12 @@ public:
     ofParameter<bool> iterate;
     
     ofParameter<bool> drawLines;
+    
+    ofParameter<ofVec2f> scale;
+    
+    ofParameter<int> maxIterations;
+    
+    ofParameter<int> lineWidth;
     
     // draw lines
     // search speed

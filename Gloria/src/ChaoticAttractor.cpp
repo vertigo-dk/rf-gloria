@@ -15,20 +15,18 @@ void ChaoticAttractor::setup(){
     oscAddress = "/cha";
     
     searchChaos = true;
-    //fbo.allocate(OUTWIDTH, OUTHEIGHT);
     
-    //params.add(speed.set("speed", ofVec2f(0, 0), ofVec2f(-1,-1),ofVec2f(1,1)));
-    //params.add(scatter.set("scatter", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)));
-    
-    
-    params.add(drawLines.set("drawLines", false));
-    params.add(iterate.set("iterate", false));
+    params.add(drawLines.set("drawLines", false),
+        iterate.set("iterate", false),
+        scale.set("scale", ofVec2f(1,1), ofVec2f(0,0), ofVec2f(2,2)),
+               maxIterations.set("maxIterations", 10000, 200, 4000000),
+               lineWidth.set("lineWidth", 10,1,20));
     
 }
 
 void ChaoticAttractor::update(){
     
-    if( /*!attractor.drawIt*/ attractor.I > 4000) {
+    if( !attractor.drawIt || attractor.I > maxIterations) {
         //cout<<attractor.type<<endl;
         //if(searchChaos)
         attractor = Attractor();
@@ -86,10 +84,11 @@ void ChaoticAttractor::draw(){;
     
     ofPushMatrix();
     ofTranslate(OUTWIDTH/2, OUTHEIGHT/2);
-    ofScale(OUTWIDTH,OUTHEIGHT);
+    ofScale(OUTWIDTH*scale.get().x,OUTHEIGHT*scale.get().y);
     
+    ofSetLineWidth(lineWidth.get());
     if(drawLines) {
-        attractor.mesh.setMode(OF_PRIMITIVE_LINE_LOOP);
+        attractor.mesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
     } else {
         attractor.mesh.setMode(OF_PRIMITIVE_POINTS);
     }

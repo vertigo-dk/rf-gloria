@@ -9,7 +9,6 @@
 #include "QuickTrail.h"
 #include "Triangles.h"
 #include "PerlinWaves.h"
-#include "ofxUI.h"
 #include "ofxGui.h"
 #include "Mapping.h"
 #include "FluidScene.h"
@@ -63,12 +62,6 @@ public:
     ofParameterGroup globalParameters; 
     ofxPanel mainGui;
     ofParameter<bool> drawMapping;
-    
-    void setGUI();
-    ofxUITabBar *guiTabBar;
-    vector<ofxUICanvas *> guis;
-    
-    void guiEvent(ofxUIEventArgs &e);
     
     bool hideGUI;
     bool drawGuide;

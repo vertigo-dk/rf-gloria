@@ -261,37 +261,6 @@ void ofApp::drawGrid() {
         mapping->triangles[i]->mesh.drawWireframe();
     }
 }
-
-void ofApp::setGUI()
-{
-    
-   /* float dim = 16;
-    float xInit = OFX_UI_GLOBAL_WIDGET_SPACING;
-    float width = 255-xInit;
-    hideGUI = false;
-    
-    guiTabBar = new ofxUITabBar();
-    
-    for(int i=0; i<scenes.size(); i++) {
-        scenes[i]->setSceneGui();
-        guiTabBar->addCanvas(scenes[i]->gui);
-        scenes[i]->gui->setColorBack(ofColor(0,100 + 20*i,0,255));
-        guis.push_back(scenes[i]->gui);
-    }
-    
-    guiTabBar->autoSizeToFitWidgets();
-    ofAddListener(guiTabBar->newGUIEvent,this,&ofApp::guiEvent);
-    */
-    //guiTabBar->setPosition(0, mainGui->getRect()->height+10);
-    //guiTabBar->setScrollAreaToScreenHeight();
-    /*
-    guiTabBar->setColorBack(ofColor(0,100,0,255));
-    
-    guiTabBar->loadSettings("GUI/guiSettings.xml", "ui-");
-
-*/
-}
-
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
@@ -365,10 +334,6 @@ void ofApp::exit()
     //guiTabBar->saveSettings("GUI/guiSettings.xml", "ui-");
     mapping->save();
     
-    delete guiTabBar;
     delete mapping;
 }
 
-void ofApp::guiEvent(ofxUIEventArgs &e)
-{
-}
