@@ -226,5 +226,4 @@ void ContentScene::publishSyphonTexture() {
 
 
 void ContentScene::exit() {
-    delete gui;
 }
