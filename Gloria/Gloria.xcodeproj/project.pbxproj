@@ -107,20 +107,6 @@
 		DD7BE8AC1780D80900F04F23 /* LampWalker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD7BE8AA1780D80900F04F23 /* LampWalker.cpp */; };
 		DD81641C17820BFB006B6A3E /* Triangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD81641A17820BFB006B6A3E /* Triangles.cpp */; };
 		DD8E8DA51961978300A7F3E1 /* ofxAutoReloadedShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD8E8DA31961978300A7F3E1 /* ofxAutoReloadedShader.cpp */; };
-		DDB2D4781B3F440800C8B6FB /* ETF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D45B1B3F440800C8B6FB /* ETF.cpp */; };
-		DDB2D4791B3F440800C8B6FB /* fdog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D45C1B3F440800C8B6FB /* fdog.cpp */; };
-		DDB2D47A1B3F440800C8B6FB /* Calibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D46C1B3F440800C8B6FB /* Calibration.cpp */; };
-		DDB2D47B1B3F440800C8B6FB /* ContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D46D1B3F440800C8B6FB /* ContourFinder.cpp */; };
-		DDB2D47C1B3F440800C8B6FB /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D46E1B3F440800C8B6FB /* Distance.cpp */; };
-		DDB2D47D1B3F440800C8B6FB /* Flow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D46F1B3F440800C8B6FB /* Flow.cpp */; };
-		DDB2D47E1B3F440800C8B6FB /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4701B3F440800C8B6FB /* Helpers.cpp */; };
-		DDB2D47F1B3F440800C8B6FB /* Kalman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4711B3F440800C8B6FB /* Kalman.cpp */; };
-		DDB2D4801B3F440800C8B6FB /* ObjectFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4721B3F440800C8B6FB /* ObjectFinder.cpp */; };
-		DDB2D4811B3F440800C8B6FB /* RunningBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4731B3F440800C8B6FB /* RunningBackground.cpp */; };
-		DDB2D4821B3F440800C8B6FB /* Tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4741B3F440800C8B6FB /* Tracker.cpp */; };
-		DDB2D4831B3F440800C8B6FB /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4751B3F440800C8B6FB /* Utilities.cpp */; };
-		DDB2D4841B3F440800C8B6FB /* Wrappers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB2D4761B3F440800C8B6FB /* Wrappers.cpp */; };
-		DDB2D4851B3F440800C8B6FB /* opencv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2D4771B3F440800C8B6FB /* opencv.a */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -511,37 +497,6 @@
 		DD8E8DA41961978300A7F3E1 /* ofxAutoReloadedShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAutoReloadedShader.h; sourceTree = "<group>"; };
 		DD8E8DA81961997400A7F3E1 /* TrianglesDebug.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesDebug.frag; sourceTree = "<group>"; };
 		DD8E8DA91961997400A7F3E1 /* TrianglesDebug.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesDebug.vert; sourceTree = "<group>"; };
-		DDB2D4501B3F440800C8B6FB /* ofxCv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCv.h; sourceTree = "<group>"; };
-		DDB2D4521B3F440800C8B6FB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		DDB2D4561B3F440800C8B6FB /* ETF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETF.h; sourceTree = "<group>"; };
-		DDB2D4571B3F440800C8B6FB /* fdog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fdog.h; sourceTree = "<group>"; };
-		DDB2D4581B3F440800C8B6FB /* imatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imatrix.h; sourceTree = "<group>"; };
-		DDB2D4591B3F440800C8B6FB /* myvec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myvec.h; sourceTree = "<group>"; };
-		DDB2D45B1B3F440800C8B6FB /* ETF.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ETF.cpp; sourceTree = "<group>"; };
-		DDB2D45C1B3F440800C8B6FB /* fdog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fdog.cpp; sourceTree = "<group>"; };
-		DDB2D4601B3F440800C8B6FB /* Calibration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calibration.h; sourceTree = "<group>"; };
-		DDB2D4611B3F440800C8B6FB /* ContourFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContourFinder.h; sourceTree = "<group>"; };
-		DDB2D4621B3F440800C8B6FB /* Distance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Distance.h; sourceTree = "<group>"; };
-		DDB2D4631B3F440800C8B6FB /* Flow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flow.h; sourceTree = "<group>"; };
-		DDB2D4641B3F440800C8B6FB /* Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
-		DDB2D4651B3F440800C8B6FB /* Kalman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kalman.h; sourceTree = "<group>"; };
-		DDB2D4661B3F440800C8B6FB /* ObjectFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectFinder.h; sourceTree = "<group>"; };
-		DDB2D4671B3F440800C8B6FB /* RunningBackground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunningBackground.h; sourceTree = "<group>"; };
-		DDB2D4681B3F440800C8B6FB /* Tracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
-		DDB2D4691B3F440800C8B6FB /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
-		DDB2D46A1B3F440800C8B6FB /* Wrappers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wrappers.h; sourceTree = "<group>"; };
-		DDB2D46C1B3F440800C8B6FB /* Calibration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Calibration.cpp; sourceTree = "<group>"; };
-		DDB2D46D1B3F440800C8B6FB /* ContourFinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ContourFinder.cpp; sourceTree = "<group>"; };
-		DDB2D46E1B3F440800C8B6FB /* Distance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Distance.cpp; sourceTree = "<group>"; };
-		DDB2D46F1B3F440800C8B6FB /* Flow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Flow.cpp; sourceTree = "<group>"; };
-		DDB2D4701B3F440800C8B6FB /* Helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Helpers.cpp; sourceTree = "<group>"; };
-		DDB2D4711B3F440800C8B6FB /* Kalman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Kalman.cpp; sourceTree = "<group>"; };
-		DDB2D4721B3F440800C8B6FB /* ObjectFinder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFinder.cpp; sourceTree = "<group>"; };
-		DDB2D4731B3F440800C8B6FB /* RunningBackground.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RunningBackground.cpp; sourceTree = "<group>"; };
-		DDB2D4741B3F440800C8B6FB /* Tracker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tracker.cpp; sourceTree = "<group>"; };
-		DDB2D4751B3F440800C8B6FB /* Utilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
-		DDB2D4761B3F440800C8B6FB /* Wrappers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wrappers.cpp; sourceTree = "<group>"; };
-		DDB2D4771B3F440800C8B6FB /* opencv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = opencv.a; path = ../../../addons/ofxOpenCv/libs/opencv/lib/osx/opencv.a; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -594,7 +549,6 @@
 				E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */,
 				E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */,
 				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
-				DDB2D4851B3F440800C8B6FB /* opencv.a in Frameworks */,
 				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
@@ -1419,7 +1373,6 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				DDB2D44E1B3F440800C8B6FB /* ofxCv */,
 				043505781962D7CD006984A5 /* ofxFluid */,
 				0423CC011961C0AC00ED8129 /* ofxFX */,
 				DD8E8DA11961978300A7F3E1 /* ofxAutoReloadedShader */,
@@ -1495,126 +1448,6 @@
 			name = shaders;
 			path = bin/data/shaders;
 			sourceTree = SOURCE_ROOT;
-		};
-		DDB2D44E1B3F440800C8B6FB /* ofxCv */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D44F1B3F440800C8B6FB /* src */,
-				DDB2D4511B3F440800C8B6FB /* libs */,
-				DDB2D4771B3F440800C8B6FB /* opencv.a */,
-			);
-			name = ofxCv;
-			sourceTree = "<group>";
-		};
-		DDB2D44F1B3F440800C8B6FB /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D4501B3F440800C8B6FB /* ofxCv.h */,
-			);
-			name = src;
-			path = ../../../addons/ofxCv/src;
-			sourceTree = "<group>";
-		};
-		DDB2D4511B3F440800C8B6FB /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D4521B3F440800C8B6FB /* .gitignore */,
-				DDB2D4531B3F440800C8B6FB /* CLD */,
-				DDB2D45D1B3F440800C8B6FB /* ofxCv */,
-			);
-			name = libs;
-			path = ../../../addons/ofxCv/libs;
-			sourceTree = "<group>";
-		};
-		DDB2D4531B3F440800C8B6FB /* CLD */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D4541B3F440800C8B6FB /* include */,
-				DDB2D45A1B3F440800C8B6FB /* src */,
-			);
-			path = CLD;
-			sourceTree = "<group>";
-		};
-		DDB2D4541B3F440800C8B6FB /* include */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D4551B3F440800C8B6FB /* CLD */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		DDB2D4551B3F440800C8B6FB /* CLD */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D4561B3F440800C8B6FB /* ETF.h */,
-				DDB2D4571B3F440800C8B6FB /* fdog.h */,
-				DDB2D4581B3F440800C8B6FB /* imatrix.h */,
-				DDB2D4591B3F440800C8B6FB /* myvec.h */,
-			);
-			path = CLD;
-			sourceTree = "<group>";
-		};
-		DDB2D45A1B3F440800C8B6FB /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D45B1B3F440800C8B6FB /* ETF.cpp */,
-				DDB2D45C1B3F440800C8B6FB /* fdog.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		DDB2D45D1B3F440800C8B6FB /* ofxCv */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D45E1B3F440800C8B6FB /* include */,
-				DDB2D46B1B3F440800C8B6FB /* src */,
-			);
-			path = ofxCv;
-			sourceTree = "<group>";
-		};
-		DDB2D45E1B3F440800C8B6FB /* include */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D45F1B3F440800C8B6FB /* ofxCv */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		DDB2D45F1B3F440800C8B6FB /* ofxCv */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D4601B3F440800C8B6FB /* Calibration.h */,
-				DDB2D4611B3F440800C8B6FB /* ContourFinder.h */,
-				DDB2D4621B3F440800C8B6FB /* Distance.h */,
-				DDB2D4631B3F440800C8B6FB /* Flow.h */,
-				DDB2D4641B3F440800C8B6FB /* Helpers.h */,
-				DDB2D4651B3F440800C8B6FB /* Kalman.h */,
-				DDB2D4661B3F440800C8B6FB /* ObjectFinder.h */,
-				DDB2D4671B3F440800C8B6FB /* RunningBackground.h */,
-				DDB2D4681B3F440800C8B6FB /* Tracker.h */,
-				DDB2D4691B3F440800C8B6FB /* Utilities.h */,
-				DDB2D46A1B3F440800C8B6FB /* Wrappers.h */,
-			);
-			path = ofxCv;
-			sourceTree = "<group>";
-		};
-		DDB2D46B1B3F440800C8B6FB /* src */ = {
-			isa = PBXGroup;
-			children = (
-				DDB2D46C1B3F440800C8B6FB /* Calibration.cpp */,
-				DDB2D46D1B3F440800C8B6FB /* ContourFinder.cpp */,
-				DDB2D46E1B3F440800C8B6FB /* Distance.cpp */,
-				DDB2D46F1B3F440800C8B6FB /* Flow.cpp */,
-				DDB2D4701B3F440800C8B6FB /* Helpers.cpp */,
-				DDB2D4711B3F440800C8B6FB /* Kalman.cpp */,
-				DDB2D4721B3F440800C8B6FB /* ObjectFinder.cpp */,
-				DDB2D4731B3F440800C8B6FB /* RunningBackground.cpp */,
-				DDB2D4741B3F440800C8B6FB /* Tracker.cpp */,
-				DDB2D4751B3F440800C8B6FB /* Utilities.cpp */,
-				DDB2D4761B3F440800C8B6FB /* Wrappers.cpp */,
-			);
-			path = src;
-			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
 			isa = PBXGroup;
@@ -1764,9 +1597,7 @@
 				04C1A39E1B3DF1EB00334C58 /* ofxSlider.cpp in Sources */,
 				0425D882195ABAD5003086AC /* ofxUIWaveform.cpp in Sources */,
 				0425D87D195ABAD5003086AC /* ofxUITextArea.cpp in Sources */,
-				DDB2D47F1B3F440800C8B6FB /* Kalman.cpp in Sources */,
 				0425D87A195ABAD5003086AC /* ofxUISpectrum.cpp in Sources */,
-				DDB2D4811B3F440800C8B6FB /* RunningBackground.cpp in Sources */,
 				0425D883195ABAD5003086AC /* ofxUIWidget.cpp in Sources */,
 				0425D7DB195AB9A3003086AC /* ofxOscSender.cpp in Sources */,
 				0425D7DE195AB9A3003086AC /* UdpSocket.cpp in Sources */,
@@ -1775,25 +1606,21 @@
 				0425D86A195ABAD5003086AC /* ofxUILabel.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				04DE29A21B3343860096E40D /* ChaoticAttractor.cpp in Sources */,
-				DDB2D4801B3F440800C8B6FB /* ObjectFinder.cpp in Sources */,
 				04A0E2BC195DAC800004D93F /* ContentScene.cpp in Sources */,
 				0425D7DC195AB9A3003086AC /* IpEndpointName.cpp in Sources */,
 				0425D7DA195AB9A3003086AC /* ofxOscReceiver.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				0425D873195ABAD5003086AC /* ofxUIRangeSlider.cpp in Sources */,
 				0414834D1691D29700B23C0A /* ofxDmx.cpp in Sources */,
-				DDB2D47B1B3F440800C8B6FB /* ContourFinder.cpp in Sources */,
 				0425D866195ABAD5003086AC /* ofxUIImageButton.cpp in Sources */,
 				0425D85E195ABAD5003086AC /* ofxUICanvas.cpp in Sources */,
 				04C1A39F1B3DF1EB00334C58 /* ofxSliderGroup.cpp in Sources */,
 				0425D867195ABAD5003086AC /* ofxUIImageSampler.cpp in Sources */,
 				0425D876195ABAD5003086AC /* ofxUIScrollableCanvas.cpp in Sources */,
-				DDB2D4841B3F440800C8B6FB /* Wrappers.cpp in Sources */,
 				04CA7B3D1753E82E00B224D8 /* tinyxml.cpp in Sources */,
 				0425D87B195ABAD5003086AC /* ofxUISuperCanvas.cpp in Sources */,
 				0425D862195ABAD5003086AC /* ofxUIEventArgs.cpp in Sources */,
 				04CA7B3E1753E82E00B224D8 /* tinyxmlerror.cpp in Sources */,
-				DDB2D4781B3F440800C8B6FB /* ETF.cpp in Sources */,
 				04CA7B3F1753E82E00B224D8 /* tinyxmlparser.cpp in Sources */,
 				04CA7B401753E82E00B224D8 /* ofxXmlSettings.cpp in Sources */,
 				046C3083177ED4F6009A2EE6 /* ofxCvColorImage.cpp in Sources */,
@@ -1802,7 +1629,6 @@
 				0425D86E195ABAD5003086AC /* ofxUIMovingGraph.cpp in Sources */,
 				046C3085177ED4F6009A2EE6 /* ofxCvFloatImage.cpp in Sources */,
 				0425D864195ABAD5003086AC /* ofxUIFPSSlider.cpp in Sources */,
-				DDB2D47C1B3F440800C8B6FB /* Distance.cpp in Sources */,
 				046C3086177ED4F6009A2EE6 /* ofxCvGrayscaleImage.cpp in Sources */,
 				046C3087177ED4F6009A2EE6 /* ofxCvHaarFinder.cpp in Sources */,
 				0425D881195ABAD5003086AC /* ofxUIValuePlotter.cpp in Sources */,
@@ -1818,7 +1644,6 @@
 				04C1A39C1B3DF1EB00334C58 /* ofxLabel.cpp in Sources */,
 				F228CDF019631AB600CE79FF /* CurlyFur.cpp in Sources */,
 				0425D863195ABAD5003086AC /* ofxUIFPS.cpp in Sources */,
-				DDB2D47A1B3F440800C8B6FB /* Calibration.cpp in Sources */,
 				0425D86B195ABAD5003086AC /* ofxUILabelButton.cpp in Sources */,
 				0425D865195ABAD5003086AC /* ofxUIImage.cpp in Sources */,
 				0425D85F195ABAD5003086AC /* ofxUICircleSlider.cpp in Sources */,
@@ -1844,11 +1669,9 @@
 				04C1A39D1B3DF1EB00334C58 /* ofxPanel.cpp in Sources */,
 				DD8E8DA51961978300A7F3E1 /* ofxAutoReloadedShader.cpp in Sources */,
 				0425D7F8195ABA57003086AC /* SyphonNameboundClient.m in Sources */,
-				DDB2D47D1B3F440800C8B6FB /* Flow.cpp in Sources */,
 				0425D85B195ABAD5003086AC /* ofxUIBaseDraws.cpp in Sources */,
 				046C30A417805E7C009A2EE6 /* svgtiny_list.cpp in Sources */,
 				0425D86C195ABAD5003086AC /* ofxUILabelToggle.cpp in Sources */,
-				DDB2D4791B3F440800C8B6FB /* fdog.cpp in Sources */,
 				046C30A517805E7C009A2EE6 /* ofxSvg.cpp in Sources */,
 				DD7BE8AC1780D80900F04F23 /* LampWalker.cpp in Sources */,
 				0438DB941782D0E9003833F8 /* QuickTrail.cpp in Sources */,
@@ -1861,16 +1684,13 @@
 				04C6D22D17847D8900AC12B9 /* PerlinWaves.cpp in Sources */,
 				0425D861195ABAD5003086AC /* ofxUIDropDownList.cpp in Sources */,
 				0425D7D8195AB9A3003086AC /* ofxOscMessage.cpp in Sources */,
-				DDB2D4821B3F440800C8B6FB /* Tracker.cpp in Sources */,
 				0425D7E2195AB9A3003086AC /* OscTypes.cpp in Sources */,
 				0425D859195ABAD5003086AC /* ofxUI2DGraph.cpp in Sources */,
 				0425D7E0195AB9A3003086AC /* OscPrintReceivedElements.cpp in Sources */,
 				0425D7F4195ABA57003086AC /* ofxSyphonClient.mm in Sources */,
 				0425D7DF195AB9A3003086AC /* OscOutboundPacketStream.cpp in Sources */,
-				DDB2D47E1B3F440800C8B6FB /* Helpers.cpp in Sources */,
 				0435057C1962D7CD006984A5 /* ofxFluid.cpp in Sources */,
 				0425D878195ABAD5003086AC /* ofxUISortableList.cpp in Sources */,
-				DDB2D4831B3F440800C8B6FB /* Utilities.cpp in Sources */,
 				0425D7E1195AB9A3003086AC /* OscReceivedElements.cpp in Sources */,
 				0425D7F5195ABA57003086AC /* ofxSyphonServer.mm in Sources */,
 				0425D86D195ABAD5003086AC /* ofxUIMinimalSlider.cpp in Sources */,
