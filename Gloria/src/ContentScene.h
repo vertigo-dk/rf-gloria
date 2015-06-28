@@ -39,7 +39,8 @@ public:
     ofFbo fbo;
     //bool enabled;
     ofParameter<bool>  enabled;
-    ofParameter<float> opacity;
+    //ofParameter<float> opacity;
+    float opacity = 1; // we dont use this, we blend in millumin
     
     float speed;
     

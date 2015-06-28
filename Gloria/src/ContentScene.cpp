@@ -49,12 +49,21 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     params.setName(name);
     ofAddListener(params.parameterChangedE(),this,&ContentScene::parameterChanged);
     
-    panel.setup(params);
+    ofFile file(name+"_settings.xml");
+    
+    panel.setup(params, file.path());
     panel.setName(name);
     
     //setSceneParameters();
     
     syphonOut.setName(name);
+    
+    if(!file.exists()) {
+        file.create();
+        panel.saveToFile(file.path());
+    } else {
+        panel.loadFromFile(file.path());
+    }
     
 }
 
@@ -226,4 +235,5 @@ void ContentScene::publishSyphonTexture() {
 
 
 void ContentScene::exit() {
+    panel.saveToFile(name+"_settings.xml");
 }
