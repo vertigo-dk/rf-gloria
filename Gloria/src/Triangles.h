@@ -287,7 +287,8 @@ public:
     
     ofVec2f center;
     
-    ofParameter<float> syphonOpacity;
+    ofParameter<float> syphonOpacity, syphonMeshDistortion;
+    ofParameter<float> meshDistortion;
     float directTextureOpacity;
 
     ofParameter<float> transitionTime;

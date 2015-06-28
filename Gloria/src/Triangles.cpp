@@ -14,18 +14,20 @@ void Triangles::setup(){
     oscAddress = "/tri";
     
     params.add(
-        syphonOpacity.set("SyphonOpacity", 0, 0, 1),
-        divideTriangleSize.set("DivideTriangleSize", 0, 0, 5),
-        divideRadius.set("DivideRadius", 0, 0, 5100),
-        divideInvert.set("DivideInvert", false),
-        light.set("light", 0, 0, 1),
-        lightSpeed.set("lightSpeed", 0, 0, 1),
-        color.set("color", ofFloatColor(1,1,1), ofFloatColor(0,0,0), ofFloatColor(1,1,1)),
-        wireframeAlpha.set("wireframe", 1, 0, 1),
-        fillAlpha.set("fill", 1, 0, 1),
-        noise.set("noise", 0, 0, 2),
-        noiseSeedSpeed.set("NoiseSeedSpeed", 0, 0,1)
-        );
+               divideTriangleSize.set("Triangles Size", 0, 5, 0),
+               divideRadius.set("Triangle Divide Radius", 0, 0, 5100),
+               divideInvert.set("Triangle Divide Invert", false),
+               syphonOpacity.set("Syphon Texture", 0, 0, 1),
+               syphonMeshDistortion.set("Syphon Mesh Distortion", 0, 0, 1),
+               meshDistortion.set("Mesh Distortion", 0, -1, 1),
+               light.set("Light Amount", 0, 0, 1),
+//               lightSpeed.set("lightSpeed", 0, 0, 1),
+               color.set("Color", ofFloatColor(1,1,1), ofFloatColor(0,0,0), ofFloatColor(1,1,1)),
+               fillAlpha.set("Fill alpha", 1, 0, 1),
+               wireframeAlpha.set("Wireframe alpha", 1, 0, 1),
+               noise.set("Noise Amount", 0, 0, 2),
+               noiseSeedSpeed.set("Noise Speed", 0, 0,1)
+               );
     
     map<Corner*, Corner*> cornerRefs;
     
@@ -43,11 +45,9 @@ void Triangles::setup(){
                 subTriangle->corners[j] = new Corner();
                 subTriangle->corners[j]->pos = triangle->corners[j]->pos;
                 subTriangle->corners[j]->origPos = triangle->corners[j]->pos;
-               // subTriangle->corners[j]->randomSeed = ofVec3f(0,0,ofRandom(-0.5,0.5));
-                
+                // subTriangle->corners[j]->randomSeed = ofVec3f(0,0,ofRandom(-0.5,0.5));
                 
                 cornerRefs[triangle->corners[j]] = subTriangle->corners[j];
-
             }
         }
         
@@ -90,8 +90,8 @@ void Triangles::setup(){
     for(int i=0;i<mapping->triangles.size();i++){
         InputTriangle * triangle = mapping->triangles[i];
         SubTriangle * subTriangle = subTriangles[triangle];
-
-
+        
+        
         subTriangle->divide(38000,1);
         
     }
@@ -118,18 +118,18 @@ void Triangles::setup(){
             }
         }
     }
-
+    
     
     pointLight.setDiffuseColor( ofColor(255.f, 255.f, 255.f));
     pointLight.setAttenuation(2.);
-
-
+    
+    
     
     debugShader.setGeometryInputType(GL_TRIANGLES);
     debugShader.setGeometryOutputType(GL_TRIANGLES);
     debugShader.setGeometryOutputCount(3);
     
-    debugShader.load("shaders/TrianglesDebug.vert","shaders/TrianglesDebug.frag","shaders/TrianglesDebug.geom");
+    debugShader.load("shaders/TrianglesFill.vert","shaders/TrianglesFill.frag","shaders/TrianglesFill.geom");
 }
 
 
@@ -140,49 +140,49 @@ void Triangles::divide(SubTriangle * triangle, float sizeGoal){
 }
 
 void Triangles::collapse(SubTriangle * triangle){
-   /* int subsubtriangles = -1;
-    for(int i=0;i<triangle->subTriangles.size();i++){
-        if(triangle->subTriangles[i]->subTriangles.size()){
-            collapse(triangle->subTriangles[i]);
-            subsubtriangles = i;
-            //      break;
-        }
-    }
-    
-    if(subsubtriangles != -1){
-    } else {
-        float highestAge = 0;
-        for(int i=0;i<triangle->subTriangles.size();i++){
-            if(triangle->subTriangles[i]->age > transitionTime){
-                triangle->subTriangles[i]->age = transitionTime;
-            }
-            if(triangle->subTriangles[i]->age > 0){
-                triangle->subTriangles[i]->age -= triangle->ageDifference* 2 * 1.0/ofGetFrameRate();
-            }
-            
-            if(highestAge < triangle->subTriangles[i]->age){
-                highestAge = triangle->subTriangles[i]->age;
-            }
-        }
-        
-        if(highestAge <= 0){
-            for(int i=0;i<triangle->subTriangles.size();i++){
-                
-                if(triangle->subTriangles[i]->age <= 0){
-                    delete triangle->subTriangles[i];
-                }
-            }
-            triangle->subTriangles.clear();
-        }
-    }*/
+    /* int subsubtriangles = -1;
+     for(int i=0;i<triangle->subTriangles.size();i++){
+     if(triangle->subTriangles[i]->subTriangles.size()){
+     collapse(triangle->subTriangles[i]);
+     subsubtriangles = i;
+     //      break;
+     }
+     }
+     
+     if(subsubtriangles != -1){
+     } else {
+     float highestAge = 0;
+     for(int i=0;i<triangle->subTriangles.size();i++){
+     if(triangle->subTriangles[i]->age > transitionTime){
+     triangle->subTriangles[i]->age = transitionTime;
+     }
+     if(triangle->subTriangles[i]->age > 0){
+     triangle->subTriangles[i]->age -= triangle->ageDifference* 2 * 1.0/ofGetFrameRate();
+     }
+     
+     if(highestAge < triangle->subTriangles[i]->age){
+     highestAge = triangle->subTriangles[i]->age;
+     }
+     }
+     
+     if(highestAge <= 0){
+     for(int i=0;i<triangle->subTriangles.size();i++){
+     
+     if(triangle->subTriangles[i]->age <= 0){
+     delete triangle->subTriangles[i];
+     }
+     }
+     triangle->subTriangles.clear();
+     }
+     }*/
 }
 
 
 float ease(float t, float b, float c, float d) {
-	t /= d/2;
-	if (t < 1) return c/2*t*t + b;
-	t--;
-	return -c/2 * (t*(t-2) - 1) + b;
+    t /= d/2;
+    if (t < 1) return c/2*t*t + b;
+    t--;
+    return -c/2 * (t*(t-2) - 1) + b;
 };
 
 
@@ -193,29 +193,29 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
             subDraw = true;
         }
     }
-  
+    
     if(subDraw){
         for(int j=0;j<triangle->subTriangles.size();j++){
             drawTriangleWireframe(triangle->subTriangles[j]);
         }
     } else {
-          for(int u=0;u<3;u++){
-              ofVec3f pos = triangle->getPos(u) ;
-              ofVec3f center = triangle->getCenter();
-
-          /*    glTexCoord2d(syphonIn->getWidth()* center.x/OUTWIDTH
-                           , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
-*/
-              
-              glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
-                                , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
-              
-              glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
-                                , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
-              
-              glVertex3d(pos.x, pos.y, 0/*triangle->corners[u]->pos.z*/);
+        for(int u=0;u<3;u++){
+            ofVec3f pos = triangle->getPos(u) ;
+            ofVec3f center = triangle->getCenter();
+            
+            /*    glTexCoord2d(syphonIn->getWidth()* center.x/OUTWIDTH
+             , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+             */
+            
+            glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
+                              , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+            
+            glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
+                              , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
+            
+            glVertex3d(pos.x, pos.y, 0/*triangle->corners[u]->pos.z*/);
         }
-
+        
     }
 }
 
@@ -224,7 +224,7 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
 
 void Triangles::drawTriangle(SubTriangle * triangle, float opacity, ofVec3f parentNormal){
     ofVec3f normal = triangle->normal();
-
+    
     bool subDraw = false;
     for(int i=0;i<triangle->subTriangles.size();i++){
         if(triangle->subTriangles[i]->drawLevel-1.5*triangle->subTriangles[i]->ageDifference  >= triangle->subTriangles[i]->level){
@@ -248,45 +248,28 @@ void Triangles::drawTriangle(SubTriangle * triangle, float opacity, ofVec3f pare
         
         ofVec3f trianglePos = center;
         ofVec3f lightDir = ( trianglePos- lightPos);
-    
+        
         //Tegn billede 1 pixel pr trekant
         for(int u=0;u<3;u++){
             //glNormal3f(n.x, n.y, n.z);
             ofVec3f pos = triangle->getPos(u) ;
-
+            
             glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
-                         , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
-
+                              , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+            
             glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
-                         , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
+                              , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
             
-            glVertex3d(pos.x, pos.y, 0/*pos.z*/);
+            glVertex3d(pos.x, pos.y, pos.z);
         }
-        
-
-        
-        //Tegn billede 1:1
-/*        float bbb = directTextureOpacity;
-        if(bbb){
-            
-            ofSetColor(255,255,255,255*bbb);
-            for(int u=0;u<3;u++){
-              //  glNormal3f(_normal.x, _normal.y, _normal.z);
-
-                glTexCoord2d(syphonIn->getWidth()* triangle->corners[u]->pos.x/OUTWIDTH
-                             ,syphonIn->getHeight()*(OUTHEIGHT-triangle->corners[u]->pos.y)/OUTHEIGHT);
-                
-                glVertex3d(triangle->corners[u]->pos.x, triangle->corners[u]->pos.y, triangle->corners[u]->pos.z);
-            }
-        }*/
     }
 }
 
 void Triangles::draw(){
     ofClear(0);
     ofSetColor(255,255,255);
-   
-  
+    
+    
     if(fillAlpha > 0){
         ofSetColor(color.get(), 255*fillAlpha);
         
@@ -294,6 +277,8 @@ void Triangles::draw(){
         //debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 2);
         debugShader.setUniform1f("lightAmount", light);
         debugShader.setUniform1f("textureAmount", syphonOpacity);
+        debugShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
+        debugShader.setUniform1f("meshDistortion",meshDistortion);
         syphonIn->bind();
         material.setShininess(15);
         
@@ -319,63 +304,63 @@ void Triangles::draw(){
         debugShader.end();
         syphonIn->unbind();
     }
-      /*
-    ofNoFill();
-    ofEnableAlphaBlending();
-    if(wireframeAlpha > 0){
-        ofSetColor(color.get(), 255*wireframeAlpha);
-
-        debugShader.begin();
-
+    /*
+     ofNoFill();
+     ofEnableAlphaBlending();
+     if(wireframeAlpha > 0){
+     ofSetColor(color.get(), 255*wireframeAlpha);
+     
+     debugShader.begin();
+     
      //   debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 1);
-        debugShader.setUniform1f("lightAmount", light);
-        debugShader.setUniform1f("textureAmount", syphonOpacity);
-        syphonIn->bind();
-        material.setShininess(15);
-        ofEnableLighting();
-
-        pointLight.enable();
-        material.begin();
-
-        
-        glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-        //    glEnable(GL_LINE_SMOOTH);
-        
-        glBegin(GL_TRIANGLES);
-        
-        for(int i=0;i<mapping->triangles.size();i++){
-            drawTriangleWireframe(subTriangles[mapping->triangles[i]]);
-        }
-        glEnd();
-        glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
-        ofFill();
-        
-        syphonIn->unbind();
-        material.end();
-        pointLight.disable();
-        debugShader.end();
-    }
-    ofDisableLighting();
+     debugShader.setUniform1f("lightAmount", light);
+     debugShader.setUniform1f("textureAmount", syphonOpacity);
+     syphonIn->bind();
+     material.setShininess(15);
+     ofEnableLighting();
+     
+     pointLight.enable();
+     material.begin();
+     
+     
+     glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+     //    glEnable(GL_LINE_SMOOTH);
+     
+     glBegin(GL_TRIANGLES);
+     
+     for(int i=0;i<mapping->triangles.size();i++){
+     drawTriangleWireframe(subTriangles[mapping->triangles[i]]);
+     }
+     glEnd();
+     glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+     ofFill();
+     
+     syphonIn->unbind();
+     material.end();
+     pointLight.disable();
+     debugShader.end();
+     }
+     ofDisableLighting();
      */
-
+    
     ofSetColor(255);
     //  glDisable(GL_LINE_SMOOTH);
     
 }
 
 void Triangles::update(){
-  /*  if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
-        depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
-    }
-    
-    depthFbo.begin();{
-        ofFill();
-        ofClear(255);
-        ofSetColor(255,255,255);
-        syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
-    }depthFbo.end();
-    
-*/
+    /*  if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
+     depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
+     }
+     
+     depthFbo.begin();{
+     ofFill();
+     ofClear(255);
+     ofSetColor(255,255,255);
+     syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
+     }depthFbo.end();
+     
+     */
     
     noiseSeed += noiseSeedSpeed * 1.0/MAX(10,ofGetFrameRate());
     if(noiseSeed > 1)
@@ -392,12 +377,12 @@ void Triangles::update(){
         
         triangle->noise = noise;
         triangle->noiseSeed = noiseSeed;
-
+        
         triangle->update();
     }
     
     
-    _lightPhase += 2*lightSpeed * 1.0 / MAX(10, MIN(ofGetFrameRate(),60));
+    //_lightPhase += 2*lightSpeed * 1.0 / MAX(10, MIN(ofGetFrameRate(),60));
     lightPos = ofVec3f(2596+1500*sin(_lightPhase),200,2000);
     
     center.x = 2996;
@@ -405,53 +390,53 @@ void Triangles::update(){
     
     pointLight.setPosition(lightPos);
     
-   
+    
 }
 
 
 
 void Triangles::parseOscMessage(ofxOscMessage *m){
     ContentScene::parseOscMessage(m);
-   /*
-    
- 	vector<string> adrSplit = ofSplitString(m->getAddress(), "/");
-	string rest = ofSplitString(m->getAddress(), "/"+adrSplit[1])[1];
-    
-	if(adrSplit[1] == "scene"+ofToString(index) || "/"+adrSplit[1] == oscAddress) {
-        if( rest == "/syphonopacity/x" ) {
-            syphonOpacity = m->getArgAsFloat(0);
+    /*
+     
+     vector<string> adrSplit = ofSplitString(m->getAddress(), "/");
+     string rest = ofSplitString(m->getAddress(), "/"+adrSplit[1])[1];
+     
+     if(adrSplit[1] == "scene"+ofToString(index) || "/"+adrSplit[1] == oscAddress) {
+     if( rest == "/syphonopacity/x" ) {
+     syphonOpacity = m->getArgAsFloat(0);
 	    }
-       if( rest == "/dividecount/x" ) {
-            divideCount = m->getArgAsFloat(0) * 6;
+     if( rest == "/dividecount/x" ) {
+     divideCount = m->getArgAsFloat(0) * 6;
 	    }*/
     /*
-        if( rest == "/divideradius/x" ) {
-            divideRadius = m->getArgAsFloat(0) * 2400;
+     if( rest == "/divideradius/x" ) {
+     divideRadius = m->getArgAsFloat(0) * 2400;
 	    }
-        if( rest == "/divideinvert/x" ) {
-            divideInvert = m->getArgAsFloat(0);
+     if( rest == "/divideinvert/x" ) {
+     divideInvert = m->getArgAsFloat(0);
 	    }
-        if( rest == "/transitiontime/x" ) {
-            transitionTime = m->getArgAsFloat(0)*5;
+     if( rest == "/transitiontime/x" ) {
+     transitionTime = m->getArgAsFloat(0)*5;
 	    }
-        if( rest == "/light/x" ) {
-            light = m->getArgAsFloat(0);
+     if( rest == "/light/x" ) {
+     light = m->getArgAsFloat(0);
 	    }
-        
-        if( rest == "/lightspeed/x" ) {
-            lightSpeed = m->getArgAsFloat(0);
+     
+     if( rest == "/lightspeed/x" ) {
+     lightSpeed = m->getArgAsFloat(0);
 	    }
-        if( rest == "/directopacity/x" ) {
-            directTextureOpacity = m->getArgAsFloat(0);
+     if( rest == "/directopacity/x" ) {
+     directTextureOpacity = m->getArgAsFloat(0);
 	    }
-        if( rest == "/triangleColorR/x" ) {
-            colorR = m->getArgAsFloat(0);
+     if( rest == "/triangleColorR/x" ) {
+     colorR = m->getArgAsFloat(0);
 	    }
-        if( rest == "/triangleColorG/x" ) {
-            colorG = m->getArgAsFloat(0);
+     if( rest == "/triangleColorG/x" ) {
+     colorG = m->getArgAsFloat(0);
 	    }
-        if( rest == "/triangleColorB/x" ) {
-            colorB = m->getArgAsFloat(0);
+     if( rest == "/triangleColorB/x" ) {
+     colorB = m->getArgAsFloat(0);
 	    }*/
     
     //}

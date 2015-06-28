@@ -5,6 +5,8 @@ uniform sampler2DRect tex0;
 
 uniform float lightAmount;
 uniform float textureAmount;
+uniform float syphonMeshDistortion;
+uniform float meshDistortion;
 
 varying vec4 ambientGlobal, _eyeSpaceVertexPos;
 varying vec4 vertexPos;
@@ -147,8 +149,9 @@ void main()
 	gl_FrontColor = gl_Color;
 	gl_Position = ftransform();
 
-    gl_Position.z = length(color)*150.0;
+    gl_Position.z = gl_Position.z*(1.0-syphonMeshDistortion) + length(color)*250.0*syphonMeshDistortion;
+    gl_Position.z *= meshDistortion;
     
     vec2 midOffset = (vec2(0.5,0.5)-gl_Position.xy);
-    gl_Position.xy -= length(color) * midOffset/10;
+    gl_Position.xy -= meshDistortion*syphonMeshDistortion*length(color) * midOffset/10;
 }

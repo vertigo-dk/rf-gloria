@@ -488,6 +488,7 @@
 		04DE29A01B3343860096E40D /* ChaoticAttractor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChaoticAttractor.cpp; sourceTree = "<group>"; };
 		04DE29A11B3343860096E40D /* ChaoticAttractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChaoticAttractor.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		DD12EA031B3FD6E9002F186E /* TrianglesFill.geom */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesFill.geom; sourceTree = "<group>"; };
 		DD7BE8AA1780D80900F04F23 /* LampWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LampWalker.cpp; sourceTree = "<group>"; };
 		DD7BE8AB1780D80900F04F23 /* LampWalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LampWalker.h; sourceTree = "<group>"; };
 		DD7BE8AD1780D8E900F04F23 /* Mapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mapping.h; sourceTree = "<group>"; };
@@ -495,8 +496,8 @@
 		DD81641B17820BFB006B6A3E /* Triangles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangles.h; sourceTree = "<group>"; };
 		DD8E8DA31961978300A7F3E1 /* ofxAutoReloadedShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAutoReloadedShader.cpp; sourceTree = "<group>"; };
 		DD8E8DA41961978300A7F3E1 /* ofxAutoReloadedShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAutoReloadedShader.h; sourceTree = "<group>"; };
-		DD8E8DA81961997400A7F3E1 /* TrianglesDebug.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesDebug.frag; sourceTree = "<group>"; };
-		DD8E8DA91961997400A7F3E1 /* TrianglesDebug.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesDebug.vert; sourceTree = "<group>"; };
+		DD8E8DA81961997400A7F3E1 /* TrianglesFill.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesFill.frag; sourceTree = "<group>"; };
+		DD8E8DA91961997400A7F3E1 /* TrianglesFill.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesFill.vert; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -1442,8 +1443,9 @@
 			children = (
 				04400CA51964002500B81298 /* alphamask.frag */,
 				04400CA61964002500B81298 /* alphamask.vert */,
-				DD8E8DA91961997400A7F3E1 /* TrianglesDebug.vert */,
-				DD8E8DA81961997400A7F3E1 /* TrianglesDebug.frag */,
+				DD8E8DA91961997400A7F3E1 /* TrianglesFill.vert */,
+				DD8E8DA81961997400A7F3E1 /* TrianglesFill.frag */,
+				DD12EA031B3FD6E9002F186E /* TrianglesFill.geom */,
 			);
 			name = shaders;
 			path = bin/data/shaders;
