@@ -42,7 +42,6 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     fbo.end();
     
     params.add(enabled.set("Enabled", false));
-    params.add(opacity.set("opacity", 1, 0, 1));
     
     setup();
     

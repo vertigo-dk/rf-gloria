@@ -41,7 +41,6 @@ public:
     ofFbo fbo;
     //bool enabled;
     ofParameter<bool>  enabled;
-    ofParameter<float> opacity;
     
     float speed;
     

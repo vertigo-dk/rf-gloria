@@ -14,6 +14,6 @@
 #define OSCRECEIVEPORT 9999
 #define OSCSENDPORT 8000
 #define OSCCLIENTONE "127.0.0.1"
-#define OSCCLIENTTWO "HalfdanJ-iPad.local"
+#define OSCCLIENTTWO "127.0.0.1"
 #define GUIWIDTH 255
 #define TARGET_FRAMERATE 30

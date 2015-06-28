@@ -183,7 +183,7 @@ void ofApp::draw() {
 
             ofDrawRectangle(-1, -1, scenes[i]->fbo.getWidth()*scale+2, scenes[i]->fbo.getHeight()*scale+2);
            // fboOut.draw(0, 0);
-            ofSetColor(255,255,255,scenes[i]->opacity*255);
+            ofSetColor(255,255,255,255);
             
             if(scenes[i]->enabled) {
                 scenes[i]->fbo.draw(0,0, scenes[i]->fbo.getWidth()*scale, scenes[i]->fbo.getHeight()*scale);
@@ -191,7 +191,7 @@ void ofApp::draw() {
             
             ofSetColor(255);
             
-            ofDrawBitmapString(scenes[i]->name + "    ("+ofToString(scenes[i]->opacity*100.,0)+"%)", ofPoint(0,-3));
+            ofDrawBitmapString(scenes[i]->name, ofPoint(0,-3));
 
             if(drawGuide) {
                 //ofSetColor(255,255,255,96);
