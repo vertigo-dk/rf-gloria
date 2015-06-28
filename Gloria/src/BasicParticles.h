@@ -42,7 +42,7 @@ public:
     void debugDraw();
     void update();
     
-    void setGui();
+    // void setGui();
     
     void createParticle();
     void reassignParticle();
