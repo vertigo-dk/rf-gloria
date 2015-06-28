@@ -37,15 +37,13 @@ public:
     void gotMessage(ofMessage msg);
 
     ofxOscReceiver oscReceiver;
-    
-    ofxOscSender * oscSenderOne;
-    ofxOscSender * oscSenderTwo;
+    ofxOscSender oscSenderOne;
     
     //ofxSyphonServer syphonOut;
-    ofxSyphonClient * syphonIn;
+    ofxSyphonClient * syphonIn; // selected syphon in
+    vector<ofxSyphonClient> syphonInputs;
     
     // TODO: list of syphonClients
-    
     ofxSyphonServerDirectory directory;
     void serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg);
     void serverUpdated(ofxSyphonServerDirectoryEventArgs &args);
@@ -58,7 +56,6 @@ public:
     ofxXmlSettings XML;
     
     // gui
-    
     ofParameterGroup globalParameters; 
     ofxPanel mainGui;
     ofParameter<bool> drawMapping;

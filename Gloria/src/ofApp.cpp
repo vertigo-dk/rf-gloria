@@ -4,14 +4,7 @@ void ofApp::setup() {
     
     ofEnableAlphaBlending();
     oscReceiver.setup(OSCRECEIVEPORT);
-    
-    // todo - vector of OSC clients / MAX patch to parse things around
-    //try {
-    oscSenderOne = new ofxOscSender();
-    oscSenderOne->setup(OSCCLIENTONE, OSCSENDPORT);
-
-    oscSenderTwo = new ofxOscSender();
-    oscSenderTwo->setup(OSCCLIENTTWO, OSCSENDPORT);
+    oscSenderOne.setup(OSCCLIENTONE, OSCSENDPORT);
     
     ofSetLogLevel(OF_LOG_NOTICE);
     ofSetFrameRate(TARGET_FRAMERATE);
@@ -19,12 +12,6 @@ void ofApp::setup() {
     glEnable(GL_LINES);
     
     ofSetWindowTitle("Gloria 2015");
-    //syphonOut.setName("Gloria Main");
-    syphonIn = new ofxSyphonClient();
-    
-    syphonIn->setApplicationName("Millumin");
-    syphonIn->setServerName("");
-    syphonIn->setup();
     
     directory.setup();
     
@@ -33,6 +20,11 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverUpdated, this, &ofApp::serverUpdated);
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
+    
+    
+    syphonIn = new ofxSyphonClient();
+    syphonIn->setup();
+
     
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
@@ -49,6 +41,8 @@ void ofApp::setup() {
     scenes.push_back(new ChaoticAttractor());
     //scenes.push_back(new PetriDish());
     
+    
+    // we composite in millumin via syphon, uncomment this to compsite locally + section where scenes are drawn into fbo's
     /*ofFbo::Settings fboSettings;
     fboSettings.height = OUTHEIGHT;
     fboSettings.width  = OUTWIDTH;
@@ -67,12 +61,8 @@ void ofApp::setup() {
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->mapping  = mapping;
         scenes[i]->syphonIn = syphonIn;
-        scenes[i]->oscSender = oscSenderOne;
+        scenes[i]->oscSender = &oscSenderOne;
         scenes[i]->oscReceiver = &oscReceiver;
-        
-        //scenes[i]->oscCli
-        //nts.push_back(oscSenderOne);
-        //scenes[i]->oscClients.push_back(oscSenderTwo);
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
     
@@ -83,39 +73,68 @@ void ofApp::setup() {
     mainGui.setName("Gloria");
     
     for(int i=0; i<scenes.size(); i++) {
-        
-        // maybe we need to have this here and sync osc with parameters on top level
-        // scenes[i]->params.setParent(globalParameters);
-        
-        //mainGui.add(scenes[i]->parameters);
-        //scenes[i]->parameters.
-        
+        // layout scene gui panels horizontally
         scenes[i]->panel.setPosition((i+1)*scenes[i]->panel.getWidth()+10, 5);
     }
+    
 }
 
 void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
 {
     for( auto& dir : arg.servers ){
         ofLogNotice("ofxSyphonServerDirectory Server Announced")<<" Server Name: "<<dir.serverName <<" | App Name: "<<dir.appName;
+        
+        bool found = false;
+        for(int i=0; i<syphonInputs.size(); i++) {
+            if(syphonInputs[i].getServerName() == dir.serverName && syphonInputs[i].getApplicationName() == dir.appName) {
+                
+                syphonInputs[i].setup();
+                syphonInputs[i].set(dir.serverName, dir.appName);
+                
+                found = true;
+            }
+        }
+        if(!found) {
+            ofxSyphonClient client;
+            client.setup();
+            client.set(dir.serverName, dir.appName);
+            syphonInputs.push_back(client);
+        }
+        
     }
-    dirIdx = 0;
+    //dirIdx = 0;
 }
 
 void ofApp::serverUpdated(ofxSyphonServerDirectoryEventArgs &arg)
 {
     for( auto& dir : arg.servers ){
         ofLogNotice("ofxSyphonServerDirectory Server Updated")<<" Server Name: "<<dir.serverName <<" | App Name: "<<dir.appName;
+        
+        for(int i=0; i<syphonInputs.size(); i++) {
+            if(syphonInputs[i].getServerName() == dir.serverName && syphonInputs[i].getApplicationName() == dir.appName) {
+                
+                syphonInputs[i].setup();
+                syphonInputs[i].set(dir.serverName, dir.appName);
+            }
+        }
+        
     }
-    dirIdx = 0;
+    //dirIdx = 0;
 }
 
 void ofApp::serverRetired(ofxSyphonServerDirectoryEventArgs &arg)
 {
     for( auto& dir : arg.servers ){
         ofLogNotice("ofxSyphonServerDirectory Server Retired")<<" Server Name: "<<dir.serverName <<" | App Name: "<<dir.appName;
+        
+        for(int i=0; i<syphonInputs.size(); i++) {
+            if(syphonInputs[i].getServerName() == dir.serverName && syphonInputs[i].getApplicationName() == dir.appName) {
+            }
+        }
+        
+        
     }
-    dirIdx = 0;
+    //dirIdx = 0;
 }
 
 //--------------------------------------------------------------
@@ -137,8 +156,6 @@ void ofApp::update() {
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->updateScene();
     }
-    
-    // OSC in listen
 }
 
 void ofApp::draw() {
@@ -163,8 +180,6 @@ void ofApp::draw() {
     ofPushMatrix();{
         ofTranslate(ofGetWidth()-scale*OUTWIDTH-40, 40);
         
-        //ofScale(0.08, 0.08);
-        
         ofSetColor(255,255,255,255);
         ofNoFill();
         ofSetLineWidth(1);
@@ -183,12 +198,10 @@ void ofApp::draw() {
 
             ofDrawRectangle(-1, -1, scenes[i]->fbo.getWidth()*scale+2, scenes[i]->fbo.getHeight()*scale+2);
            // fboOut.draw(0, 0);
-            ofSetColor(255,255,255,255);
-            
+            ofSetColor(255,255,255,255);            
             if(scenes[i]->enabled) {
                 scenes[i]->fbo.draw(0,0, scenes[i]->fbo.getWidth()*scale, scenes[i]->fbo.getHeight()*scale);
             }
-            
             ofSetColor(255);
             
             ofDrawBitmapString(scenes[i]->name, ofPoint(0,-3));
@@ -203,25 +216,7 @@ void ofApp::draw() {
             }
             
             ofPopMatrix();
-            
         }
-        
-    
-        ofTranslate(0, 30);
-        //Syphon
-        ofPushMatrix();
-    
-        ofSetColor(0,0,255);
-        ofSetLineWidth(1);
-        ofDrawRectangle(-1, -1, scale*syphonIn->getWidth()+2, scale*syphonIn->getHeight()+2);
-        
-        ofSetColor(255);
-        ofDrawBitmapString("Syphon input - (Press 'i' to change)",  ofPoint(0,-18));
-        ofDrawBitmapString(syphonIn->getApplicationName()+" "+syphonIn->getServerName(),  ofPoint(0,-3));
-
-        syphonIn->draw(0, 0, scale*syphonIn->getWidth(), scale*syphonIn->getHeight());
-        
-        ofPopMatrix();
         
     }ofPopMatrix();
    
@@ -231,6 +226,33 @@ void ofApp::draw() {
     /*if(mapping->selectedCorner) {
         ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
     }*/
+    
+    for(int i=0; i<syphonInputs.size(); i++) {
+        
+        //
+        
+        ofSetColor(255,255,255);
+        
+        if(dirIdx == i) {
+            syphonInputs[i].draw(0, 20, syphonInputs[i].getWidth()/10, syphonInputs[i].getHeight()/10);
+        }
+        
+        ofPushMatrix();
+        ofTranslate(20, 150+i*60);
+        
+        if(dirIdx == i) {
+            ofSetColor(0,255,0);
+        }
+        
+        ofDrawBitmapString(ofToString(i) + ": " + syphonInputs[i].getApplicationName() + " " + syphonInputs[i].getServerName(), 0, 0);
+        
+
+        
+        
+        ofPopMatrix();
+        
+        
+    }
     
     
     mainGui.draw();
@@ -266,16 +288,23 @@ void ofApp::keyPressed(int key){
     
     if(key == 'i') {
         dirIdx++;
-        if(dirIdx > directory.size() - 1)
+        if(dirIdx > syphonInputs.size() - 1)
         dirIdx = 0;
         
         if(directory.isValidIndex(dirIdx)){
-            syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
-            syphonIn->setApplicationName(directory.getServerList()[dirIdx].appName);
+            /*syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
+            syphonIn->setApplicationName(directory.getServerList()[dirIdx].appName);*/
+            
+            //syphonIn = &syphonInputs[dirIdx];
+            for(int i=0; i<scenes.size(); i++) {
+                scenes[i]->syphonIn = &syphonInputs[dirIdx];
+            }
+            
+            
         }
     }
     
-    if(key == 'n') {
+    /*if(key == 'n') {
         mapping->nextCorner();
     }
     
@@ -293,7 +322,7 @@ void ofApp::keyPressed(int key){
             mapping->selectedCorner->pos.z -= 1;
             mapping->updateMeshes();
         }
-    }
+    }*/
 }
 
 //--------------------------------------------------------------
