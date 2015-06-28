@@ -104,6 +104,7 @@ void QuickTrail::parseOscMessage(ofxOscMessage *m){
 
 }
 
+/*
 void QuickTrail::setGui(){
     
     
@@ -118,4 +119,4 @@ void QuickTrail::setGui(){
     
     gui->addSlider("/circleradius/x", 0, 200, &circleRadius);
     
-}
+}*/
