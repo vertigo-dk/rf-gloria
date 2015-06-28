@@ -178,7 +178,7 @@ void PetriDish::draw(){
     
     drawOutput(gray.getTextureReference());
 }
-
+/*
 void PetriDish::setGui(){
 
     gui->addSlider("/growingCells/x", 0.005,0.095, &growingCells);
@@ -189,7 +189,7 @@ void PetriDish::setGui(){
     gui->addButton("/preset1/x", &preset2);
     gui->addButton("/preset1/x", &preset3);
     gui->addButton("/eraseAll/x", &eraseAll);
-}
+}*/
 
 void PetriDish::drawOutput(ofTexture inputTex) {
     ofPushMatrix();
