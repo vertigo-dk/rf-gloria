@@ -262,7 +262,7 @@ void ofApp::draw() {
        ofSetColor(255,255,255);
     
         ofPushMatrix();{
-            ofTranslate(20, i*(syphonRowHeight+syphonRowMargin));
+            ofTranslate(20, syphonRowMargin+i*(syphonRowHeight+syphonRowMargin));
             if(i*syphonRowHeight > ofGetHeight()-100){
                 ofTranslate(syphonRowWidth+20, -ofGetHeight()+40);
             }
@@ -376,7 +376,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button){
     for(int i=0; i<syphonInputs.size(); i++) {
         if(x < syphonRowWidth+20){
-            if(i*(syphonRowHeight+syphonRowMargin) < y && (i+1)*(syphonRowHeight+syphonRowMargin) > y){
+            if(syphonRowMargin+i*(syphonRowHeight+syphonRowMargin) < y && syphonRowMargin+(i+1)*(syphonRowHeight+syphonRowMargin) > y){
                 selectSyphonInput(i);
             }
         }
