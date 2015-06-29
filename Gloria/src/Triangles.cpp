@@ -254,8 +254,9 @@ void Triangles::drawTriangle(SubTriangle * triangle, float opacity){
             //Tegn billede 1 pixel pr trekant
             for(int u=0;u<3;u++){
                 //glNormal3f(n.x, n.y, n.z);
+
                 ofVec3f pos = triangle->getPos(u) ;
-                glColor4f(1,1,1,aaa);
+                glColor4f(color.get().r/255.0,color.get().g/255.0,color.get().b/255.0,aaa);
                 glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
                                   , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
                 
