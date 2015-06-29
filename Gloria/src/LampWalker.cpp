@@ -10,7 +10,7 @@
 
 void LampWalker::setup(){
     name = "Lamp Walker";
-    oscAddress = "/lampwalker";
+    oscAddress = "lampwalker";
 }
 
 void LampWalker::update(){

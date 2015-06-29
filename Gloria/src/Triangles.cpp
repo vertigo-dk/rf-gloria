@@ -11,7 +11,7 @@
 
 void Triangles::setup(){
     name = "Triangles";
-    oscAddress = "/tri";
+    oscAddress = "tri";
     
     params.add(
                divideTriangleSize.set("Triangles Size", 0, 5, 0),

@@ -47,7 +47,7 @@ void BasicParticle::update() {
 
 void BasicParticles::setup(){
     name = "BasicParticles";
-    oscAddress = "/basicparticles";
+    oscAddress = "basicparticles";
     
     syphonFbo.allocate(OUTWIDTH/10, OUTHEIGHT/10, GL_RGBA);
     pingPongFbo1.allocate(OUTWIDTH, OUTHEIGHT, GL_RGBA);

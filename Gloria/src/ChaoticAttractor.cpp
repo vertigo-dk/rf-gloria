@@ -12,7 +12,7 @@
 void ChaoticAttractor::setup(){
     
     name = "Chaotic";
-    oscAddress = "/cha";
+    oscAddress = "cha";
     
     params.add(drawLines.set("drawLines", false),
         iterate.set("iterate", false),

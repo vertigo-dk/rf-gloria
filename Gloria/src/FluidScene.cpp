@@ -11,7 +11,7 @@
 void FluidScene::setup(){
     
     name = "FluidScene";
-    oscAddress = "/fluid";
+    oscAddress = "fluid";
     
     float scaleFactor = 1.0;
     
@@ -19,13 +19,6 @@ void FluidScene::setup(){
 	drawHeight = OUTHEIGHT/scaleFactor;
 	
     fluid.allocate(drawWidth, drawHeight, 0.2);
-    
-    // Seting the gravity set up & injecting the background image
-    //
-    fluid.dissipation = 0.998;
-    fluid.velocityDissipation = 0.97;
-    
-	//fluid.setGravity(ofVec2f(0.0,0.0));
     
     //  Set obstacle
     //
@@ -96,18 +89,11 @@ void FluidScene::setup(){
     gui->addSlider("/intensity/x", 0, 30, &intensity);
     */
     
-    params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)));
-    params.add(emitPos.set("emit", ofVec2f(0.5,0.5), ofVec2f(0,0), ofVec2f(1,1)));
-    
-    params.add(intensity.set("intensity", 0, 0, 30));
-    
-    params.add(dissipation.set("dissipation", 0.99, 0, 1));
-    
-    params.add(velocityDissipation.set("velocityDissipation", 0.99, 0, 1));
-    params.add(temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1));
-    params.add(pressureDissipation.set("pressureDissipation", 0.99, 0, 1));
-    
-    params.add(clear.set("clear", false));
+    params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
+               emitPos.set("emit", ofVec2f(0.5,0.5), ofVec2f(0,0), ofVec2f(1,1)),intensity.set("intensity", 0, 0, 30),
+               dissipation.set("dissipation", 0.99, 0, 1),
+            velocityDissipation.set("velocityDissipation", 0.99, 0, 1),
+            temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1),pressureDissipation.set("pressureDissipation", 0.99, 0, 1),clear.set("clear", false));
     
     drawObstacles = true;
 }

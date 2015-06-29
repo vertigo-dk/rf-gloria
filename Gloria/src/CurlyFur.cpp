@@ -8,7 +8,7 @@
 
 void CurlyFur::setup(){
     name = "CurlyFur";
-    oscAddress = "/curly";
+    oscAddress = "curly";
     
     myfbo.allocate(OUTWIDTH/10, OUTHEIGHT/10, GL_RGBA);
     

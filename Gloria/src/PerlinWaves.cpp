@@ -11,7 +11,7 @@
 void PerlinWaves::setup(){
 
     name = "PerlinWaves";
-    oscAddress = "/plw";
+    oscAddress = "plw";
     
     time.x = 0;
     time.y = 0;

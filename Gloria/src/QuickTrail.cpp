@@ -11,7 +11,7 @@
 void QuickTrail::setup(){
     
     name = "QuickTrail";
-    oscAddress = "/quicktrail";
+    oscAddress = "quicktrail";
     
     time = 0;
 

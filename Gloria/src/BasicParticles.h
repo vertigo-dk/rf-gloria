@@ -15,7 +15,6 @@
 
 class BasicParticle {
 public:
-    
     void setup();
     void draw();
     void update();

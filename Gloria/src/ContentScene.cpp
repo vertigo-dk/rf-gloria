@@ -71,130 +71,118 @@ void ContentScene::setSceneParameters(){
 }
 
 void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
-    if(updatingParameter) return;
-    oscSender->sendParameter(parameter);
+    
+    // this check might not be good for BOOL clears for instance
+    // but necesarry to preserve interpolation on Lemur sliders
+    // clientside
+    // what happens if multiple interactions occur before this?
+    
+    if(lastOscUpdatedParam == parameter.getEscapedName()) {
+        
+    } else {
+        oscSender->sendParameter(parameter);
+    }
 }
-
 
 void ContentScene::setSceneGui(){
 }
 
 void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
     
+    lastOscUpdatedParam = "";
+    
     bool isScene = false;
-    //string loweraddr = ofToLower(m.getAddress());
-	vector<string> adrSplit = ofSplitString(m.getAddress(), "/");
-	string rest = ofSplitString(m.getAddress(), "/"+adrSplit[1])[1];
-	
+    
+    string adr = m.getAddress();
+    ofStringReplace(adr, "_", "/");
+    
+	vector<string> adrSplit = ofSplitString(adr, "/");
+    
+	//string rest = ofSplitString(loweraddr, "/"+adrSplit[1])[1];
     //cout<<adrSplit[1]<<"   "<<rest<<endl;
     
-    if(ofToLower(adrSplit[1]) == "scene"+ofToString(index) || ofToLower("/"+adrSplit[1]) == oscAddress || ofToLower(adrSplit[1]) == ofToLower(name)) {
-        
-        adrSplit[1] = name;
-        
-        isScene = true;
-    } /*else {
-        
-        // check the underscore formatting
-        
-        adrSplit = ofSplitString(loweraddr, "_");
-        if(adrSplit.size() > 1) {
-            
-        rest = adrSplit[1];
-            
-            // also allow full name here
-            
-        if (adrSplit[0] == "scene"+ofToString(index) || adrSplit[0] == oscAddress || adrSplit[0] == ofToLower(name)) {
-            
-            // have it match the original / formatting
-            rest = "/" + rest;
-            isScene = true;
-        }
-        }
-    }*/
+    string sceneName = adrSplit[1];
+    string paramName = adrSplit[2];
     
+    if(sceneName == oscAddress) sceneName = name;
     
-    if(isScene) {
+    // if there is a paramName/x (x,y,z,r,g,b ...)
+    bool hasSpec = (adrSplit.size() > 3);
+    string spec = "";
+    if(hasSpec) {
+        spec = adrSplit[3];
+    }
+    
+    bool sX = (!hasSpec || spec == "x"); // because Lemur defaults to paramname/x - but also sends a touch intensity value on paranname/z
+    
+    ofAbstractParameter * p = &params;
+    
+    if(params.getEscapedName() == sceneName) {
         
-        updatingParameter = true;
+        if(params.contains(paramName)) {
+            lastOscUpdatedParam = paramName;
         
-        //oscReceiver->getParameter(params);
-        ofAbstractParameter * p = &params;
+            p = &params.get(paramName);
         
-        /// potential issue with lemur sending address/z val
-        /// anything here goes address/fesr/sfdgfsdg/fdgsdfg
-        /// still hits address
-        
-        for(unsigned int i=0;i<adrSplit.size();i++){
+            if(p->type()==typeid(ofParameter<int>).name() && m.getArgType(0)==OFXOSC_TYPE_INT32){
             
-            if(p) {
-                if(adrSplit[i]==p->getEscapedName()){
-                    if(p->type()==typeid(ofParameterGroup).name()){
-                        if(adrSplit.size()>=i+1){
-                            p = &static_cast<ofParameterGroup*>(p)->get(adrSplit[i+1]);
-                        }
-                    }else if(p->type()==typeid(ofParameter<int>).name() && m.getArgType(0)==OFXOSC_TYPE_INT32){
-                        p->cast<int>() = m.getArgAsInt32(0);
-                    }else if(p->type()==typeid(ofParameter<float>).name() && m.getArgType(0)==OFXOSC_TYPE_FLOAT){
-                        p->cast<float>() = m.getArgAsFloat(0);
-                    }else if(p->type()==typeid(ofParameter<double>).name() && m.getArgType(0)==OFXOSC_TYPE_DOUBLE){
-                        p->cast<double>() = m.getArgAsDouble(0);
-                    }else if(p->type()==typeid(ofParameter<bool>).name() && (m.getArgType(0)==OFXOSC_TYPE_TRUE
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_FALSE
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_INT32
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_INT64
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_FLOAT
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_DOUBLE
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_STRING
-                                                                             || m.getArgType(0)==OFXOSC_TYPE_SYMBOL)){
-                        p->cast<bool>() = m.getArgAsBool(0);
-                    }else if(m.getArgType(0)==OFXOSC_TYPE_STRING){
-                        p->fromString(m.getArgAsString(0));
-                    }
-                }
+                if(sX) p->cast<int>() = m.getArgAsInt32(0);
+            
+        }else if(p->type()==typeid(ofParameter<float>).name() && m.getArgType(0)==OFXOSC_TYPE_FLOAT){
+            
+            if(sX) p->cast<float>() = m.getArgAsFloat(0);
+            
+        }else if(p->type()==typeid(ofParameter<double>).name() && m.getArgType(0)==OFXOSC_TYPE_DOUBLE){
+            if(sX) p->cast<double>() = m.getArgAsDouble(0);
+            
+        }else if(p->type()==typeid(ofParameter<bool>).name() && (m.getArgType(0)==OFXOSC_TYPE_TRUE
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_FALSE
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_INT32
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_INT64
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_FLOAT
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_DOUBLE
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_STRING
+                                                                 || m.getArgType(0)==OFXOSC_TYPE_SYMBOL)){
+            if(sX) p->cast<bool>() = m.getArgAsBool(0);
+            
+        } else if(m.getArgType(0)==OFXOSC_TYPE_STRING){
+            if(!hasSpec) {
+                p->fromString(m.getArgAsString(0));
+            }
+        } else if(p->type() == typeid(ofParameter<ofVec2f>).name()) {
+                
+                if(spec == "x") p->cast<ofVec2f>() = ofVec2f(m.getArgAsFloat(0), p->cast<ofVec2f>().get().y);
+                
+                if(spec == "y") p->cast<ofVec2f>() = ofVec2f(p->cast<ofVec2f>().get().x, m.getArgAsFloat(0));
+                
+                
+            } else if(p->type() == typeid(ofParameter<ofVec3f>).name()) {
+                
+                if(spec == "x") p->cast<ofVec3f>() = ofVec3f(m.getArgAsFloat(0), p->cast<ofVec3f>().get().y, p->cast<ofVec3f>().get().z);
+                
+                if(spec == "y") p->cast<ofVec3f>() = ofVec3f(p->cast<ofVec3f>().get().x, m.getArgAsFloat(0), p->cast<ofVec3f>().get().z);
+                
+                if(spec == "z") p->cast<ofVec3f>() = ofVec3f(p->cast<ofVec3f>().get().x, p->cast<ofVec3f>().get().y, m.getArgAsFloat(0));
+                
+            } else if(p->type() == typeid(ofParameter<ofColor>).name()) {
+                
+                if(spec == "r") p->cast<ofColor>() = ofColor(m.getArgAsFloat(0), p->cast<ofColor>().get().g, p->cast<ofColor>().get().b, p->cast<ofColor>().get().a);
+                
+                if(spec == "g") p->cast<ofColor>() = ofColor(p->cast<ofColor>().get().r, m.getArgAsFloat(0), p->cast<ofColor>().get().b, p->cast<ofColor>().get().a);
+                
+                if(spec == "b") p->cast<ofColor>() = ofColor(p->cast<ofColor>().get().r, p->cast<ofColor>().get().g, m.getArgAsFloat(0), p->cast<ofColor>().get().a);
+                
+                if(spec == "a") p->cast<ofColor>() = ofColor(p->cast<ofColor>().get().r, p->cast<ofColor>().get().g, p->cast<ofColor>().get().b, m.getArgAsFloat(0));
+                
             }
         }
-        
-        
-        // backward compatibility with lemur style adresses
-        
-        
-        if(params.contains(adrSplit[2])) {
             
-            string type = params.get(adrSplit[2]).type();
-            
-            if(typeid(ofParameter<ofVec2f>).name() == type) {
-                
-                ofParameter<ofVec2f> * p = &params.get(adrSplit[2]).cast<ofVec2f>();
-                
-                if(adrSplit.size() > 2) {
-                
-                    if(adrSplit[3] == "x") {
-                        p->set(ofVec2f(m.getArgAsFloat(0), p->get().y));
-                    }
-                    else if(adrSplit[3] == "y") {
-                        p->set(ofVec2f(p->get().x, m.getArgAsFloat(0)));
-                    }
-                }
-                
-            } else if(typeid(ofParameter<ofVec3f>).name() == type) {
-                
-                ofParameter<ofVec3f> * p = &params.get(adrSplit[2]).cast<ofVec3f>();
-                
-                if(adrSplit[3] == "x") {
-                    p->set(ofVec3f(m.getArgAsFloat(0), p->get().y, p->get().z));
-                }
-                else if(adrSplit[3] == "y") {
-                    p->set(ofVec3f(p->get().x, m.getArgAsFloat(0), p->get().z));
-                }
-                else if(adrSplit[3] == "z") {
-                    p->set(ofVec3f(p->get().x, p->get().y, m.getArgAsFloat(0)));
-                }
-            }
         }
-            updatingParameter = false;
-        }
+        
+        
 }
+    
+    //updatingParameter = false;
 
 void ContentScene::updateScene() {
     if(enabled) {
