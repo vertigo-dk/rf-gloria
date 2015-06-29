@@ -14,63 +14,37 @@ void ChaoticAttractor::setup(){
     name = "Chaotic";
     oscAddress = "/cha";
     
-    searchChaos = true;
-    
     params.add(drawLines.set("drawLines", false),
         iterate.set("iterate", false),
         scale.set("scale", ofVec2f(1,1), ofVec2f(0,0), ofVec2f(2,2)),
                maxIterations.set("maxIterations", 10000, 200, 4000000),
-               lineWidth.set("lineWidth", 10,1,20));
+               lineWidth.set("lineWidth", 10,1,20),
+               discardNonChaos.set("discardNonChaos", true));
     
 }
 
 void ChaoticAttractor::update(){
     
-    if( !attractor.drawIt || attractor.I > maxIterations) {
+    if(discardNonChaos) {
+        if(!attractor.drawIt) {
+            attractor = Attractor();
+        }
+    }
+    
+    if(attractor.I > maxIterations) {
         //cout<<attractor.type<<endl;
         //if(searchChaos)
         attractor = Attractor();
     }
     
+    if(iterate) {
     for(int i=0; i<1000; i++) {
         
         attractor.iterate();
-        
-        /*if (attractor.type == "chaotic") {
-            i+=100;
-        }*/
-        
-        /*if(attractor.I % 200 == 0 && attractor.I > 40000) {
-         mesh.clear();
-         for(int i=0; i<attractor.d.size(); i++){
-         float x = ofGetWidth() * (attractor.d[i].x - attractor.xmin) / (attractor.xmax-attractor.xmin);
-         float y = ofGetHeight() * (attractor.d[i].y - attractor.ymin) / (attractor.ymax-attractor.ymin);
-         mesh.addVertex(ofVec2f(x,y));
-         }
-         
-         }*/
-        
-        
-        // if(attractor.I > 100 && attractor.drawIt) {
-        
-        //   if(mesh.getNumVertices() > attractor.I) {
-        //     mesh.clear();
-        // }
-        
-        /*float x = ofGetWidth() * (attractor.d[i].x - attractor.xmin) / (attractor.xmax-attractor.xmin);
-         float y = ofGetHeight() * (attractor.d[i].y - attractor.ymin) / (attractor.ymax-attractor.ymin);
-         */
-        
-        // mesh.addVertex(attractor.d[attractor.I]);
-        
-        //}
-        
-        
-
-        
-        if(attractor.type == "chaotic") {
+            if(attractor.type == "chaotic") {
             //searchChaos = false;
         }
+    }
     }
 }
 
@@ -86,10 +60,13 @@ void ChaoticAttractor::draw(){;
     ofTranslate(OUTWIDTH/2, OUTHEIGHT/2);
     ofScale(OUTWIDTH*scale.get().x,OUTHEIGHT*scale.get().y);
     
+    glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
+    
     ofSetLineWidth(lineWidth.get());
     if(drawLines) {
-        attractor.mesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+        attractor.mesh.setMode(OF_PRIMITIVE_LINES);
     } else {
+        glPointSize(10);
         attractor.mesh.setMode(OF_PRIMITIVE_POINTS);
     }
     

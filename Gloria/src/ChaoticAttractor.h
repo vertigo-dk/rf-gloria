@@ -231,14 +231,10 @@ public:
     //ofParameter<ofVec2f> scatter;
     //ofVec2f time;
     
-    
-    
-    
-    
     Attractor attractor;
     ofMesh mesh;
     
-    ofParameter<bool> searchChaos;
+    ofParameter<bool> discardNonChaos;
     ofParameter<bool> iterate;
     
     ofParameter<bool> drawLines;
