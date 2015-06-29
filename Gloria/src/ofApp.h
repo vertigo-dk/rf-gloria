@@ -57,7 +57,7 @@ public:
     ofColor bg;
     //ofFbo fboOut;
     Mapping * mapping;
-    ofxXmlSettings XML;
+    ofxXmlSettings settings;
     
     // gui
     ofParameterGroup globalParameters; 

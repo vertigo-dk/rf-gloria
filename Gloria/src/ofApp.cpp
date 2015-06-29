@@ -17,6 +17,9 @@ void ofApp::setup() {
     
     ofSetWindowTitle("Gloria 2015");
     
+    
+    
+    
     directory.setup();
     
     //register for our directory's callbacks
@@ -25,6 +28,8 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
     
+    settings.loadFile("appSettings.xml");
+    dirIdx = settings.getValue("syphonInputSelected", -1);
     
     syphonIn = new ofxSyphonClient();
     syphonIn->setup();
@@ -70,8 +75,8 @@ void ofApp::setup() {
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
     
-    /*
-    globalParameters.add(drawMapping.set("Draw mapping", true));
+    
+    /*globalParameters.add(drawMapping.set("Draw mapping", true));
     
     mainGui.setup(globalParameters);
     mainGui.setName("Gloria");
@@ -326,10 +331,7 @@ void ofApp::selectSyphonInput(int input){
         for(int i=0; i<scenes.size(); i++) {
             scenes[i]->syphonIn = &syphonInputs[input];
         }
-        
-        
     }
-
 }
 
 //--------------------------------------------------------------
@@ -402,7 +404,10 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 //--------------------------------------------------------------
 void ofApp::exit()
 {
-    //guiTabBar->saveSettings("GUI/guiSettings.xml", "ui-");
+
+    settings.setValue("syphonInputSelected", dirIdx);
+    settings.saveFile("appSettings.xml");
+    
     for(int i=0;i<scenes.size();i++) {
         scenes[i]->exit();
     }
