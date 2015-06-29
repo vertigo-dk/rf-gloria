@@ -26,7 +26,7 @@ public:
     float ageDifference;
     
     SubTriangle(){
-        ageDifference = ofRandom(0.3,1.0);
+        ageDifference = ofRandom(0.7,0.0);
         age = 0;
         
         drawLevel = 0;
@@ -53,12 +53,12 @@ public:
     void update(){
         
         //if(level == 0){
-        if(drawLevelGoal > drawLevel){
+        /*if(drawLevelGoal > drawLevel){
             drawLevel += 1.0/MAX(10,ofGetFrameRate()) * ageDifference;
         }
         if(drawLevelGoal < drawLevel){
             drawLevel -= 1.0/MAX(10,ofGetFrameRate()) * ageDifference;
-        }
+        }*/
         drawLevel = drawLevelGoal;
 //        drawLevel += (drawLevelGoal - drawLevel)*0.2 *1.0/MAX(10,ofGetFrameRate()) * ageDifference;
        // }
@@ -71,8 +71,21 @@ public:
                 anchor *= ofVec3f(0,0,1);
             }
             ofVec3f p =corners[i]->origPos + anchor;
-            p.z += corners[i]->randomSeed.z  * 100;
-               corners[i]->pos = p;
+            
+           /* float a = 0;
+            if(drawLevel >= level-2 ) {
+                if(drawLevel >= level-1){
+                    a = 1;
+                } else {
+                    a = ofClamp(drawLevel-floorf(drawLevel), 0, 1);
+                }
+
+            }
+           
+            p.z += corners[i]->randomSeed.z  * 1000 * a;
+            */
+            
+            corners[i]->pos = p;
             
             /*if(level <= drawLevel+1){
                 float f = MIN(1,MAX(0,drawLevel-level));
@@ -282,7 +295,7 @@ public:
     
     void collapse(SubTriangle * triangle);
     
-    void drawTriangle(SubTriangle * triangle, float opacity, ofVec3f parentNormal = ofVec3f(0,0,1));
+    void drawTriangle(SubTriangle * triangle, float opacity);
     void drawTriangleWireframe(SubTriangle * triangle);
     
     ofVec2f center;

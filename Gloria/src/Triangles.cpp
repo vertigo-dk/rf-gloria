@@ -21,7 +21,7 @@ void Triangles::setup(){
                syphonMeshDistortion.set("Syphon Mesh Distortion", 0, 0, 1),
                meshDistortion.set("Mesh Distortion", 0, -1, 1),
                light.set("Light Amount", 0, 0, 1),
-//               lightSpeed.set("lightSpeed", 0, 0, 1),
+               //               lightSpeed.set("lightSpeed", 0, 0, 1),
                color.set("Color", ofFloatColor(1,1,1), ofFloatColor(0,0,0), ofFloatColor(1,1,1)),
                fillAlpha.set("Fill alpha", 1, 0, 1),
                wireframeAlpha.set("Wireframe alpha", 1, 0, 1),
@@ -222,47 +222,57 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
 
 
 
-void Triangles::drawTriangle(SubTriangle * triangle, float opacity, ofVec3f parentNormal){
-    ofVec3f normal = triangle->normal();
+void Triangles::drawTriangle(SubTriangle * triangle, float opacity){
+    //ofVec3f normal = triangle->normal();
     
-    bool subDraw = false;
+    
+    /*bool subDraw = false;
     for(int i=0;i<triangle->subTriangles.size();i++){
-        if(triangle->subTriangles[i]->drawLevel-1.5*triangle->subTriangles[i]->ageDifference  >= triangle->subTriangles[i]->level){
+        if(triangle->subTriangles[i]->drawLevel-1.0*triangle->subTriangles[i]->ageDifference  >= triangle->subTriangles[i]->level){
             subDraw = true;
         }
-    }
-    if(subDraw){
-        for(int j=0;j<triangle->subTriangles.size();j++){
-            drawTriangle(triangle->subTriangles[j], opacity, normal);
+    }*/
+    /*if(!subDraw)*/{
+        
+        
+        
+        
+        float a = triangle->drawLevel - triangle->level- triangle->ageDifference;
+        float aaa = MIN(1,MAX(0,a*2.0));
+        if(triangle->level == 0){
+            aaa = 1;
         }
-    } else {
-        
-        ofVec3f ambient = ofVec3f(10);
-        
-        float a = triangle->drawLevel-1.5*triangle->ageDifference - triangle->level;
-        float aaa = MIN(1,MAX(0,a));
-        
+       // aaa = 1.0;
         ofVec3f center = triangle->getCenter();
-        
-        ofVec3f n = normal * aaa + parentNormal * (1.0-aaa);
-        
-        ofVec3f trianglePos = center;
-        ofVec3f lightDir = ( trianglePos- lightPos);
-        
-        //Tegn billede 1 pixel pr trekant
-        for(int u=0;u<3;u++){
-            //glNormal3f(n.x, n.y, n.z);
-            ofVec3f pos = triangle->getPos(u) ;
+        if(aaa > 0){
             
-            glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
-                              , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+            //  ofVec3f n = normal * aaa + parentNormal * (1.0-aaa);
             
-            glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
-                              , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
+            ofVec3f trianglePos = center;
+            ofVec3f lightDir = ( trianglePos- lightPos);
             
-            glVertex3d(pos.x, pos.y, pos.z);
+            //Tegn billede 1 pixel pr trekant
+            for(int u=0;u<3;u++){
+                //glNormal3f(n.x, n.y, n.z);
+                ofVec3f pos = triangle->getPos(u) ;
+                glColor4f(1,1,1,aaa);
+                glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
+                                  , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
+                
+                glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
+                                  , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
+                
+                glVertex3d(pos.x, pos.y, 0/*pos.z*/);
+            }
+            
+            for(int j=0;j<triangle->subTriangles.size();j++){
+                drawTriangle(triangle->subTriangles[j], opacity);
+            }
         }
     }
+    
+    //if(subDraw){
+            //}
 }
 
 void Triangles::draw(){
@@ -280,15 +290,16 @@ void Triangles::draw(){
         debugShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
         debugShader.setUniform1f("meshDistortion",meshDistortion);
         syphonIn->bind();
-        material.setShininess(15);
+       // material.setShininess(15);
+       
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+          
         
-        
-        
-        ofEnableLighting();
-        pointLight.enable();
-        material.begin();
-        
-        
+        //ofEnableLighting();
+       // pointLight.enable();
+       // material.begin();
+
+       //ofDisableAlphaBlending();
         glBegin(GL_TRIANGLES);
         for(int i=0;i<mapping->triangles.size();i++){
             drawTriangle(subTriangles[mapping->triangles[i]],1);
@@ -296,9 +307,9 @@ void Triangles::draw(){
         glEnd();
         
         
-        material.end();
+        //material.end();
         
-        pointLight.disable();
+        //pointLight.disable();
         ofDisableLighting();
         
         debugShader.end();

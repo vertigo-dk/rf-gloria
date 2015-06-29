@@ -143,7 +143,8 @@ void main()
     //float bump = length(color);
     
     color = color*textureAmount* gl_Color.rgb + (1.-textureAmount) * gl_Color.rgb;
-    
+    vec3 origColor = color;
+
     vec3 n = (eyeSpaceNormal);
     n = normalize(n);
     if(n.z < 0)
@@ -152,9 +153,8 @@ void main()
    color *= calc_lighting_color(n).rgb * lightAmount + (1. - lightAmount) ;
     //color = n;
 
-    gl_FragColor.rgb = color;
+    gl_FragColor.rgb = color * gl_Color.a ;//+ origColor*(1.0-gl_Color.a);
 	gl_FragColor.a +=  gl_Color.a;
-    
    // gl_FragColor.rgb = vec3(gl_TexCoord[0].y/100.00);
 	//gl_FragColor = gl_Color;//vec4(normal, 1.0);// vec4(1.0) * length(vec3(0.0, 0.0, 1.0) * normal); // vec4(normal.x, 0., 0.0, 1.0);//gl_Color; //* texture2D(tex, gl_TexCoord[0].xy);
 }

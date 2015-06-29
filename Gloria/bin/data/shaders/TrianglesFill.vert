@@ -135,6 +135,16 @@ vec4 calc_lighting_color(in vec3 normal) {
     return lightingColor;
 }
 
+float rand(vec2 co)
+{
+    float a = 12.9898;
+    float b = 78.233;
+    float c = 43758.5453;
+    float dt= dot(co.xy ,vec2(a,b));
+    float sn= mod(dt,3.14);
+    return fract(sin(sn) * c);
+}
+
 void main()
 {
 	vertexPos = gl_Vertex;
@@ -149,9 +159,13 @@ void main()
 	gl_FrontColor = gl_Color;
 	gl_Position = ftransform();
 
-    gl_Position.z = gl_Position.z*(1.0-syphonMeshDistortion) + length(color)*250.0*syphonMeshDistortion;
-    gl_Position.z *= meshDistortion;
+    float random = fract( fract(sin((gl_MultiTexCoord1.x+gl_MultiTexCoord1.y*19)/100.0)) + fract(sin(gl_MultiTexCoord1.y/103.0)));//fract(sin(dot(vertexPos.xy ,vec2(12.9898,78.233))) * 43758.5453);
+    
+    float z = 200.0*random*(1.0-syphonMeshDistortion) + length(color)*250.0*syphonMeshDistortion;
+    z *= meshDistortion * 0.01;
+//    gl_Position.z = random*(1.0-syphonMeshDistortion) + length(color)*250.0*syphonMeshDistortion;
+    gl_Position.z = z*100.0;
     
     vec2 midOffset = (vec2(0.5,0.5)-gl_Position.xy);
-    gl_Position.xy -= meshDistortion*syphonMeshDistortion*length(color) * midOffset/10;
+    gl_Position.xy -= 0.3*syphonMeshDistortion*z * midOffset/10;
 }
