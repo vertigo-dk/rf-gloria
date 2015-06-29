@@ -84,7 +84,12 @@ void ofApp::setup() {
     
     for(int i=0; i<scenes.size(); i++) {
         // layout scene gui panels horizontally
-        scenes[i]->panel.setPosition((i+1)*scenes[i]->panel.getWidth()+10, 5);
+        
+        
+        int x = settings.getValue(scenes[i]->name+"_panel_pos_x", 0);
+        int y = settings.getValue(scenes[i]->name+"_panel_pos_y", 1);
+        
+        scenes[i]->panel.setPosition(x,y);
     }
     
     // Syphon merger (bluemac hack)
@@ -406,12 +411,18 @@ void ofApp::exit()
 {
 
     settings.setValue("syphonInputSelected", dirIdx);
-    settings.saveFile("appSettings.xml");
     
     for(int i=0;i<scenes.size();i++) {
+        
+        settings.setValue(scenes[i]->name+"_panel_pos_x", scenes[i]->panel.getPosition().x);
+        settings.setValue(scenes[i]->name+"_panel_pos_y", scenes[i]->panel.getPosition().y);
+        
         scenes[i]->exit();
+        
     }
     
+    
+    settings.saveFile("appSettings.xml");
     mapping->save();
     
     delete mapping;
