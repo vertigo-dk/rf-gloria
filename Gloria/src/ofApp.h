@@ -42,6 +42,10 @@ public:
     //ofxSyphonServer syphonOut;
     ofxSyphonClient * syphonIn; // selected syphon in
     vector<ofxSyphonClient> syphonInputs;
+
+    // Syphon Merger
+    ofxSyphonServer syphonMerger;
+    ofFbo syphonMergerFbo;
     
     // TODO: list of syphonClients
     ofxSyphonServerDirectory directory;
@@ -68,4 +72,6 @@ public:
     bool drawMask;
     
     vector<ContentScene*> scenes;
+    
+    void selectSyphonInput(int input);
 };

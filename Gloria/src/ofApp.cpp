@@ -1,5 +1,9 @@
 #include "ofApp.h"
 
+int syphonRowHeight = 70;
+int syphonRowMargin = 32;
+float syphonRowWidth = syphonRowHeight * 4.75;
+
 void ofApp::setup() {
     
     ofEnableAlphaBlending();
@@ -24,7 +28,7 @@ void ofApp::setup() {
     
     syphonIn = new ofxSyphonClient();
     syphonIn->setup();
-
+    
     
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
@@ -44,18 +48,18 @@ void ofApp::setup() {
     
     // we composite in millumin via syphon, uncomment this to compsite locally + section where scenes are drawn into fbo's
     /*ofFbo::Settings fboSettings;
-    fboSettings.height = OUTHEIGHT;
-    fboSettings.width  = OUTWIDTH;
-    fboSettings.numSamples = 4;
-    fboSettings.useDepth   = false;
-    
-    fboOut.allocate(fboSettings);
-    fboOut.setUseTexture(true);
-    
-    fboOut.begin();
-    ofBackground(0,0,0,255);
-    fboOut.end();
-      */
+     fboSettings.height = OUTHEIGHT;
+     fboSettings.width  = OUTWIDTH;
+     fboSettings.numSamples = 4;
+     fboSettings.useDepth   = false;
+     
+     fboOut.allocate(fboSettings);
+     fboOut.setUseTexture(true);
+     
+     fboOut.begin();
+     ofBackground(0,0,0,255);
+     fboOut.end();
+     */
     
     
     for(int i=0; i<scenes.size(); i++) {
@@ -66,16 +70,21 @@ void ofApp::setup() {
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
     
-    
+    /*
     globalParameters.add(drawMapping.set("Draw mapping", true));
     
     mainGui.setup(globalParameters);
     mainGui.setName("Gloria");
+    */
     
     for(int i=0; i<scenes.size(); i++) {
         // layout scene gui panels horizontally
         scenes[i]->panel.setPosition((i+1)*scenes[i]->panel.getWidth()+10, 5);
     }
+    
+    // Syphon merger (bluemac hack)
+    syphonMerger.setName("BlueMac");
+    syphonMergerFbo.allocate(OUTWIDTH, OUTHEIGHT);
     
 }
 
@@ -143,22 +152,42 @@ void ofApp::update() {
     while(oscReceiver.hasWaitingMessages()){
         
         // get the next message
-		ofxOscMessage m;
-		oscReceiver.getNextMessage(&m);
-
+        ofxOscMessage m;
+        oscReceiver.getNextMessage(&m);
+        
         //cout<<m.getAddress()<<endl;
         for(int i=0; i<scenes.size();i++) {
             scenes[i]->parseSceneOscMessage(m);
         }
     }
-
+    
     // Scenes
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->updateScene();
     }
+    
 }
 
 void ofApp::draw() {
+    // Syphon merger
+    syphonMergerFbo.begin();
+    ofClear(0, 0, 0);
+    ofSetColor(255);
+    ofFill();
+    for(int i=0; i<syphonInputs.size(); i++) {
+        if(syphonInputs[i].getApplicationName() == "Black Syphon"){
+            if(syphonInputs[i].getServerName() == "DeckLink SDI 4K (2)"){
+                syphonInputs[i].draw(0, 0, OUTWIDTH/2, OUTHEIGHT);
+            }
+            if(syphonInputs[i].getServerName() == "DeckLink SDI 4K (1)"){
+                syphonInputs[i].draw(OUTWIDTH/2, 0, OUTWIDTH/2, OUTHEIGHT);
+            }
+        }
+    }
+    syphonMergerFbo.end();
+    syphonMerger.publishTexture(&syphonMergerFbo.getTexture());
+    
+    
     
     // Draw scene fbo's
     ofPushStyle();
@@ -175,9 +204,9 @@ void ofApp::draw() {
     ofDisableDepthTest();
     ofBackground(0, 0, 0);
     ofSetColor(255,255,255,255);
-
+    
     float scale = 0.08;
-    ofPushMatrix();{
+    /*ofPushMatrix();{
         ofTranslate(ofGetWidth()-scale*OUTWIDTH-40, 40);
         
         ofSetColor(255,255,255,255);
@@ -195,17 +224,17 @@ void ofApp::draw() {
             } else {
                 ofSetColor(255,0,0,100);
             }
-
+            
             ofDrawRectangle(-1, -1, scenes[i]->fbo.getWidth()*scale+2, scenes[i]->fbo.getHeight()*scale+2);
-           // fboOut.draw(0, 0);
-            ofSetColor(255,255,255,255);            
+            // fboOut.draw(0, 0);
+            ofSetColor(255,255,255,255);
             if(scenes[i]->enabled) {
                 scenes[i]->fbo.draw(0,0, scenes[i]->fbo.getWidth()*scale, scenes[i]->fbo.getHeight()*scale);
             }
             ofSetColor(255);
             
             ofDrawBitmapString(scenes[i]->name, ofPoint(0,-3));
-
+            
             if(drawGuide) {
                 //ofSetColor(255,255,255,96);
                 ofPushMatrix();
@@ -218,38 +247,38 @@ void ofApp::draw() {
             ofPopMatrix();
         }
         
-    }ofPopMatrix();
-   
+    }ofPopMatrix();*/
+    
     ofSetColor(255);
     ofDrawBitmapString("FPS: " + ofToString(ofGetFrameRate()), ofGetWidth()-200, 20);
     
     /*if(mapping->selectedCorner) {
-        ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
-    }*/
+     ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
+     }*/
+    
+
     
     for(int i=0; i<syphonInputs.size(); i++) {
-        
-        //
-        
-        ofSetColor(255,255,255);
-        
-        if(dirIdx == i) {
-            syphonInputs[i].draw(0, 20, syphonInputs[i].getWidth()/10, syphonInputs[i].getHeight()/10);
-        }
-        
-        ofPushMatrix();
-        ofTranslate(20, 150+i*60);
-        
-        if(dirIdx == i) {
-            ofSetColor(0,255,0);
-        }
-        
-        ofDrawBitmapString(ofToString(i) + ": " + syphonInputs[i].getApplicationName() + " " + syphonInputs[i].getServerName(), 0, 0);
-        
+       ofSetColor(255,255,255);
+    
+        ofPushMatrix();{
+            ofTranslate(20, i*(syphonRowHeight+syphonRowMargin));
+            if(i*syphonRowHeight > ofGetHeight()-100){
+                ofTranslate(syphonRowWidth+20, -ofGetHeight()+40);
+            }
+            syphonInputs[i].draw(0, 10, syphonRowWidth, syphonRowHeight);
+            
+            if(syphonInputs[i].getApplicationName() == "GloriaDebug"){
+                ofSetColor(150, 150, 255);
+            }
 
-        
-        
-        ofPopMatrix();
+            if(dirIdx == i) {
+                ofSetColor(0,255,0);
+            }
+            
+            ofDrawBitmapString(ofToString(i) + ": " + syphonInputs[i].getApplicationName() + " " + syphonInputs[i].getServerName(), 0, 0);
+            
+        }ofPopMatrix();
         
         
     }
@@ -283,46 +312,52 @@ void ofApp::drawGrid() {
         mapping->triangles[i]->mesh.drawWireframe();
     }
 }
+
+void ofApp::selectSyphonInput(int input){
+    if(input > syphonInputs.size() - 1)
+        input = 0;
+    
+    if(directory.isValidIndex(input)){
+        /*syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
+         syphonIn->setApplicationName(directory.getServerList()[dirIdx].appName);*/
+        
+        dirIdx = input;
+        //syphonIn = &syphonInputs[dirIdx];
+        for(int i=0; i<scenes.size(); i++) {
+            scenes[i]->syphonIn = &syphonInputs[input];
+        }
+        
+        
+    }
+
+}
+
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
     if(key == 'i') {
-        dirIdx++;
-        if(dirIdx > syphonInputs.size() - 1)
-        dirIdx = 0;
-        
-        if(directory.isValidIndex(dirIdx)){
-            /*syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
-            syphonIn->setApplicationName(directory.getServerList()[dirIdx].appName);*/
-            
-            //syphonIn = &syphonInputs[dirIdx];
-            for(int i=0; i<scenes.size(); i++) {
-                scenes[i]->syphonIn = &syphonInputs[dirIdx];
-            }
-            
-            
-        }
+        selectSyphonInput(dirIdx+1);
     }
     
     /*if(key == 'n') {
-        mapping->nextCorner();
-    }
-    
-    if(key == 'm') {
-        mapping->prevCorner();
-    }
-    
-    if(mapping->selectedCorner) {
-        if(key == OF_KEY_UP) {
-            mapping->selectedCorner->pos.z += 1;
-            mapping->updateMeshes();
-        }
-    
-        if(key == OF_KEY_DOWN) {
-            mapping->selectedCorner->pos.z -= 1;
-            mapping->updateMeshes();
-        }
-    }*/
+     mapping->nextCorner();
+     }
+     
+     if(key == 'm') {
+     mapping->prevCorner();
+     }
+     
+     if(mapping->selectedCorner) {
+     if(key == OF_KEY_UP) {
+     mapping->selectedCorner->pos.z += 1;
+     mapping->updateMeshes();
+     }
+     
+     if(key == OF_KEY_DOWN) {
+     mapping->selectedCorner->pos.z -= 1;
+     mapping->updateMeshes();
+     }
+     }*/
 }
 
 //--------------------------------------------------------------
@@ -339,6 +374,13 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+    for(int i=0; i<syphonInputs.size(); i++) {
+        if(x < syphonRowWidth+20){
+            if(i*(syphonRowHeight+syphonRowMargin) < y && (i+1)*(syphonRowHeight+syphonRowMargin) > y){
+                selectSyphonInput(i);
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
