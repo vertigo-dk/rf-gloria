@@ -361,6 +361,10 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 void ofApp::exit()
 {
     //guiTabBar->saveSettings("GUI/guiSettings.xml", "ui-");
+    for(int i=0;i<scenes.size();i++) {
+        scenes[i]->exit();
+    }
+    
     mapping->save();
     
     delete mapping;
