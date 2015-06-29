@@ -118,7 +118,7 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
         
         updatingParameter = true;
         
-        oscReceiver->getParameter(params);
+        //oscReceiver->getParameter(params);
         ofAbstractParameter * p = &params;
         
         /// potential issue with lemur sending address/z val
