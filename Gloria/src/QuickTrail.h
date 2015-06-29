@@ -20,6 +20,8 @@ struct Walker {
     Corner * dst;
 };
 
+
+
 class QuickTrail : public ContentScene {
 
 public:
@@ -31,18 +33,25 @@ public:
     
     vector<Walker> walkers;
     
-    int numtrails = 3;
-    float length;
+    ofParameter<int> numtrails = 3;
+    ofParameter<float> length;
     int long lastadded;
     
-    float circleRadius;
+    ofParameter<float> circleRadius;
     
-    bool random;
-    bool clear;
+    ofParameter<bool> random = false;
+    ofParameter<bool> clear;
     
     void parseOscMessage(ofxOscMessage * m);
     //void setGui();
     
     float time;
     float interval = 1;
+    ofParameter<float> speed;
+
+    ofParameter<bool> trails = false;
+    ofParameter<bool> walkersDots = true;
+    ofParameter<bool> circles = false;
+    ofParameter<bool> linesPath = false;
+    ofParameter<bool> linesInters = false;
 };
