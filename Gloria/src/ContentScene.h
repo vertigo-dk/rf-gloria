@@ -34,7 +34,6 @@ public:
     
     int index;
     string name;
-    string oscAddress = "default";
     string lastOscUpdatedParam = "";
     
     ofFbo fbo;

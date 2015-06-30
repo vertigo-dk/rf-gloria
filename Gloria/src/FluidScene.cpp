@@ -10,8 +10,7 @@
 
 void FluidScene::setup(){
     
-    name = "FluidScene";
-    oscAddress = "fluid";
+    name = "fluid";
     
     float scaleFactor = 1.0;
     

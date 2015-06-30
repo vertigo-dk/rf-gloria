@@ -98,13 +98,8 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
     
 	vector<string> adrSplit = ofSplitString(adr, "/");
     
-	//string rest = ofSplitString(loweraddr, "/"+adrSplit[1])[1];
-    //cout<<adrSplit[1]<<"   "<<rest<<endl;
-    
     string sceneName = adrSplit[1];
     string paramName = adrSplit[2];
-    
-    if(sceneName == oscAddress) sceneName = name;
     
     // if there is a paramName/x (x,y,z,r,g,b ...)
     bool hasSpec = (adrSplit.size() > 3);
@@ -181,8 +176,6 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
         
         
 }
-    
-    //updatingParameter = false;
 
 void ContentScene::updateScene() {
     if(enabled) {

@@ -75,8 +75,7 @@ bool circle_circle_intersection(float x0, float y0, float r0,
 
 void QuickTrail::setup(){
     
-    name = "QuickTrail";
-    oscAddress = "quicktrail";
+    name = "quicktrail";
     
     time = 0;
 

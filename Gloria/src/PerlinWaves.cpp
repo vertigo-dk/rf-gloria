@@ -9,9 +9,7 @@
 #include "PerlinWaves.h"
 
 void PerlinWaves::setup(){
-
-    name = "PerlinWaves";
-    oscAddress = "plw";
+    name = "perlinwaves";
     
     time.x = 0;
     time.y = 0;

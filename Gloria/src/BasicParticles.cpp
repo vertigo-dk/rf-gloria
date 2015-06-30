@@ -46,19 +46,20 @@ void BasicParticle::update() {
 ///////////////////
 
 void BasicParticles::setup(){
-    name = "BasicParticles";
-    oscAddress = "basicparticles";
+    name = "basicparticles";
     
     syphonFbo.allocate(OUTWIDTH/10, OUTHEIGHT/10, GL_RGBA);
     pingPongFbo1.allocate(OUTWIDTH, OUTHEIGHT, GL_RGBA);
     pingPongFbo2.allocate(OUTWIDTH, OUTHEIGHT, GL_RGBA);
     
-    pspeed = 5;
-    psize = 20;
-    pkill = 10;
-    totalCount = 10000;
-    fade = 5;
-    pFadeWithAge = 0.03;
+    params.add(
+               psize.set("size", 20, 0, 50),
+               pspeed.set("speed", 5, 0.1, 50),
+               pFadeWithAge.set("fadeparticle", 0.03, 0, 1),
+               pkill.set("kill", 10, 10, 1000),
+               totalCount.set("totalcount", 10000, 500, 40000),
+               fade.set("fade", 5, 0, 10),
+               trace.set("trace", false));
     
     particles.reserve(totalCount);
     iterate = 0;
