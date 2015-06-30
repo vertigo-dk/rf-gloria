@@ -28,12 +28,13 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
     
-    settings.loadFile("appSettings.xml");
-    dirIdx = settings.getValue("syphonInputSelected", -1);
     
     syphonIn = new ofxSyphonClient();
     syphonIn->setup();
     
+    settings.loadFile("appSettings.xml");
+    dirIdx = settings.getValue("syphonInputSelected", -1);
+    selectSyphonInput(dirIdx);
     
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
