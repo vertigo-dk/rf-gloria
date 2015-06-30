@@ -49,7 +49,7 @@ void ofApp::setup() {
     scenes.push_back(new BasicParticles());
     //scenes.push_back(new ColorPalette());
     scenes.push_back(new ChaoticAttractor());
-    //scenes.push_back(new PetriDish());
+    scenes.push_back(new PetriDish());
     
     
     // we composite in millumin via syphon, uncomment this to compsite locally + section where scenes are drawn into fbo's
