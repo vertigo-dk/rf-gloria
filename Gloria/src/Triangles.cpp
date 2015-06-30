@@ -10,8 +10,7 @@
 
 
 void Triangles::setup(){
-    name = "Triangles";
-    oscAddress = "tri";
+    name = "triangles";
     
     params.add(
                divideTriangleSize.set("Triangles Size", 0, 5, 0),
@@ -22,7 +21,7 @@ void Triangles::setup(){
                meshDistortion.set("Mesh Distortion", 0, -1, 1),
                light.set("Light Amount", 0, 0, 1),
                //               lightSpeed.set("lightSpeed", 0, 0, 1),
-               color.set("Color", ofFloatColor(1,1,1), ofFloatColor(0,0,0), ofFloatColor(1,1,1)),
+               color.set("Color", ofFloatColor(1,1,1,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)),
                fillAlpha.set("Fill alpha", 1, 0, 1),
                wireframeAlpha.set("Wireframe alpha", 1, 0, 1),
                noise.set("Noise Amount", 0, 0, 2),

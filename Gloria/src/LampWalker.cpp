@@ -9,8 +9,7 @@
 #include "LampWalker.h"
 
 void LampWalker::setup(){
-    name = "Lamp Walker";
-    oscAddress = "lampwalker";
+    name = "lampwalker";
 }
 
 void LampWalker::update(){

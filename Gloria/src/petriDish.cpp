@@ -110,8 +110,7 @@ void Qt::qtdraw(){;
 
 
 void PetriDish::setup(){
-    name = "PetriDish";
-    oscAddress = "/petridish";
+    name = "petridish";
 
     outWidth 		= OUTWIDTH;
 	outHeight 		= OUTHEIGHT;

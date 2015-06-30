@@ -7,8 +7,7 @@
 #include "CurlyFur.h"
 
 void CurlyFur::setup(){
-    name = "CurlyFur";
-    oscAddress = "curly";
+    name = "curly";
     
     myfbo.allocate(OUTWIDTH/10, OUTHEIGHT/10, GL_RGBA);
     

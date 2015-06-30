@@ -47,7 +47,7 @@ public:
     void reassignParticle();
     void updateParticleSettings(BasicParticle& p);
     
-    bool trace;
+    ofParameter<bool> trace;
         
     //Particles
     vector<BasicParticle> particles;
@@ -63,11 +63,11 @@ public:
     bool toggleFbo;
     
     //particle
-    float pspeed;
-    float psize;
-    float pFadeWithAge;
-    float pkill;
-    float totalCount;
-    float fade;
+    ofParameter<float> pspeed;
+    ofParameter<float> psize;
+    ofParameter<float> pFadeWithAge;
+    ofParameter<float> pkill;
+    ofParameter<float> totalCount;
+    ofParameter<float> fade;
 };
 
