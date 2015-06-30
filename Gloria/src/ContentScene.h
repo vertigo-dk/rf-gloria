@@ -40,6 +40,8 @@ public:
     //bool enabled;
     ofParameter<bool>  enabled;
     
+    string panelSettingsPath;
+    
     float speed;
     
     int width;
