@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 216.0, 180.0, 1071.0, 480.0 ],
+		"rect" : [ 276.0, 223.0, 696.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,6 +38,19 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 523.0, 271.0, 99.0, 22.0 ],
+					"style" : "",
+					"text" : "udpreceive 6000"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-13",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -45,19 +58,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 880.0, 84.0, 100.0, 22.0 ],
 					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-12",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 640.0, 51.0, 145.0, 22.0 ],
-					"style" : "",
-					"text" : "/fluidscene/intensity/z 0.5"
 				}
 
 			}
@@ -71,19 +71,6 @@
 					"patching_rect" : [ 478.0, 43.0, 104.0, 22.0 ],
 					"style" : "",
 					"text" : "/plw/speed/y 0.24"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 314.0, 43.0, 149.0, 22.0 ],
-					"style" : "",
-					"text" : "/perlinwaves/speed/x 0.52"
 				}
 
 			}
@@ -107,9 +94,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 551.0, 102.0, 172.0, 22.0 ],
+					"patching_rect" : [ 77.0, 74.0, 126.0, 22.0 ],
 					"style" : "",
-					"text" : "/perlinwaves/speed \"0.5, 0.56\""
+					"text" : "/plw/speed \"0.5, 0.56\""
 				}
 
 			}
@@ -120,7 +107,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 378.0, 102.0, 165.0, 22.0 ],
+					"patching_rect" : [ 77.0, 36.0, 165.0, 22.0 ],
 					"style" : "",
 					"text" : "/PerlinWaves/speed \"1, 0.18\""
 				}
@@ -147,7 +134,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 137.0, 271.0, 234.0, 22.0 ],
 					"style" : "",
-					"text" : "/BasicParticles/opacity 0.395"
+					"text" : "/Chaotic/discardNonChaos 1"
 				}
 
 			}
@@ -189,15 +176,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-11", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-4", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-12", 0 ]
 				}
 
 			}
