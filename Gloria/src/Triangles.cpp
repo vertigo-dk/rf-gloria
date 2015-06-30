@@ -324,6 +324,8 @@ void Triangles::draw(){
      */
     
     ofSetColor(255);
+    
+    ofEnableAlphaBlending();
     //  glDisable(GL_LINE_SMOOTH);
     
 }
