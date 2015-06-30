@@ -14,8 +14,13 @@ void PerlinWaves::setup(){
     time.x = 0;
     time.y = 0;
     
-    params.add(speed.set("speed", ofVec2f(0, 0), ofVec2f(-1,-1),ofVec2f(1,1)));
-    params.add(scatter.set("scatter", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)));
+    params.add(
+               
+               speed.set("speed", ofVec2f(0, 0), ofVec2f(-1,-1),ofVec2f(1,1)),
+               
+               scatter.set("scatter", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1))
+               
+          );
 }
 
 void PerlinWaves::update(){
@@ -32,18 +37,23 @@ void PerlinWaves::draw(){;
      for(int i =0; i<mapping->triangles.size();i++) {
          
          ofSetColor( 255, 255, 255,
-                    ofNoise( (time.y/10) - mapping->triangles[i]->centroid.y
-                            / ( scatter.get().y*OUTHEIGHT) ) *255 );
+                    ofNoise((time.y/10) - mapping->triangles[i]->centroid.y
+                            / ( scatter.get().y*OUTHEIGHT),
+                    (time.x/10) - mapping->triangles[i]->centroid.x
+                    / ( scatter.get().x*OUTWIDTH) ) *255 );
    
-         mapping->triangles[i]->mesh.drawWireframe();
          
          
+         
+         mapping->triangles[i]->mesh.draw();
+         
+         /*
          ofSetColor( 255, 255, 255,
                     ofNoise( (time.x/10) - mapping->triangles[i]->centroid.x
                             / ( scatter.get().x*OUTWIDTH) ) *255 );
          
          mapping->triangles[i]->mesh.draw();
-         
+         */
      }
 }
 
