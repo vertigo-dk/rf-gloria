@@ -26,11 +26,11 @@ void FluidScene::setup(){
     
     ofSetColor(0,0);
     ofSetColor(255);
-    //ofCircle(drawWidth*0.5, drawHeight*0.35, 200);
+    ofDrawCircle(drawWidth*0.5, drawHeight*0.35, 200);
     fluid.end();
     
     obstacles.allocate(drawWidth, drawHeight);
-    
+    /*
     obstacles.begin();
     
     ofScale(1.0/scaleFactor, 1.0/scaleFactor);
@@ -45,8 +45,6 @@ void FluidScene::setup(){
         ofSetLineWidth(10);
         
         for(int c=0; c<3; c++) {
-            
-            
             ofVec3f pos = mapping->triangles[i]->corners[c]->pos;
             ofVec3f nPos;
             
@@ -63,32 +61,13 @@ void FluidScene::setup(){
         //mapping->triangles[i]->mesh.drawFaces();
         
     }
+    obstacles.end();*/
     
-    obstacles.end();
+    //fluid.setObstacles(obstacles);
+    fluid.setUseObstacles(false);
     
-    fluid.setObstacles(obstacles);
-    fluid.setUseObstacles(true);
-    
-    //fluid.setPasses(8);
+    fluid.setPasses(8);
 
-    // Adding constant forces
-    //
-    //fluid.addConstantForce(ofPoint(drawWidth*0.4,drawHeight*0.95), ofPoint(0,-2), ofFloatColor(1.0,0.1,0.0), 15.5f);
-    
-    
-    /*gui->addSlider("/gravity/x", -1, 1, &gravity.x);
-    gui->addSlider("/gravity/y", -1, 1, &gravity.y);
-    
-    gui->addSlider("/emit/x", 10, drawWidth-10, &emitPos.x);
-    gui->addSlider("/emit/y", 10, drawHeight-10, &emitPos.y);
-    
-    gui->addButton("/clear/x", &clear);
-    
-    gui->addToggle("/drawobstacles/x", &drawObstacles);
-    
-    gui->addSlider("/intensity/x", 0, 30, &intensity);
-    */
-    
     params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
                emitPos.set("emit", ofVec2f(0.5,0.5), ofVec2f(0,0), ofVec2f(1,1)),intensity.set("intensity", 0, 0, 30),
                dissipation.set("dissipation", 0.99, 0, 1),
