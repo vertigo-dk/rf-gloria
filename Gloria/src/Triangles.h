@@ -315,7 +315,8 @@ public:
     float noiseSeed; ;
     
     ofParameter<float> light;
-    ofParameter<float> lightSpeed;
+    ofParameter<ofVec3f> lightRotation;
+
     ofVec3f lightPos;
     
     ofLight pointLight;

@@ -151,6 +151,8 @@ void main()
     if(n.z < 0)
         n *= -1;
     
+//    n.x *= 0.0;
+    
    color *= calc_lighting_color(n).rgb * lightAmount + (1. - lightAmount) ;
     //color = n;
 

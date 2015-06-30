@@ -19,13 +19,14 @@ void Triangles::setup(){
                syphonOpacity.set("Syphon Texture", 0, 0, 1),
                syphonMeshDistortion.set("Syphon Mesh Distortion", 0, 0, 1),
                meshDistortion.set("Mesh Distortion", 0, -1, 1),
-               light.set("Light Amount", 0, 0, 1),
                //               lightSpeed.set("lightSpeed", 0, 0, 1),
                color.set("Color", ofFloatColor(1,1,1,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)),
                fillAlpha.set("Fill alpha", 1, 0, 1),
                wireframeAlpha.set("Wireframe alpha", 1, 0, 1),
                noise.set("Noise Amount", 0, 0, 2),
-               noiseSeedSpeed.set("Noise Speed", 0, 0,1)
+               noiseSeedSpeed.set("Noise Speed", 0, 0,1),
+               light.set("Light Amount", 0, 0, 1),
+               lightRotation.set("Light Rotation", ofVec3f(90,90,90), ofVec3f(-90,-90,-90) ,ofVec3f(180,90,90))
                );
     
     map<Corner*, Corner*> cornerRefs;
@@ -121,7 +122,8 @@ void Triangles::setup(){
     
     pointLight.setDiffuseColor( ofColor(255.f, 255.f, 255.f));
     pointLight.setAttenuation(2.);
-    
+    pointLight.setDirectional();
+    pointLight.rotate(90,0,1,0);
     
     
     debugShader.setGeometryInputType(GL_TRIANGLES);
@@ -247,7 +249,8 @@ void Triangles::draw(){
     ofClear(0);
     ofSetColor(255,255,255);
     
-    
+    pointLight.setOrientation(lightRotation);
+
     if(fillAlpha > 0){
         ofSetColor(color.get(), 255*fillAlpha);
         syphonIn->bind();
@@ -264,8 +267,9 @@ void Triangles::draw(){
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
           
         
-        //ofEnableLighting();
-       // pointLight.enable();
+        ofEnableLighting();
+
+        pointLight.enable();
        // material.begin();
 
        //ofDisableAlphaBlending();
@@ -278,7 +282,7 @@ void Triangles::draw(){
         
         //material.end();
         
-        //pointLight.disable();
+        pointLight.disable();
         ofDisableLighting();
         
         debugShader.end();
@@ -329,6 +333,7 @@ void Triangles::draw(){
 }
 
 void Triangles::update(){
+    
     if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
         depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
     }
