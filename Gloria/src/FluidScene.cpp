@@ -126,7 +126,8 @@ void FluidScene::update(){
     if(clear) {
         fluid.clear();
         fluid.setObstacles(obstacles);
-    } clear.set(false);
+        clear.set(false);
+    }
     
     //if(ofGetFrameNum() % 2 == 1) {
         fluid.update();
