@@ -31,8 +31,8 @@ public:
     ofFbo myfbo;
     
     //particle
-    float plength;
-    float density;
-    float totalCount;
-    float fade;
+    ofParameter<float> plength;
+    ofParameter<float> density;
+    ofParameter<float> totalCount;
+    ofParameter<float> fade;
 };
