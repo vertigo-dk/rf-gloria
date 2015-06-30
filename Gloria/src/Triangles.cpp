@@ -23,6 +23,7 @@ void Triangles::setup(){
                color.set("Color", ofFloatColor(1,1,1,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)),
                fillAlpha.set("Fill alpha", 1, 0, 1),
                wireframeAlpha.set("Wireframe alpha", 1, 0, 1),
+               wireframeLineWidth.set("Wireframe line width", 1, 0, 10),
                noise.set("Noise Amount", 0, 0, 2),
                noiseSeedSpeed.set("Noise Speed", 0, 0,1),
                light.set("Light Amount", 0, 0, 1),
@@ -126,11 +127,17 @@ void Triangles::setup(){
     pointLight.rotate(90,0,1,0);
     
     
-    debugShader.setGeometryInputType(GL_TRIANGLES);
-    debugShader.setGeometryOutputType(GL_TRIANGLES);
-    debugShader.setGeometryOutputCount(3);
+    fillShader.setGeometryInputType(GL_TRIANGLES);
+    fillShader.setGeometryOutputType(GL_TRIANGLES);
+    fillShader.setGeometryOutputCount(3);
     
-    debugShader.load("shaders/TrianglesFill.vert","shaders/TrianglesFill.frag","shaders/TrianglesFill.geom");
+    wireframeShader.setGeometryInputType(GL_TRIANGLES);
+    wireframeShader.setGeometryOutputType(GL_TRIANGLES);
+    wireframeShader.setGeometryOutputCount(3);
+    
+    fillShader.load("shaders/TrianglesFill.vert","shaders/TrianglesFill.frag","shaders/TrianglesFill.geom");
+    
+    wireframeShader.load("shaders/TrianglesWireframe.vert","shaders/TrianglesWireframe.frag","shaders/TrianglesWireframe.geom");
     
     edgeMask.load("edgemask.jpg");
 }
@@ -180,6 +187,9 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
             glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
                               , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
             
+            glMultiTexCoord2d(GL_TEXTURE2,pos.x, pos.y);
+            
+      
             glVertex3d(pos.x, pos.y, 0/*triangle->corners[u]->pos.z*/);
         }
         
@@ -223,7 +233,7 @@ void Triangles::drawTriangle(SubTriangle * triangle, float opacity){
                 //glNormal3f(n.x, n.y, n.z);
 
                 ofVec3f pos = triangle->getPos(u) ;
-                glColor4f(color.get().r/255.0,color.get().g/255.0,color.get().b/255.0,aaa);
+                glColor4f(fillAlpha*color.get().r/255.0,fillAlpha*color.get().g/255.0,fillAlpha*color.get().b/255.0,aaa);
                 glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
                                   , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
                 
@@ -254,13 +264,13 @@ void Triangles::draw(){
         ofSetColor(color.get(), 255*fillAlpha);
         syphonIn->bind();
 
-        debugShader.begin();
+        fillShader.begin();
         //debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 2);
-        debugShader.setUniformTexture("edgemask", edgeMask.getTexture(), 1);
-        debugShader.setUniform1f("lightAmount", light);
-        debugShader.setUniform1f("textureAmount", syphonOpacity);
-        debugShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
-        debugShader.setUniform1f("meshDistortion",meshDistortion);
+        fillShader.setUniformTexture("edgemask", edgeMask.getTexture(), 1);
+        fillShader.setUniform1f("lightAmount", light);
+        fillShader.setUniform1f("textureAmount", syphonOpacity);
+        fillShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
+        fillShader.setUniform1f("meshDistortion",meshDistortion);
        // material.setShininess(15);
        
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -284,47 +294,44 @@ void Triangles::draw(){
         pointLight.disable();
         ofDisableLighting();
         
-        debugShader.end();
+        fillShader.end();
         syphonIn->unbind();
     }
-    /*
-     ofNoFill();
-     ofEnableAlphaBlending();
-     if(wireframeAlpha > 0){
-     ofSetColor(color.get(), 255*wireframeAlpha);
-     
-     debugShader.begin();
-     
-     //   debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 1);
-     debugShader.setUniform1f("lightAmount", light);
-     debugShader.setUniform1f("textureAmount", syphonOpacity);
-     syphonIn->bind();
-     material.setShininess(15);
-     ofEnableLighting();
-     
-     pointLight.enable();
-     material.begin();
-     
-     
-     glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-     //    glEnable(GL_LINE_SMOOTH);
-     
-     glBegin(GL_TRIANGLES);
-     
-     for(int i=0;i<mapping->triangles.size();i++){
-     drawTriangleWireframe(subTriangles[mapping->triangles[i]]);
-     }
-     glEnd();
-     glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
-     ofFill();
-     
-     syphonIn->unbind();
-     material.end();
-     pointLight.disable();
-     debugShader.end();
-     }
-     ofDisableLighting();
-     */
+    
+    ofNoFill();
+    ofEnableAlphaBlending();
+    if(wireframeAlpha > 0){
+        ofSetColor(color.get(), 255*wireframeAlpha);
+        
+        wireframeShader.begin();
+        
+        wireframeShader.setUniformTexture("edgemask", edgeMask.getTexture(), 1);
+        wireframeShader.setUniform1f("lightAmount", light);
+        wireframeShader.setUniform1f("textureAmount", syphonOpacity);
+        wireframeShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
+        wireframeShader.setUniform1f("meshDistortion",meshDistortion);
+
+        syphonIn->bind();
+        ofEnableLighting();
+        
+        glLineWidth(wireframeLineWidth);
+        glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+        //    glEnable(GL_LINE_SMOOTH);
+        
+        glBegin(GL_TRIANGLES);
+                glLineWidth(1);
+        for(int i=0;i<mapping->triangles.size();i++){
+            drawTriangleWireframe(subTriangles[mapping->triangles[i]]);
+        }
+        glEnd();
+        glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+        ofFill();
+        
+        syphonIn->unbind();
+        wireframeShader.end();
+    }
+    ofDisableLighting();
+    
     
     ofSetColor(255);
     
@@ -340,11 +347,11 @@ void Triangles::update(){
     }
     
     /*depthFbo.begin();{
-        ofFill();
-        ofClear(255);
-        ofSetColor(255,255,255);
-        syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
-    }depthFbo.end();*/
+     ofFill();
+     ofClear(255);
+     ofSetColor(255,255,255);
+     syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
+     }depthFbo.end();*/
     
     
     

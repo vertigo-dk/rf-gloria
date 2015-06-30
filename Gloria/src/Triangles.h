@@ -309,7 +309,8 @@ public:
     ofParameter<float> divideRadius;
     ofParameter<bool> divideInvert;
     ofParameter<float> wireframeAlpha, fillAlpha;
-    
+    ofParameter<float> wireframeLineWidth;
+
     ofParameter<float> noise, noiseSeedSpeed;
     
     float noiseSeed; ;
@@ -325,7 +326,8 @@ public:
     ofParameter<ofColor> color;
     //float colorR, colorG, colorB;
     
-    ofxAutoReloadedShader debugShader;
+    ofxAutoReloadedShader fillShader;
+    ofxAutoReloadedShader wireframeShader;
     
     void parseOscMessage(ofxOscMessage *m);
     
