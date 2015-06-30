@@ -1,0 +1,10 @@
+<chaotic>
+	<Enabled>0</Enabled>
+	<drawLines>0</drawLines>
+	<iterate>0</iterate>
+	<scale>1, 1</scale>
+	<maxIterations>10000</maxIterations>
+	<lineWidth>10</lineWidth>
+	<discardNonChaos>1</discardNonChaos>
+<chaotic/>
+</chaotic>

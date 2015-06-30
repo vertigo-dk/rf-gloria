@@ -49,8 +49,9 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     ofAddListener(params.parameterChangedE(),this,&ContentScene::parameterChanged);
     
     ofFile file(name+"_settings.xml");
+    panelSettingsPath = file.path();
     
-    panel.setup(params, file.path());
+    panel.setup(params, panelSettingsPath);
     panel.setName(name);
     
     //setSceneParameters();
@@ -94,7 +95,6 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
     bool isScene = false;
     
     string adr = m.getAddress();
-    ofStringReplace(adr, "_", "/");
     
 	vector<string> adrSplit = ofSplitString(adr, "/");
     
@@ -202,5 +202,11 @@ void ContentScene::publishSyphonTexture() {
 
 
 void ContentScene::exit() {
-    panel.saveToFile(name+"_settings.xml");
+    
+    ofFile file;
+    file.open(panelSettingsPath);
+    ofBuffer buf; buf.set("");
+    file.writeFromBuffer(buf);
+    
+    panel.saveToFile(panelSettingsPath);
 }

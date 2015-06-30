@@ -22,14 +22,9 @@ public:
     
     void parseOscMessage(ofxOscMessage * m);
     
-    ofParameter<float> frequency;
-    //float lineWidth;
-    ofParameter<bool> crazySpeed;
-    ofParameter<bool> reverse;
-    
     ofParameter<ofVec2f> speed;
     ofParameter<ofVec2f> scatter;
     ofVec2f time;
     
-    
+    //ofParameter<float> rotation;
 };

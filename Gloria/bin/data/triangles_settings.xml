@@ -1,0 +1,16 @@
+<triangles>
+	<Enabled>0</Enabled>
+	<Triangles_Size>0</Triangles_Size>
+	<Triangle_Divide_Radius>0</Triangle_Divide_Radius>
+	<Triangle_Divide_Invert>0</Triangle_Divide_Invert>
+	<Syphon_Texture>0</Syphon_Texture>
+	<Syphon_Mesh_Distortion>0</Syphon_Mesh_Distortion>
+	<Mesh_Distortion>0</Mesh_Distortion>
+	<Light_Amount>0</Light_Amount>
+	<Color>255, 255, 255, 255</Color>
+	<Fill_alpha>1</Fill_alpha>
+	<Wireframe_alpha>1</Wireframe_alpha>
+	<Noise_Amount>0</Noise_Amount>
+	<Noise_Speed>0</Noise_Speed>
+<triangles/>
+</triangles>

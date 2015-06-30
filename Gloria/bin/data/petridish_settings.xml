@@ -1,0 +1,12 @@
+<petridish>
+	<Enabled>0</Enabled>
+	<growingCells>0.005</growingCells>
+	<eatingCells>0.01</eatingCells>
+	<birthSpeed>0.01</birthSpeed>
+	<trailLength>0</trailLength>
+	<preset1>1</preset1>
+	<preset2>0</preset2>
+	<preset3>0</preset3>
+	<eraseAll>0</eraseAll>
+<petridish/>
+</petridish>
