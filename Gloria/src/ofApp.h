@@ -15,6 +15,7 @@
 #include "BasicParticles.h"
 #include "petriDish.h"
 #include "ChaoticAttractor.h"
+#include "CurlyFur.h"
 
 class ofApp : public ofBaseApp {
 public:
