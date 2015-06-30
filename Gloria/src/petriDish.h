@@ -64,7 +64,6 @@ public:
     void draw();
     void debugDraw();
     void update();
-    void setGui();
     void mousePressed(int x, int y, int button);
     
     void initOutputPlane(ofTexture texref);
@@ -72,13 +71,13 @@ public:
     
     float outWidth, outHeight;
     
-    float growingCells, eatingCells;
-    float trailLength;
-    float speed;
-    bool preset1;
-    bool preset2;
-    bool preset3;
-    bool eraseAll;
+    ofParameter<float> growingCells, eatingCells;
+    ofParameter<float> trailLength;
+    ofParameter<float> speed;
+    ofParameter<bool> preset1;
+    ofParameter<bool> preset2;
+    ofParameter<bool> preset3;
+    ofParameter<bool> eraseAll;
     
     ofPlanePrimitive plane;
     

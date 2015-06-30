@@ -15,6 +15,13 @@ void CurlyFur::setup(){
     density = 50;
     totalCount = 1000;
     fade = 5;
+    
+    params.add(plength.set("length", 1, 1, 10),
+               density.set("density", 50, 50, 500),
+               totalCount.set("totalcount", 500, 500, 5000),
+               fade.set("fade", 1, 1, 10));
+    
+    
 }
 
 void CurlyFur::update(){
@@ -57,14 +64,6 @@ void CurlyFur::draw(){;
     //myfbo.draw(0,0);
 }
 
-/*void CurlyFur::setGui(){
-
-    gui->addSlider("/length/x", 1, 10, &plength);
-    gui->addSlider("/density/x", 50, 500, &density);
-    gui->addSlider("/totalcount/x", 500, 5000, &totalCount);
-    gui->addSlider("/fade/x", 1, 10, &fade);
-
-}*/
 
 void CurlyFur::createParticle() {
     float randomX = ofRandom(1.0);

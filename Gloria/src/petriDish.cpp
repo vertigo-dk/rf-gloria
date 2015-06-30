@@ -76,24 +76,24 @@ void Qt::qtdraw(){;
                 
                 ofVec2f interpolate = srcPt + (dstPt - srcPt) * pct;
                 
-                ofLine(interpolate, dstPt);
-                ofCircle(interpolate.x, interpolate.y, circleRadius);
+                ofDrawLine(interpolate, dstPt);
+                ofDrawCircle(interpolate.x, interpolate.y, circleRadius);
                 //ofVertex(walkers[i].points[p].x,w alkers[i].points[p].y);
                 
             } else {
         
-                ofCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
+                ofDrawCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
                 float randColor = ofRandom(255);
                 ofSetColor(randColor,randColor,randColor,255);
 
                 
-                ofLine(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, walkers[i].corners[p-1]->pos.x, walkers[i].corners[p-1]->pos.y);
+                ofDrawLine(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, walkers[i].corners[p-1]->pos.x, walkers[i].corners[p-1]->pos.y);
             }
         }
         
         if (length == 0) {
             if (fmod(ofGetElapsedTimef(),animSpeed) < 0.01) {
-                ofCircle(walkers[i].corners[ofRandom(walkers[i].corners.size())]->pos.x, walkers[i].corners[ofRandom(walkers[i].corners.size())]->pos.y, circleRadius);
+                ofDrawCircle(walkers[i].corners[ofRandom(walkers[i].corners.size())]->pos.x, walkers[i].corners[ofRandom(walkers[i].corners.size())]->pos.y, circleRadius);
             }
         }
     }
@@ -117,10 +117,24 @@ void PetriDish::setup(){
 
     gray.allocate(outWidth, outHeight);
     
+    params.add(growingCells.set("growingCells", 0.005, 0.005, 0.095),
+               eatingCells.set("eatingCells", 0.01, 0.01, 0035),
+               speed.set("birthSpeed", 0.01, 0.01, 0.4),
+               trailLength.set("trailLength", 0, 0, 10),
+               preset1.set("preset1", true),
+               preset2.set("preset2", false),
+               preset3.set("preset3", false),
+               eraseAll.set("eraseAll", false));
+    
+    
     initOutputPlane(gray.getTextureReference());
-
+    
     qtScene.qtsetup();
     trailLength = 0;
+    
+    
+    
+    
 }
 
 void PetriDish::initOutputPlane(ofTexture tex) {
@@ -144,17 +158,21 @@ void PetriDish::update(){
     if (preset1) {
         eatingCells = 0.064;
         growingCells = 0.035;
+        preset1.set(false);
     }
     if (preset2) {
         eatingCells = 0.06;
         growingCells = 0.035;
+        preset2.set(false);
     }
     if (preset3) {
         eatingCells = 0.06304;
         growingCells = 0.04604;
+        preset3.set(false);
     }
     if (eraseAll) {
         growingCells = 0.0;
+        eraseAll.set(false);
     }
     gray.setK(eatingCells);
     gray.setF(growingCells);
@@ -177,18 +195,6 @@ void PetriDish::draw(){
     
     drawOutput(gray.getTextureReference());
 }
-/*
-void PetriDish::setGui(){
-
-    gui->addSlider("/growingCells/x", 0.005,0.095, &growingCells);
-    gui->addSlider("/eatingCells/x", 0.01, 0.035, &eatingCells);
-    gui->addSlider("/birthSpeed/x", 0.0001, 0.4, &speed);
-    gui->addSlider("/trailLength/x", 0, 10, &trailLength);
-    gui->addButton("/preset1/x", &preset1);
-    gui->addButton("/preset1/x", &preset2);
-    gui->addButton("/preset1/x", &preset3);
-    gui->addButton("/eraseAll/x", &eraseAll);
-}*/
 
 void PetriDish::drawOutput(ofTexture inputTex) {
     ofPushMatrix();

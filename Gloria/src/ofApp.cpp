@@ -28,12 +28,13 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
     
-    settings.loadFile("appSettings.xml");
-    dirIdx = settings.getValue("syphonInputSelected", -1);
     
     syphonIn = new ofxSyphonClient();
     syphonIn->setup();
     
+    settings.loadFile("appSettings.xml");
+    dirIdx = settings.getValue("syphonInputSelected", -1);
+    selectSyphonInput(dirIdx);
     
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
@@ -48,7 +49,8 @@ void ofApp::setup() {
     scenes.push_back(new BasicParticles());
     //scenes.push_back(new ColorPalette());
     scenes.push_back(new ChaoticAttractor());
-    //scenes.push_back(new PetriDish());
+    scenes.push_back(new PetriDish());
+    scenes.push_back(new CurlyFur());
     
     
     // we composite in millumin via syphon, uncomment this to compsite locally + section where scenes are drawn into fbo's
@@ -418,6 +420,7 @@ void ofApp::exit()
         settings.setValue(scenes[i]->name+"_panel_pos_y", scenes[i]->panel.getPosition().y);
         
         scenes[i]->exit();
+        delete scenes[i];
         
     }
     
@@ -425,6 +428,7 @@ void ofApp::exit()
     settings.saveFile("appSettings.xml");
     mapping->save();
     
+    delete syphonIn;
     delete mapping;
 }
 
