@@ -34,7 +34,6 @@ void ofApp::setup() {
     
     settings.loadFile("appSettings.xml");
     dirIdx = settings.getValue("syphonInputSelected", -1);
-    selectSyphonInput(dirIdx);
     
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
@@ -124,6 +123,7 @@ void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
         
     }
     //dirIdx = 0;
+    selectSyphonInput(dirIdx);
 }
 
 void ofApp::serverUpdated(ofxSyphonServerDirectoryEventArgs &arg)
@@ -326,8 +326,8 @@ void ofApp::drawGrid() {
 }
 
 void ofApp::selectSyphonInput(int input){
-    if(input > syphonInputs.size() - 1)
-        input = 0;
+    //if(input > syphonInputs.size() - 1)
+    //    input = 0;
     
     if(directory.isValidIndex(input)){
         /*syphonIn->setServerName(directory.getServerList()[dirIdx].serverName);
