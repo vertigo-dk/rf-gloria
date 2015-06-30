@@ -41,7 +41,7 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     ofClear(0,0,0,0);
     fbo.end();
     
-    params.add(enabled.set("Enabled", false));
+    params.add(enabled.set("enabled", false));
     
     setup();
     
