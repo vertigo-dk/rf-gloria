@@ -173,8 +173,6 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
         }
             
         }
-        
-        
 }
 
 void ContentScene::updateScene() {
