@@ -1,0 +1,12 @@
+<fluid>
+	<Enabled>0</Enabled>
+	<gravity>0, 0</gravity>
+	<emit>0.5, 0.5</emit>
+	<intensity>0</intensity>
+	<dissipation>0.99</dissipation>
+	<velocityDissipation>0.99</velocityDissipation>
+	<temperatureDissipation>0.99</temperatureDissipation>
+	<pressureDissipation>0.99</pressureDissipation>
+	<clear>0</clear>
+<fluid/>
+</fluid>
