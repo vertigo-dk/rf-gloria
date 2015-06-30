@@ -2,6 +2,7 @@
 
 //uniform sampler2D bump_tex;
 uniform sampler2DRect tex0;
+uniform sampler2DRect edgemask;
 
 uniform float lightAmount;
 uniform float textureAmount;
@@ -152,9 +153,11 @@ void main()
 	_eyeSpaceVertexPos = gl_ModelViewMatrix * gl_Vertex;
     
     gl_TexCoord[0] = gl_MultiTexCoord0;
-
+    gl_TexCoord[1] = gl_MultiTexCoord1;
+    gl_TexCoord[2] = gl_MultiTexCoord2;
     
     vec3 color = texture2DRect(tex0, gl_MultiTexCoord1.xy).rgb;
+    float edgeMaskValue = texture2DRect(edgemask, gl_TexCoord[2].xy).r;
     
 	gl_FrontColor = gl_Color;
 	gl_Position = ftransform();
@@ -162,10 +165,10 @@ void main()
     float random = fract( fract(sin((gl_MultiTexCoord1.x+gl_MultiTexCoord1.y*19)/100.0)) + fract(sin(gl_MultiTexCoord1.y/103.0)));//fract(sin(dot(vertexPos.xy ,vec2(12.9898,78.233))) * 43758.5453);
     
     float z = 200.0*random*(1.0-syphonMeshDistortion) + length(color)*250.0*syphonMeshDistortion;
-    z *= meshDistortion * 0.01;
+    z *= meshDistortion * 0.02;
 //    gl_Position.z = random*(1.0-syphonMeshDistortion) + length(color)*250.0*syphonMeshDistortion;
     gl_Position.z = z*100.0;
     
     vec2 midOffset = (vec2(0.5,0.5)-gl_Position.xy);
-    gl_Position.xy -= 0.3*syphonMeshDistortion*z * midOffset/10;
+    gl_Position.xy -= edgeMaskValue*0.3 *syphonMeshDistortion*z * midOffset/10;
 }

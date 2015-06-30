@@ -329,6 +329,7 @@ public:
     void parseOscMessage(ofxOscMessage *m);
     
     ofFbo depthFbo;
+    ofImage edgeMask;
     
 private:
     

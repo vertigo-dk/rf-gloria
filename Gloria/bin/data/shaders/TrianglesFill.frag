@@ -1,6 +1,7 @@
 #version 120
 uniform sampler2DRect tex0;
 //uniform sampler2DRect depthTex;
+uniform sampler2DRect edgemask;
 
 uniform float lightAmount;
 uniform float textureAmount;
@@ -155,6 +156,7 @@ void main()
 
     gl_FragColor.rgb = color * gl_Color.a ;//+ origColor*(1.0-gl_Color.a);
 	gl_FragColor.a +=  gl_Color.a;
-   // gl_FragColor.rgb = vec3(gl_TexCoord[0].y/100.00);
+
+    // gl_FragColor.rgb = vec3(gl_TexCoord[0].y/100.00);
 	//gl_FragColor = gl_Color;//vec4(normal, 1.0);// vec4(1.0) * length(vec3(0.0, 0.0, 1.0) * normal); // vec4(normal.x, 0., 0.0, 1.0);//gl_Color; //* texture2D(tex, gl_TexCoord[0].xy);
 }

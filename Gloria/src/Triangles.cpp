@@ -130,51 +130,17 @@ void Triangles::setup(){
     debugShader.setGeometryOutputCount(3);
     
     debugShader.load("shaders/TrianglesFill.vert","shaders/TrianglesFill.frag","shaders/TrianglesFill.geom");
+    
+    edgeMask.load("edgemask.jpg");
 }
 
 
 
 
 void Triangles::divide(SubTriangle * triangle, float sizeGoal){
-    
 }
 
 void Triangles::collapse(SubTriangle * triangle){
-    /* int subsubtriangles = -1;
-     for(int i=0;i<triangle->subTriangles.size();i++){
-     if(triangle->subTriangles[i]->subTriangles.size()){
-     collapse(triangle->subTriangles[i]);
-     subsubtriangles = i;
-     //      break;
-     }
-     }
-     
-     if(subsubtriangles != -1){
-     } else {
-     float highestAge = 0;
-     for(int i=0;i<triangle->subTriangles.size();i++){
-     if(triangle->subTriangles[i]->age > transitionTime){
-     triangle->subTriangles[i]->age = transitionTime;
-     }
-     if(triangle->subTriangles[i]->age > 0){
-     triangle->subTriangles[i]->age -= triangle->ageDifference* 2 * 1.0/ofGetFrameRate();
-     }
-     
-     if(highestAge < triangle->subTriangles[i]->age){
-     highestAge = triangle->subTriangles[i]->age;
-     }
-     }
-     
-     if(highestAge <= 0){
-     for(int i=0;i<triangle->subTriangles.size();i++){
-     
-     if(triangle->subTriangles[i]->age <= 0){
-     delete triangle->subTriangles[i];
-     }
-     }
-     triangle->subTriangles.clear();
-     }
-     }*/
 }
 
 
@@ -263,6 +229,8 @@ void Triangles::drawTriangle(SubTriangle * triangle, float opacity){
                 glMultiTexCoord2d(GL_TEXTURE1,syphonIn->getWidth()* pos.x/OUTWIDTH
                                   , syphonIn->getHeight()*(OUTHEIGHT-pos.y)/OUTHEIGHT);
                 
+                glMultiTexCoord2d(GL_TEXTURE2,pos.x, pos.y);
+ 
                 glVertex3d(pos.x, pos.y, 0/*pos.z*/);
             }
             
@@ -283,14 +251,15 @@ void Triangles::draw(){
     
     if(fillAlpha > 0){
         ofSetColor(color.get(), 255*fillAlpha);
-        
+        syphonIn->bind();
+
         debugShader.begin();
         //debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 2);
+        debugShader.setUniformTexture("edgemask", edgeMask.getTexture(), 1);
         debugShader.setUniform1f("lightAmount", light);
         debugShader.setUniform1f("textureAmount", syphonOpacity);
         debugShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
         debugShader.setUniform1f("meshDistortion",meshDistortion);
-        syphonIn->bind();
        // material.setShininess(15);
        
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -361,18 +330,18 @@ void Triangles::draw(){
 }
 
 void Triangles::update(){
-    /*  if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
-     depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
-     }
-     
-     depthFbo.begin();{
-     ofFill();
-     ofClear(255);
-     ofSetColor(255,255,255);
-     syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
-     }depthFbo.end();
-     
-     */
+    if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
+        depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
+    }
+    
+    /*depthFbo.begin();{
+        ofFill();
+        ofClear(255);
+        ofSetColor(255,255,255);
+        syphonIn->draw(0, 0, OUTWIDTH, OUTHEIGHT);
+    }depthFbo.end();*/
+    
+    
     
     noiseSeed += noiseSeedSpeed * 1.0/MAX(10,ofGetFrameRate());
     if(noiseSeed > 1)
@@ -401,56 +370,10 @@ void Triangles::update(){
     center.y = 1200;
     
     pointLight.setPosition(lightPos);
-    
-    
 }
 
 
 
 void Triangles::parseOscMessage(ofxOscMessage *m){
     ContentScene::parseOscMessage(m);
-    /*
-     
-     vector<string> adrSplit = ofSplitString(m->getAddress(), "/");
-     string rest = ofSplitString(m->getAddress(), "/"+adrSplit[1])[1];
-     
-     if(adrSplit[1] == "scene"+ofToString(index) || "/"+adrSplit[1] == oscAddress) {
-     if( rest == "/syphonopacity/x" ) {
-     syphonOpacity = m->getArgAsFloat(0);
-	    }
-     if( rest == "/dividecount/x" ) {
-     divideCount = m->getArgAsFloat(0) * 6;
-	    }*/
-    /*
-     if( rest == "/divideradius/x" ) {
-     divideRadius = m->getArgAsFloat(0) * 2400;
-	    }
-     if( rest == "/divideinvert/x" ) {
-     divideInvert = m->getArgAsFloat(0);
-	    }
-     if( rest == "/transitiontime/x" ) {
-     transitionTime = m->getArgAsFloat(0)*5;
-	    }
-     if( rest == "/light/x" ) {
-     light = m->getArgAsFloat(0);
-	    }
-     
-     if( rest == "/lightspeed/x" ) {
-     lightSpeed = m->getArgAsFloat(0);
-	    }
-     if( rest == "/directopacity/x" ) {
-     directTextureOpacity = m->getArgAsFloat(0);
-	    }
-     if( rest == "/triangleColorR/x" ) {
-     colorR = m->getArgAsFloat(0);
-	    }
-     if( rest == "/triangleColorG/x" ) {
-     colorG = m->getArgAsFloat(0);
-	    }
-     if( rest == "/triangleColorB/x" ) {
-     colorB = m->getArgAsFloat(0);
-	    }*/
-    
-    //}
-    
 }

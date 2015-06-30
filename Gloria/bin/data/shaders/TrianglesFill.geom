@@ -18,6 +18,7 @@ void main(void)
         gl_Position = gl_PositionIn[i];
         gl_TexCoord[0] = gl_TexCoordIn[i][0];
         gl_TexCoord[1] = gl_TexCoordIn[i][1];
+        gl_TexCoord[2] = gl_TexCoordIn[i][2];
         gl_FrontColor = gl_FrontColorIn[i];
         EmitVertex();
     }
