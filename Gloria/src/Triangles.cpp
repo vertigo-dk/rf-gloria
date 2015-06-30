@@ -250,7 +250,6 @@ void Triangles::draw(){
     ofSetColor(255,255,255);
     
     pointLight.setOrientation(lightRotation);
-
     if(fillAlpha > 0){
         ofSetColor(color.get(), 255*fillAlpha);
         syphonIn->bind();

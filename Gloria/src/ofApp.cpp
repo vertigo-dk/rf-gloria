@@ -275,7 +275,7 @@ void ofApp::draw() {
     
         ofPushMatrix();{
             ofTranslate(20, syphonRowMargin+i*(syphonRowHeight+syphonRowMargin));
-            if(i*syphonRowHeight > ofGetHeight()-100){
+            if(i*(syphonRowHeight+syphonRowMargin) > ofGetHeight()-100){
                 ofTranslate(syphonRowWidth+20, -ofGetHeight()+40);
             }
             syphonInputs[i].draw(0, 10, syphonRowWidth, syphonRowHeight);
