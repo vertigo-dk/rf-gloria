@@ -13,6 +13,6 @@
 #define OUTHEIGHT 1200 //1200
 #define OSCRECEIVEPORT 9999
 #define OSCSENDPORT 8000
-#define OSCCLIENTONE "127.0.0.1" // Blue mac ip here
+#define OSCCLIENTONE "BlueMac.local" // Blue mac ip here
 #define GUIWIDTH 255
 #define TARGET_FRAMERATE 60

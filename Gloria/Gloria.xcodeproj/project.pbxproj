@@ -349,6 +349,9 @@
 		04CA7B3C1753E82E00B224D8 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		04DE29A01B3343860096E40D /* ChaoticAttractor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChaoticAttractor.cpp; sourceTree = "<group>"; };
 		04DE29A11B3343860096E40D /* ChaoticAttractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChaoticAttractor.h; sourceTree = "<group>"; };
+		04EE8C981B42E31C0034406E /* TrianglesWireframe.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesWireframe.frag; sourceTree = "<group>"; };
+		04EE8C991B42E31C0034406E /* TrianglesWireframe.geom */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesWireframe.geom; sourceTree = "<group>"; };
+		04EE8C9A1B42E31C0034406E /* TrianglesWireframe.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesWireframe.vert; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		DD12EA031B3FD6E9002F186E /* TrianglesFill.geom */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TrianglesFill.geom; sourceTree = "<group>"; };
 		DD7BE8AA1780D80900F04F23 /* LampWalker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LampWalker.cpp; sourceTree = "<group>"; };
@@ -1197,6 +1200,9 @@
 				DD8E8DA91961997400A7F3E1 /* TrianglesFill.vert */,
 				DD8E8DA81961997400A7F3E1 /* TrianglesFill.frag */,
 				DD12EA031B3FD6E9002F186E /* TrianglesFill.geom */,
+				04EE8C981B42E31C0034406E /* TrianglesWireframe.frag */,
+				04EE8C991B42E31C0034406E /* TrianglesWireframe.geom */,
+				04EE8C9A1B42E31C0034406E /* TrianglesWireframe.vert */,
 			);
 			name = shaders;
 			path = bin/data/shaders;
