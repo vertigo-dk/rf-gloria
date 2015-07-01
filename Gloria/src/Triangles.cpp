@@ -161,7 +161,7 @@ float ease(float t, float b, float c, float d) {
 
 
 void Triangles::drawTriangleWireframe(SubTriangle * triangle){
-    bool subDraw = false;
+    /*bool subDraw = false;
     for(int i=0;i<triangle->subTriangles.size();i++){
         if(triangle->subTriangles[i]->drawLevel-1.5*triangle->subTriangles[i]->ageDifference  >= triangle->subTriangles[i]->level){
             subDraw = true;
@@ -172,7 +172,17 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
         for(int j=0;j<triangle->subTriangles.size();j++){
             drawTriangleWireframe(triangle->subTriangles[j]);
         }
-    } else {
+    } else */
+    
+    float a = triangle->drawLevel - triangle->level- triangle->ageDifference;
+    float aaa = MIN(1,MAX(0,a*2.0));
+    if(triangle->level == 0){
+        aaa = 1;
+    }
+    
+    if(aaa > 0){
+        
+    
         for(int u=0;u<3;u++){
             ofVec3f pos = triangle->getPos(u) ;
             ofVec3f center = triangle->getCenter();
@@ -180,7 +190,7 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
             /*    glTexCoord2d(syphonIn->getWidth()* center.x/OUTWIDTH
              , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
              */
-            
+            glColor4f(wireframeAlpha*color.get().r/255.0,wireframeAlpha*color.get().g/255.0,wireframeAlpha*color.get().b/255.0,aaa);
             glMultiTexCoord2d(GL_TEXTURE0, syphonIn->getWidth()* center.x/OUTWIDTH
                               , syphonIn->getHeight()*(OUTHEIGHT-center.y)/OUTHEIGHT);
             
@@ -191,6 +201,10 @@ void Triangles::drawTriangleWireframe(SubTriangle * triangle){
             
       
             glVertex3d(pos.x, pos.y, 0/*triangle->corners[u]->pos.z*/);
+        }
+        
+        for(int j=0;j<triangle->subTriangles.size();j++){
+            drawTriangleWireframe(triangle->subTriangles[j]);
         }
         
     }
@@ -310,6 +324,7 @@ void Triangles::draw(){
         wireframeShader.setUniform1f("textureAmount", syphonOpacity);
         wireframeShader.setUniform1f("syphonMeshDistortion",syphonMeshDistortion);
         wireframeShader.setUniform1f("meshDistortion",meshDistortion);
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
         syphonIn->bind();
         ofEnableLighting();
