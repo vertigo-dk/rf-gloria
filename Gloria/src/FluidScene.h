@@ -72,12 +72,13 @@ public:
     ofParameter<float> pressureDissipation;
     
     ofParameter<bool> reset;
-    
     ofParameter<bool> addColor;
-    
     ofParameter<float> spacing;
     
     ofFbo colorFbo;
     
+    ofStyle style;
+    
+    bool newFrame;
     
 };

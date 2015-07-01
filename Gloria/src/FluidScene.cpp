@@ -25,7 +25,7 @@ void FluidScene::setup(){
     //fluid.setObstacles(obstacles);
     fluid.setUseObstacles(false);
     
-    fluid.setPasses(2);
+    //fluid.setPasses(2);
 
     params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
                
@@ -66,7 +66,7 @@ void FluidScene::setup(){
 
 void FluidScene::update(){
     // Adding temporal Force
-    
+        
     ofSetColor(255, 255, 255, 255);
     
     fluid.dissipation = dissipation;
@@ -120,29 +120,38 @@ void FluidScene::update(){
     }
     
     
-    if(drawObstacles) {
+    /*if(drawObstacles) {
         ofSetColor(255,255,255,255);
         obstacles.draw(0,0,OUTWIDTH, OUTHEIGHT);
         //fluid.drawVelocity();
-    }
+    }*/
+    
+    
+    //
     
     
     style = ofGetStyle();
-    
-    ofPushStyle();
     fluid.update();
-    //
-    ofPopStyle();
     
-
+    
+    if(newFrame) {
+        fbo.begin();
+        fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
+        fbo.end();
+        
+        newFrame = false;
+    }
+    
+    ofSetStyle(style);
 }
 
 void FluidScene::draw(){
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    
+    
+    newFrame = true;
+    //ofDisableBlendMode();
+    //ofDisableBlendMode();
     //ofPushStyle();
-    
-    
-    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
     
     //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
     //ofPopStyle();
