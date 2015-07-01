@@ -67,7 +67,6 @@ void ofApp::setup() {
      fboOut.end();
      */
     
-    
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->mapping  = mapping;
         scenes[i]->syphonIn = syphonIn;

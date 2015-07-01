@@ -10,6 +10,7 @@
 
 void FluidScene::setup(){
     
+    rotationVal= 0;
     name = "fluid";
     
     float scaleFactor = 1.0;
@@ -19,77 +20,105 @@ void FluidScene::setup(){
 	
     fluid.allocate(drawWidth, drawHeight, 0.2);
     
-    //  Set obstacle
-    //
-    fluid.begin();
-    
-    ofSetColor(0,0);
-    ofSetColor(255);
-    ofDrawCircle(drawWidth*0.5, drawHeight*0.35, 200);
-    fluid.end();
-    
-    obstacles.allocate(drawWidth, drawHeight);
-   
+    colorFbo.allocate(drawWidth, drawHeight);
     
     //fluid.setObstacles(obstacles);
     fluid.setUseObstacles(false);
     
-    fluid.setPasses(8);
+    fluid.setPasses(2);
 
     params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
-               emitPos.set("emit", ofVec2f(0.5,0.5), ofVec2f(0,0), ofVec2f(1,1)),intensity.set("intensity", 0, 0, 30),
+               
+               clear.set("clear", false),
+               
+               temperature.set("temperature", 0, 0, 20),
+               density.set("density", 0, 0, 1),
                dissipation.set("dissipation", 0.99, 0, 1),
-            velocityDissipation.set("velocityDissipation", 0.99, 0, 1),
-            temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1),pressureDissipation.set("pressureDissipation", 0.99, 0, 1),clear.set("clear", false));
+               velocityDissipation.set("velocityDissipation", 0.99, 0, 1),
+               temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1),pressureDissipation.set("pressureDissipation", 0.99, 0, 1),
+               
+               emitPos.set("emit", ofVec2f(0.6,0.5), ofVec2f(0,0), ofVec2f(1,1)),
+               radius.set("radius", 0, 0, 30),
+               
+               color.set("color", ofColor(255,255,255,255), ofColor(0,0,0,0), ofColor(255,255,255,255)),
+               
+               emitLinePos.set("emitLine", ofVec2f(0.0,0.0), ofVec2f(-1,-1), ofVec2f(1,1)),
+               
+               emitLineDir.set("emitLineDir", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
+               
+               
+               colorLine.set("colorLine", ofColor(255,255,255,255), ofColor(0,0,0,0), ofColor(255,255,255,255)),
+               emitters.set("emitters", 0, 0, 20),
+               rotation.set("rotation", 0, 0, 360),
+               rotationSpeed.set("rotationSpeed", 0, 0, 1),
+               spacing.set("spacing", 0, 0, 1),
+               radiusLine.set("radiusLine", 0, 0, 30)
+               /*reset.set("reset", false),
+               useObstacles.set("useObstacles", false),
+               drawObstacles.set("drawObstacles", false),
+               addColor.set("addColor", false)*/
+               
+               );
     
-    drawObstacles = true;
-   
-}
+
+    
+   }
 
 void FluidScene::update(){
     // Adding temporal Force
-   
+    
+    ofSetColor(255, 255, 255, 255);
+    
     fluid.dissipation = dissipation;
     fluid.velocityDissipation = velocityDissipation;
     fluid.temperatureDissipation = temperatureDissipation;
     fluid.pressureDissipation = pressureDissipation;
-    
-    
     fluid.setGravity(gravity.get());
-
+    
+    
     ofPoint m = emitPos.get() * ofVec2f(drawWidth, drawHeight);
     ofPoint d = (m - oldM)*10.0;
     oldM = m;
     
-    fluid.addTemporalForce(m, d, ofFloatColor(0.8, 0.8, 0.8), intensity);
+    fluid.addTemporalForce(m, d, color.get(), radius, temperature, density);
     
-    // add velocity or add color based on image
+    ofVec2f center = ofVec2f(drawWidth/2, drawHeight/2);
     
-    //fluid.addTemporalForce(m, d, ofFloatColor(1, 1, 1),16.0f);
-    //fluid.addTemporalForce(m, d, ofFloatColor(c.x,c.y,0.5)*sin(ofGetElapsedTimef()),3.0f);
-    //  Update
-    //
-
+    rotationVal += rotationSpeed*30/ofGetFrameRate();
+    
+    if(rotationVal>=360) {
+        rotationVal = 0;
+    }
+    
+    
+    for(int i =0; i<emitters; i++) {
+        
+        ofVec2f pos = ofVec2f((drawWidth*spacing)/(emitters+1)*(i+1), drawHeight*0.5);
+        
+        pos.x = pos.x + (drawWidth-(drawWidth*spacing))/2;
+        
+        pos = pos.getRotated(rotationVal, center);
+        pos = pos.getRotated(rotation, center);
+        //pos = pos.getRotated(rotation, center);
+        
+        pos += emitLinePos.get() * ofVec2f(drawWidth, drawHeight);
+        
+        //pos += emit2Pos;
+        
+        //pos.x = sin(rotation) * drawWidth/(emitters+1)*(i+1);
+        //pos.y = cos(rotation) * drawHeight*0.9;
+        
+        fluid.addTemporalForce(
+                               ofVec2f(pos), emitLineDir.get()*10.0, colorLine.get(), radiusLine, temperature, density);
+        
+    }
     
     if(clear) {
         fluid.clear();
-        fluid.setObstacles(obstacles);
+        //fluid.setObstacles(obstacles);
         clear.set(false);
     }
     
-    ofPushStyle();
-    //if(ofGetFrameNum() % 2 == 1) {
-        fluid.update();
-    //}
- 
-    ofPopStyle();
-}
-
-void FluidScene::draw(){;
-    
-    ofClear(0,0,0);
-    
-    ofSetColor(255,255,255,255);
     
     if(drawObstacles) {
         ofSetColor(255,255,255,255);
@@ -98,11 +127,25 @@ void FluidScene::draw(){;
     }
     
     
+    style = ofGetStyle();
     
-    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
-    //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
+    ofPushStyle();
+    fluid.update();
+    //
+    ofPopStyle();
     
 
+}
+
+void FluidScene::draw(){
+    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    //ofPushStyle();
+    
+    
+    fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
+    
+    //syphonIn->getTexture().draw(0,0,OUTWIDTH,OUTHEIGHT);
+    //ofPopStyle();
 }
 
 void FluidScene::parseOscMessage(ofxOscMessage *m){

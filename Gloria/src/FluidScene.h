@@ -23,12 +23,6 @@ public:
     
     void parseOscMessage(ofxOscMessage * m);
     
-    float	lastTime;
-	float   deltaTime;
-    
-    float	lastSyphonFrame = 0;
-	float   deltaTimeSyphonFrame = 0;
-    
     float flowWidth;
     float flowHeight;
     float drawWidth;
@@ -45,12 +39,45 @@ public:
     
     ofParameter<ofVec2f> gravity;
     ofParameter<ofVec2f> emitPos;
-    ofParameter<bool> clear;
-    ofParameter<bool> drawObstacles;
     
-    ofParameter<float> intensity;
+    ofParameter<ofVec2f> emitLinePos;
+    ofParameter<ofVec2f> emitLineDir;
+    
+    ofParameter<bool> clear;
+    
+    ofParameter<bool> drawObstacles;
+    ofParameter<bool> useObstacles;
+    
+    ofParameter<ofColor> color;
+    ofParameter<ofColor> colorLine;
+    
+    ofParameter<float> density;
+    ofParameter<float> temperature;
+    ofParameter<float> radius;
+    
+    ofParameter<float> radiusLine;
+    
+    ofParameter<int> emitters;
+    
+    ofParameter<float> rotation;
+    ofParameter<float> rotationSpeed;
+    
+    float rotationVal;
+    
+    ofParameter<float> noiseDisplaceLine;
+    
     ofParameter<float> dissipation;
     ofParameter<float> velocityDissipation;
     ofParameter<float> temperatureDissipation;
     ofParameter<float> pressureDissipation;
+    
+    ofParameter<bool> reset;
+    
+    ofParameter<bool> addColor;
+    
+    ofParameter<float> spacing;
+    
+    ofFbo colorFbo;
+    
+    
 };
