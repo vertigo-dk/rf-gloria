@@ -48,7 +48,7 @@ void FluidScene::setup(){
                
                
                colorLine.set("colorLine", ofColor(255,255,255,255), ofColor(0,0,0,0), ofColor(255,255,255,255)),
-               emitters.set("emitters", 0, 0, 20),
+               emitters.set("emitters", 0, 0, 30),
                rotation.set("rotation", 0, 0, 360),
                rotationSpeed.set("rotationSpeed", 0, 0, 1),
                spacing.set("spacing", 0, 0, 1),
@@ -66,7 +66,7 @@ void FluidScene::setup(){
 
 void FluidScene::update(){
     // Adding temporal Force
-        
+    
     ofSetColor(255, 255, 255, 255);
     
     fluid.dissipation = dissipation;
