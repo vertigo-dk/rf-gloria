@@ -145,19 +145,34 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
                 p->fromString(m.getArgAsString(0));
             }
         } else if(p->type() == typeid(ofParameter<ofVec2f>).name()) {
+            
+                // if multiple arguments float float
+                if(m.getNumArgs() == 2) {
+                    
+                    p->cast<ofVec2f>() = ofVec2f(m.getArgAsFloat(0), m.getArgAsFloat(1));
+                    
+                } else if(m.getNumArgs() == 1) {
+            
                 
-                if(spec == "x") p->cast<ofVec2f>() = ofVec2f(m.getArgAsFloat(0), p->cast<ofVec2f>().get().y);
+                    if(spec == "x") p->cast<ofVec2f>() = ofVec2f(m.getArgAsFloat(0), p->cast<ofVec2f>().get().y);
                 
-                if(spec == "y") p->cast<ofVec2f>() = ofVec2f(p->cast<ofVec2f>().get().x, m.getArgAsFloat(0));
-                
+                    if(spec == "y") p->cast<ofVec2f>() = ofVec2f(p->cast<ofVec2f>().get().x, m.getArgAsFloat(0));
+                }
                 
             } else if(p->type() == typeid(ofParameter<ofVec3f>).name()) {
                 
-                if(spec == "x") p->cast<ofVec3f>() = ofVec3f(m.getArgAsFloat(0), p->cast<ofVec3f>().get().y, p->cast<ofVec3f>().get().z);
+                if(m.getNumArgs() == 3) {
+                    
+                    p->cast<ofVec2f>() = ofVec3f(m.getArgAsFloat(0), m.getArgAsFloat(1), m.getArgAsFloat(2));
+                    
+                } else if(m.getNumArgs() == 1) {
                 
-                if(spec == "y") p->cast<ofVec3f>() = ofVec3f(p->cast<ofVec3f>().get().x, m.getArgAsFloat(0), p->cast<ofVec3f>().get().z);
+                    if(spec == "x") p->cast<ofVec3f>() = ofVec3f(m.getArgAsFloat(0), p->cast<ofVec3f>().get().y, p->cast<ofVec3f>().get().z);
                 
-                if(spec == "z") p->cast<ofVec3f>() = ofVec3f(p->cast<ofVec3f>().get().x, p->cast<ofVec3f>().get().y, m.getArgAsFloat(0));
+                    if(spec == "y") p->cast<ofVec3f>() = ofVec3f(p->cast<ofVec3f>().get().x, m.getArgAsFloat(0), p->cast<ofVec3f>().get().z);
+                
+                    if(spec == "z") p->cast<ofVec3f>() = ofVec3f(p->cast<ofVec3f>().get().x, p->cast<ofVec3f>().get().y, m.getArgAsFloat(0));
+                }
                 
             } else if(p->type() == typeid(ofParameter<ofColor>).name()) {
                 
