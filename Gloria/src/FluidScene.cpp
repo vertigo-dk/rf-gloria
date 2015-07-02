@@ -30,7 +30,6 @@ void FluidScene::setup(){
     params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
                
                clear.set("clear", false),
-               
                temperature.set("temperature", 0, 0, 20),
                density.set("density", 0, 0, 1),
                dissipation.set("dissipation", 0.99, 0, 1),

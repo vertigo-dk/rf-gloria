@@ -57,7 +57,7 @@ public:
     
     ofParameter<float> radiusLine;
     
-    ofParameter<int> emitters;
+    ofParameter<float> emitters;
     
     ofParameter<float> rotation;
     ofParameter<float> rotationSpeed;
