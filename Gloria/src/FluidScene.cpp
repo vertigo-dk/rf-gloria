@@ -52,7 +52,8 @@ void FluidScene::setup(){
                rotation.set("rotation", 0, 0, 360),
                rotationSpeed.set("rotationSpeed", 0, 0, 1),
                spacing.set("spacing", 0, 0, 1),
-               radiusLine.set("radiusLine", 0, 0, 30)
+               radiusLine.set("radiusLine", 0, 0, 30),
+               speed.set("speed", 0, 0,1)
                /*reset.set("reset", false),
                useObstacles.set("useObstacles", false),
                drawObstacles.set("drawObstacles", false),
@@ -73,14 +74,13 @@ void FluidScene::update(){
     fluid.velocityDissipation = velocityDissipation;
     fluid.temperatureDissipation = temperatureDissipation;
     fluid.pressureDissipation = pressureDissipation;
-    fluid.setGravity(gravity.get());
-    
+    fluid.setGravity(gravity.get()*speed);
     
     ofPoint m = emitPos.get() * ofVec2f(drawWidth, drawHeight);
     ofPoint d = (m - oldM)*10.0;
     oldM = m;
     
-    fluid.addTemporalForce(m, d, color.get(), radius, temperature, density);
+    fluid.addTemporalForce(m, d*speed, color.get(), radius, temperature, density);
     
     ofVec2f center = ofVec2f(drawWidth/2, drawHeight/2);
     
@@ -89,7 +89,6 @@ void FluidScene::update(){
     if(rotationVal>=360) {
         rotationVal = 0;
     }
-    
     
     for(int i =0; i<emitters; i++) {
         
@@ -109,7 +108,7 @@ void FluidScene::update(){
         //pos.y = cos(rotation) * drawHeight*0.9;
         
         fluid.addTemporalForce(
-                               ofVec2f(pos), emitLineDir.get()*10.0, colorLine.get(), radiusLine, temperature, density);
+                               ofVec2f(pos), emitLineDir.get()*10.0*speed, colorLine.get(), radiusLine, temperature, density);
         
     }
     
