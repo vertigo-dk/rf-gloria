@@ -75,6 +75,9 @@ public:
     ofParameter<bool> addColor;
     ofParameter<float> spacing;
     
+    ofParameter<float> speed;
+    
+    
     ofFbo colorFbo;
     
     ofStyle style;
