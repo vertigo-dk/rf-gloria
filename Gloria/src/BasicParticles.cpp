@@ -100,7 +100,7 @@ void BasicParticles::draw(){;
         //Fade out the old stuff
         ofSetColor(0,0,0,fade);
         ofFill();
-        ofRect(0,0,OUTWIDTH,OUTHEIGHT);
+        ofDrawRectangle(0,0,OUTWIDTH,OUTHEIGHT);
     } else {
         ofClear(0, 0, 0, 255);
     }
