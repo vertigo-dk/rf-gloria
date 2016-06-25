@@ -127,7 +127,7 @@ void PetriDish::setup(){
                eraseAll.set("eraseAll", false));
     
     
-    initOutputPlane(gray.getTextureReference());
+    initOutputPlane(gray.getTexture());
     
     qtScene.qtsetup();
     trailLength = 0;
@@ -193,7 +193,7 @@ void PetriDish::draw(){
     qtScene.qtdraw();
     gray.end();
     
-    drawOutput(gray.getTextureReference());
+    drawOutput(gray.getTexture());
 }
 
 void PetriDish::drawOutput(ofTexture inputTex) {
