@@ -189,7 +189,7 @@ void PetriDish::draw(){
     float y = ofRandom(outHeight);
     gray.begin();
     //ofSetColor(ofNoise( ofGetElapsedTimef() )*255);
-    //ofCircle(x, y, 3);
+    //ofDrawCircle(x, y, 3);
     qtScene.qtdraw();
     gray.end();
     

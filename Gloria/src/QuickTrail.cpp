@@ -172,15 +172,15 @@ void QuickTrail::draw(){;
                         
                         ofVec2f interpolate = srcPt + (dstPt - srcPt) * pct;
                         
-                        ofLine(interpolate, dstPt);
-                        ofCircle(interpolate.x, interpolate.y, circleRadius);
+                        ofDrawLine(interpolate, dstPt);
+                        ofDrawCircle(interpolate.x, interpolate.y, circleRadius);
                         //ofVertex(walkers[i].points[p].x,w alkers[i].points[p].y);
                         
                     } else {
                         
-                        ofCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
+                        ofDrawCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
                         
-                        ofLine(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, walkers[i].corners[p-1]->pos.x, walkers[i].corners[p-1]->pos.y);
+                        ofDrawLine(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, walkers[i].corners[p-1]->pos.x, walkers[i].corners[p-1]->pos.y);
                         
                     }
                 }
@@ -197,9 +197,9 @@ void QuickTrail::draw(){;
                         
                         ofVec2f interpolate = srcPt + (dstPt - srcPt) * pct;
                         
-                        ofCircle(interpolate.x, interpolate.y, circleRadius);
+                        ofDrawCircle(interpolate.x, interpolate.y, circleRadius);
                     } else {
-                        ofCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
+                        ofDrawCircle(walkers[i].corners[p]->pos.x, walkers[i].corners[p]->pos.y, (p/length*1.0*circleRadius));
                     }
                     ofNoFill();
                 }
@@ -214,13 +214,13 @@ void QuickTrail::draw(){;
                         
                         ofVec2f interpolate = srcPt + (dstPt - srcPt) * pct;
                         
-                        ofCircle(interpolate.x, interpolate.y, interpolate.distance(srcPt));
+                        ofDrawCircle(interpolate.x, interpolate.y, interpolate.distance(srcPt));
                         
                     } else {
                         
                         float radius = srcPt.distance(dstPt);// + (srcPt - dstPt)/2;
                         
-                        ofCircle(dstPt.x, dstPt.y, radius);
+                        ofDrawCircle(dstPt.x, dstPt.y, radius);
         
                     }
                 }
@@ -232,11 +232,11 @@ void QuickTrail::draw(){;
                         
                         ofVec2f interpolate = srcPt + (dstPt - srcPt) * pct;
 
-                        ofLine(interpolate.x, interpolate.y, srcPt.x, srcPt.y);
+                        ofDrawLine(interpolate.x, interpolate.y, srcPt.x, srcPt.y);
                         
                     } else {
                         
-                        ofLine(dstPt.x, dstPt.y, srcPt.x, srcPt.y);
+                        ofDrawLine(dstPt.x, dstPt.y, srcPt.x, srcPt.y);
                         
                     }
 
@@ -260,17 +260,17 @@ void QuickTrail::draw(){;
                             
                             if(circle_circle_intersection(srcPt.x, srcPt. y, r0, interpolate.x, interpolate.y, r1, &intersection0.x, &intersection0.y, &intersection1.x, &intersection1.y )){
                                 
-                                ofLine(intersection0, intersection1);
-                                ofLine(srcPt, intersection1);
-                                ofLine(srcPt, intersection0);
-                                ofLine(interpolate, intersection1);
-                                ofLine(interpolate, intersection0);
+                                ofDrawLine(intersection0, intersection1);
+                                ofDrawLine(srcPt, intersection1);
+                                ofDrawLine(srcPt, intersection0);
+                                ofDrawLine(interpolate, intersection1);
+                                ofDrawLine(interpolate, intersection0);
 
 
                             }
                             
                             
-                            ofLine(interpolate.x, interpolate.y, srcPt.x, srcPt.y);
+                            ofDrawLine(interpolate.x, interpolate.y, srcPt.x, srcPt.y);
                             
                         } else {
                             
@@ -282,12 +282,11 @@ void QuickTrail::draw(){;
                             
                             if(circle_circle_intersection(srcPt.x, srcPt. y, r0, dstPt.x, dstPt.y, r1, &intersection0.x, &intersection0.y, &intersection1.x, &intersection1.y )){
                                 
-                                ofLine(intersection0, intersection1);
-                                ofLine(srcPt, intersection1);
-                                ofLine(srcPt, intersection0);
-                                ofLine(dstPt, intersection1);
-                                ofLine(dstPt, intersection0);
-                                
+                                ofDrawLine(intersection0, intersection1);
+                                ofDrawLine(srcPt, intersection1);
+                                ofDrawLine(srcPt, intersection0);
+                                ofDrawLine(dstPt, intersection1);
+                                ofDrawLine(dstPt, intersection0);
                                 
                             }
                             

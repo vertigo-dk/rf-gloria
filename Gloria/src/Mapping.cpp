@@ -324,7 +324,7 @@ void Mapping::debugDraw() {
 
 void InputTriangle::debugDraw() {
     ofSetColor(255, 255, 255, 40);
-    ofRect(polyline.getBoundingBox());
+    ofDrawRectangle(polyline.getBoundingBox());
     
     //path.draw();
     //vector<ofPolyline>& lines = path.getOutline();
@@ -339,7 +339,7 @@ void InputTriangle::debugDraw() {
     ofSetColor(255, 0, 0, 60);
     
     for(int i=0; i<polyline.getVertices().size(); i++) {
-        ofCircle(polyline.getVertices()[i].x, polyline.getVertices()[i].y, 20);
+        ofDrawCircle(polyline.getVertices()[i].x, polyline.getVertices()[i].y, 20);
     }
     
 }
