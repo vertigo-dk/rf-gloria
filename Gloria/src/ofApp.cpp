@@ -15,7 +15,7 @@ void ofApp::setup() {
     ofSetVerticalSync(true);
     glEnable(GL_LINES);
     
-    ofSetWindowTitle("Gloria 2015");
+    ofSetWindowTitle("Gloria 2016");
     
     
     
@@ -420,9 +420,7 @@ void ofApp::exit()
         
         scenes[i]->exit();
         delete scenes[i];
-        
     }
-    
     
     settings.saveFile("appSettings.xml");
     mapping->save();
