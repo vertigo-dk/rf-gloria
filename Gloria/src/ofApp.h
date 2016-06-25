@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "Defines.h"
+#include "ofxGui.h"
 #include "ofxSyphon.h"
 #include "ofxOsc.h"
 #include "ContentScene.h"
@@ -9,7 +10,6 @@
 #include "QuickTrail.h"
 #include "Triangles.h"
 #include "PerlinWaves.h"
-#include "ofxGui.h"
 #include "Mapping.h"
 #include "FluidScene.h"
 #include "BasicParticles.h"
