@@ -193,7 +193,7 @@ void Mapping::generate() {
         
 		// svg defaults to non zero winding which doesn't look so good as contours
 		//p.setPolyWindingMode(OF_POLY_WINDING_ODD);
-		vector<ofPolyline>& lines = p.getOutline();
+		const vector<ofPolyline>& lines = p.getOutline();
         
 		for(int j=0;j<(int)lines.size();j++){
             
