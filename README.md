@@ -1,3 +1,5 @@
-Tools for Roskilde Festival 2015
+Tools for Roskilde Festivals Gloria stage
 ==============
-Generative Visuals for roskilde festival 2015 Gloria stage
+Generative Visuals for roskilde festival's Gloria stage
+
+2014, 2015, 2016
