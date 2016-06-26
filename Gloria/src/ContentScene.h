@@ -25,7 +25,6 @@ public:
     ofxSyphonClient * syphonIn;
     ofxSyphonServer syphonOut;
     
-    ofParameterGroup params;
     ofxPanel panel;
     
     // vector<ofxOscSender *> oscClients;
@@ -58,6 +57,11 @@ public:
     
     void parameterChanged(ofAbstractParameter & parameter);
     
+    ofParameterGroup params;
+    ofParameterGroup & getParameters() {
+        return params;
+    }
+    
     void setSceneGui();
     void setSceneParameters();
     void addSlider();
@@ -68,4 +72,9 @@ public:
     void drawScene();
     
     void publishSyphonTexture();
+    
+
+private:
+
+    
 };

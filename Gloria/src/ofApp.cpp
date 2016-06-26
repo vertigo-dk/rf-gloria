@@ -157,12 +157,13 @@ void ofApp::update() {
         ofxOscMessage m;
         oscReceiver.getNextMessage(m);
         
-        //cout<<m.getAddress()<<endl;
         for(int i=0; i<scenes.size();i++) {
             scenes[i]->parseSceneOscMessage(m);
         }
         
-        //fadeManager->parseOscMessageForParameterGroup(m, )
+        // When this has been tested and leur updated, remove code above
+        fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
+        
         
     }
     

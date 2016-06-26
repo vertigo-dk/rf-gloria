@@ -29,17 +29,30 @@ class ofApp : public ofBaseApp {
 public:
     
     ofApp() {
-    
-    scenes.push_back(make_shared<FluidScene>());
-    scenes.push_back(make_shared<QuickTrail>());
-    scenes.push_back(make_shared<Triangles>());
-    scenes.push_back(make_shared<PerlinWaves>());
-    scenes.push_back(make_shared<BasicParticles>());
-    scenes.push_back(make_shared<ChaoticAttractor>());
-    scenes.push_back(make_shared<PetriDish>());
-    scenes.push_back(make_shared<CurlyFur>());
-    
+        
+        sceneParams.setName("scenes");
+        globalParams.setName("gloria");
+        
+        scenes.push_back(make_shared<FluidScene>());
+        scenes.push_back(make_shared<QuickTrail>());
+        scenes.push_back(make_shared<Triangles>());
+        scenes.push_back(make_shared<PerlinWaves>());
+        scenes.push_back(make_shared<BasicParticles>());
+        scenes.push_back(make_shared<ChaoticAttractor>());
+        scenes.push_back(make_shared<PetriDish>());
+        scenes.push_back(make_shared<CurlyFur>());
+        
+        for( auto s : scenes) {
+            sceneParams.add(s->getParameters());
+        }
+        
+        globalParams.add(sceneParams);
+
     }
+    
+    ofParameterGroup sceneParams;
+    
+    ofParameterGroup globalParams;
     
     void setup();
     void update();
