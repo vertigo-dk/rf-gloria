@@ -17,8 +17,7 @@ void ofApp::setup() {
     
     ofSetWindowTitle("Gloria 2016");
     
-    
-    
+    fadeManager = make_shared<ofxParameterFader>();
     
     directory.setup();
     
@@ -40,16 +39,6 @@ void ofApp::setup() {
     
     // effects scenes
     // Set up the scenes, all scenes is a subclass of SceneContent, don't call draw, setup and update directly it is taken care of thorugh the scene.
-    
-    scenes.push_back(new FluidScene());
-    scenes.push_back(new QuickTrail());
-    scenes.push_back(new Triangles());
-    scenes.push_back(new PerlinWaves());
-    scenes.push_back(new BasicParticles());
-    //scenes.push_back(new ColorPalette());
-    scenes.push_back(new ChaoticAttractor());
-    scenes.push_back(new PetriDish());
-    scenes.push_back(new CurlyFur());
     
     
     // we composite in millumin via syphon, uncomment this to compsite locally + section where scenes are drawn into fbo's
@@ -74,7 +63,6 @@ void ofApp::setup() {
         scenes[i]->oscReceiver = &oscReceiver;
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
-    
     
     /*globalParameters.add(drawMapping.set("Draw mapping", true));
     
@@ -160,6 +148,9 @@ void ofApp::serverRetired(ofxSyphonServerDirectoryEventArgs &arg)
 //--------------------------------------------------------------
 void ofApp::update() {
     
+    
+    fadeManager->update();
+    
     while(oscReceiver.hasWaitingMessages()){
         
         // get the next message
@@ -170,13 +161,15 @@ void ofApp::update() {
         for(int i=0; i<scenes.size();i++) {
             scenes[i]->parseSceneOscMessage(m);
         }
+        
+        //fadeManager->parseOscMessageForParameterGroup(m, )
+        
     }
     
     // Scenes
-    for(int i=0; i<scenes.size(); i++) {
-        scenes[i]->updateScene();
+    for( auto s : scenes) {
+        s->updateScene();
     }
-    
 }
 
 void ofApp::draw() {
@@ -419,7 +412,6 @@ void ofApp::exit()
         settings.setValue(scenes[i]->name+"_panel_pos_y", scenes[i]->panel.getPosition().y);
         
         scenes[i]->exit();
-        delete scenes[i];
     }
     
     settings.saveFile("appSettings.xml");

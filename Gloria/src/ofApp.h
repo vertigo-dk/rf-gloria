@@ -1,11 +1,17 @@
 #pragma once
 
-#include "ofMain.h"
 #include "Defines.h"
+#include "ofMain.h"
+
+// Addons
 #include "ofxGui.h"
 #include "ofxSyphon.h"
 #include "ofxOsc.h"
+#include "ofxParameterFader.hpp"
+
 #include "ContentScene.h"
+
+// Scenes
 #include "LampWalker.h"
 #include "QuickTrail.h"
 #include "Triangles.h"
@@ -17,9 +23,24 @@
 #include "ChaoticAttractor.h"
 #include "CurlyFur.h"
 
+
+
 class ofApp : public ofBaseApp {
 public:
-
+    
+    ofApp() {
+    
+    scenes.push_back(make_shared<FluidScene>());
+    scenes.push_back(make_shared<QuickTrail>());
+    scenes.push_back(make_shared<Triangles>());
+    scenes.push_back(make_shared<PerlinWaves>());
+    scenes.push_back(make_shared<BasicParticles>());
+    scenes.push_back(make_shared<ChaoticAttractor>());
+    scenes.push_back(make_shared<PetriDish>());
+    scenes.push_back(make_shared<CurlyFur>());
+    
+    }
+    
     void setup();
     void update();
     void draw();
@@ -39,6 +60,8 @@ public:
 
     ofxOscReceiver oscReceiver;
     ofxOscSender oscSenderOne;
+    
+    shared_ptr<ofxParameterFader> fadeManager;
     
     //ofxSyphonServer syphonOut;
     ofxSyphonClient * syphonIn; // selected syphon in
@@ -72,7 +95,10 @@ public:
     bool outputCombined;
     bool drawMask;
     
-    vector<ContentScene*> scenes;
+    vector<shared_ptr<ContentScene>> scenes;
     
     void selectSyphonInput(int input);
+    
+    vector<ofxPanel *> scenePanels;
+    
 };
