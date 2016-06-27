@@ -6,6 +6,7 @@ float syphonRowWidth = syphonRowHeight * 4.75;
 
 void ofApp::setup() {
     
+    
     ofEnableAlphaBlending();
     oscReceiver.setup(OSCRECEIVEPORT);
     oscSenderOne.setup(OSCCLIENTONE, OSCSENDPORT);
@@ -18,6 +19,8 @@ void ofApp::setup() {
     ofSetWindowTitle("Gloria 2016");
     
     fadeManager = make_shared<ofxParameterFader>();
+    
+    ofAddListener(globalParams.parameterChangedE(), this, &ofApp::paramsChanged);
     
     directory.setup();
     
@@ -157,9 +160,9 @@ void ofApp::update() {
         ofxOscMessage m;
         oscReceiver.getNextMessage(m);
         
-        for(int i=0; i<scenes.size();i++) {
-            scenes[i]->parseSceneOscMessage(m);
-        }
+        //for(int i=0; i<scenes.size();i++) {
+        //    scenes[i]->parseSceneOscMessage(m);
+        //}
         
         // When this has been tested and leur updated, remove code above
         fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
@@ -339,6 +342,12 @@ void ofApp::keyPressed(int key){
     
     if(key == 'i') {
         selectSyphonInput(dirIdx+1);
+    }
+    
+    if(key == 'c') {
+        if(lastChangedParam != nullptr) {
+            ofGetWindowPtr()->setClipboardString(ofxParameterFader::getOscAddressForParameter(*lastChangedParam));
+        }
     }
     
     /*if(key == 'n') {

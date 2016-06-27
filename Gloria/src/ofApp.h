@@ -47,7 +47,6 @@ public:
         }
         
         globalParams.add(sceneParams);
-
     }
     
     ofParameterGroup sceneParams;
@@ -75,6 +74,8 @@ public:
     ofxOscSender oscSenderOne;
     
     shared_ptr<ofxParameterFader> fadeManager;
+
+    ofAbstractParameter * lastChangedParam = nullptr;
     
     //ofxSyphonServer syphonOut;
     ofxSyphonClient * syphonIn; // selected syphon in
@@ -113,5 +114,9 @@ public:
     void selectSyphonInput(int input);
     
     vector<ofxPanel *> scenePanels;
+    
+    void paramsChanged(ofAbstractParameter & p) {
+        lastChangedParam = &p;
+    }
     
 };
