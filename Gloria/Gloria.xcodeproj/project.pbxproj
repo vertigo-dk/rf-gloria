@@ -1292,13 +1292,13 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				81372557A308E156BF09135E /* Defines.h */,
 				041E6B811D20191D00CCFC04 /* Scenes */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				BCB94AF63866D8A4E64CA485 /* ContentScene.cpp */,
 				1824E38ED9C444679C647007 /* ContentScene.h */,
-				81372557A308E156BF09135E /* Defines.h */,
 				95EE20AA8FB1644DCA7F3D46 /* FluidScene.cpp */,
 				BC6960A36B9E6C14AAD48481 /* FluidScene.h */,
 				794C5C61999154573D6FE1F9 /* LampWalker.cpp */,
