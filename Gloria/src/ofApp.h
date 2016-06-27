@@ -9,21 +9,20 @@
 #include "ofxOsc.h"
 #include "ofxParameterFader.hpp"
 
+#include "Mapping.h"
 #include "ContentScene.h"
+#include "Output.hpp"
 
 // Scenes
 #include "LampWalker.h"
 #include "QuickTrail.h"
 #include "Triangles.h"
 #include "PerlinWaves.h"
-#include "Mapping.h"
 #include "FluidScene.h"
 #include "BasicParticles.h"
-#include "petriDish.h"
-#include "ChaoticAttractor.h"
+//#include "petriDish.h"
+//#include "ChaoticAttractor.h"
 #include "CurlyFur.h"
-
-
 
 class ofApp : public ofBaseApp {
 public:
@@ -38,8 +37,8 @@ public:
         scenes.push_back(make_shared<Triangles>());
         scenes.push_back(make_shared<PerlinWaves>());
         scenes.push_back(make_shared<BasicParticles>());
-        scenes.push_back(make_shared<ChaoticAttractor>());
-        scenes.push_back(make_shared<PetriDish>());
+        //scenes.push_back(make_shared<ChaoticAttractor>());
+        //scenes.push_back(make_shared<PetriDish>());
         scenes.push_back(make_shared<CurlyFur>());
         
         for( auto s : scenes) {
@@ -47,11 +46,10 @@ public:
         }
         
         globalParams.add(sceneParams);
-
+        
     }
     
     ofParameterGroup sceneParams;
-    
     ofParameterGroup globalParams;
     
     void setup();
@@ -75,6 +73,8 @@ public:
     ofxOscSender oscSenderOne;
     
     shared_ptr<ofxParameterFader> fadeManager;
+
+    ofAbstractParameter * lastChangedParam = nullptr;
     
     //ofxSyphonServer syphonOut;
     ofxSyphonClient * syphonIn; // selected syphon in
@@ -108,10 +108,16 @@ public:
     bool outputCombined;
     bool drawMask;
     
+    OutputManager outputManager;
+    
     vector<shared_ptr<ContentScene>> scenes;
     
     void selectSyphonInput(int input);
     
     vector<ofxPanel *> scenePanels;
+    
+    void paramsChanged(ofAbstractParameter & p) {
+        lastChangedParam = &p;
+    }
     
 };

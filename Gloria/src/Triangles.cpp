@@ -10,25 +10,6 @@
 
 
 void Triangles::setup(){
-    name = "triangles";
-    
-    params.add(
-               divideTriangleSize.set("Triangles Size", 0, 5, 0),
-               divideRadius.set("Triangle Divide Radius", 0, 0, 5100),
-               divideInvert.set("Triangle Divide Invert", false),
-               syphonOpacity.set("Syphon Texture", 0, 0, 1),
-               syphonMeshDistortion.set("Syphon Mesh Distortion", 0, 0, 1),
-               meshDistortion.set("Mesh Distortion", 0, -1, 1),
-               //               lightSpeed.set("lightSpeed", 0, 0, 1),
-               color.set("Color", ofFloatColor(1,1,1,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)),
-               fillAlpha.set("Fill alpha", 1, 0, 1),
-               wireframeAlpha.set("Wireframe alpha", 1, 0, 1),
-               wireframeLineWidth.set("Wireframe line width", 1, 0, 10),
-               noise.set("Noise Amount", 0, 0, 2),
-               noiseSeedSpeed.set("Noise Speed", 0, 0,1),
-               light.set("Light Amount", 0, 0, 1),
-               lightRotation.set("Light Rotation", ofVec3f(90,90,90), ofVec3f(-90,-90,-90) ,ofVec3f(180,90,90))
-               );
     
     map<Corner*, Corner*> cornerRefs;
     

@@ -19,6 +19,8 @@ void ofApp::setup() {
     
     fadeManager = make_shared<ofxParameterFader>();
     
+    ofAddListener(globalParams.parameterChangedE(), this, &ofApp::paramsChanged);
+    
     directory.setup();
     
     //register for our directory's callbacks
@@ -26,7 +28,6 @@ void ofApp::setup() {
     ofAddListener(directory.events.serverUpdated, this, &ofApp::serverUpdated);
     ofAddListener(directory.events.serverRetired, this, &ofApp::serverRetired);
     dirIdx = -1;
-    
     
     syphonIn = new ofxSyphonClient();
     syphonIn->setup();
@@ -56,12 +57,12 @@ void ofApp::setup() {
      fboOut.end();
      */
     
-    for(int i=0; i<scenes.size(); i++) {
-        scenes[i]->mapping  = mapping;
-        scenes[i]->syphonIn = syphonIn;
-        scenes[i]->oscSender = &oscSenderOne;
-        scenes[i]->oscReceiver = &oscReceiver;
-        scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
+    for(auto s : scenes) {
+        
+        s->outputManager = &outputManager;
+        s->mapping  = mapping;
+        s->syphonIn = syphonIn;
+        s->setupScene();
     }
     
     /*globalParameters.add(drawMapping.set("Draw mapping", true));
@@ -72,7 +73,6 @@ void ofApp::setup() {
     
     for(int i=0; i<scenes.size(); i++) {
         // layout scene gui panels horizontally
-        
         
         int x = settings.getValue(scenes[i]->name+"_panel_pos_x", 0);
         int y = settings.getValue(scenes[i]->name+"_panel_pos_y", 1);
@@ -107,7 +107,6 @@ void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
             client.set(dir.serverName, dir.appName);
             syphonInputs.push_back(client);
         }
-        
     }
     //dirIdx = 0;
     selectSyphonInput(dirIdx);
@@ -148,7 +147,6 @@ void ofApp::serverRetired(ofxSyphonServerDirectoryEventArgs &arg)
 //--------------------------------------------------------------
 void ofApp::update() {
     
-    
     fadeManager->update();
     
     while(oscReceiver.hasWaitingMessages()){
@@ -157,13 +155,12 @@ void ofApp::update() {
         ofxOscMessage m;
         oscReceiver.getNextMessage(m);
         
-        for(int i=0; i<scenes.size();i++) {
-            scenes[i]->parseSceneOscMessage(m);
-        }
+        //for(int i=0; i<scenes.size();i++) {
+        //    scenes[i]->parseSceneOscMessage(m);
+        //}
         
         // When this has been tested and leur updated, remove code above
         fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
-        
         
     }
     
@@ -339,6 +336,12 @@ void ofApp::keyPressed(int key){
     
     if(key == 'i') {
         selectSyphonInput(dirIdx+1);
+    }
+    
+    if(key == 'c') {
+        if(lastChangedParam != nullptr) {
+            ofGetWindowPtr()->setClipboardString(ofxParameterFader::getOscAddressForParameter(*lastChangedParam));
+        }
     }
     
     /*if(key == 'n') {

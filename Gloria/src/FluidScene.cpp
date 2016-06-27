@@ -27,40 +27,6 @@ void FluidScene::setup(){
     
     //fluid.setPasses(2);
 
-    params.add(gravity.set("gravity", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
-               
-               clear.set("clear", false),
-               temperature.set("temperature", 0, 0, 20),
-               density.set("density", 0, 0, 1),
-               dissipation.set("dissipation", 0.99, 0, 1),
-               velocityDissipation.set("velocityDissipation", 0.99, 0, 1),
-               temperatureDissipation.set("temperatureDissipation", 0.99, 0, 1),pressureDissipation.set("pressureDissipation", 0.99, 0, 1),
-               
-               emitPos.set("emit", ofVec2f(0.6,0.5), ofVec2f(0,0), ofVec2f(1,1)),
-               radius.set("radius", 0, 0, 30),
-               
-               color.set("color", ofColor(255,255,255,255), ofColor(0,0,0,0), ofColor(255,255,255,255)),
-               
-               emitLinePos.set("emitLine", ofVec2f(0.0,0.0), ofVec2f(-1,-1), ofVec2f(1,1)),
-               
-               emitLineDir.set("emitLineDir", ofVec2f(0,0), ofVec2f(-1,-1), ofVec2f(1,1)),
-               
-               
-               colorLine.set("colorLine", ofColor(255,255,255,255), ofColor(0,0,0,0), ofColor(255,255,255,255)),
-               emitters.set("emitters", 0, 0, 30),
-               rotation.set("rotation", 0, 0, 360),
-               rotationSpeed.set("rotationSpeed", 0, 0, 1),
-               spacing.set("spacing", 0, 0, 1),
-               radiusLine.set("radiusLine", 0, 0, 30),
-               speed.set("speed", 0, 0,1)
-               /*reset.set("reset", false),
-               useObstacles.set("useObstacles", false),
-               drawObstacles.set("drawObstacles", false),
-               addColor.set("addColor", false)*/
-               
-               );
-    
-
     
    }
 
@@ -133,9 +99,9 @@ void FluidScene::update(){
     
     
     if(newFrame) {
-        fbo.begin();
+        fbo->begin();
         fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
-        fbo.end();
+        fbo->end();
         
         newFrame = false;
     }

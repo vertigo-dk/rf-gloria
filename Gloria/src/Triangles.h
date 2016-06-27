@@ -14,6 +14,7 @@
 
 class SubTriangle : public InputTriangle{
 public:
+    
     vector<SubTriangle*> subTriangles;
     float age;
     SubTriangle * parentTriangle;
@@ -283,53 +284,80 @@ class Triangles : public ContentScene {
     
 public:
     
+    
+
+    
+    ofParameter<float> syphonOpacity{"Syphon Texture", 0, 0, 1};
+    ofParameter<float> syphonMeshDistortion{"Syphon Mesh Distortion", 0, 0, 1};
+    ofParameter<float> meshDistortion{"Mesh Distortion", 0, -1, 1};
+    
+    ofParameter<float> transitionTime{};
+    ofParameter<float> divideTriangleSize{"Triangles Size", 0, 5, 0};
+    ofParameter<float> divideRadius{"Triangle Divide Radius", 0, 0, 5100};
+    ofParameter<bool> divideInvert{"Triangle Divide Invert", false};
+    ofParameter<float> wireframeAlpha{"Wireframe alpha", 1, 0, 1};
+    ofParameter<float> fillAlpha{"Fill alpha", 1, 0, 1};
+    ofParameter<float> wireframeLineWidth{"Wireframe line width", 1, 0, 10};
+    
+    ofParameter<ofColor> color{ "Color", ofFloatColor(1,1,1,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)};
+
+    
+    ofParameter<float> noise{"Noise Amount", 0, 0, 2};
+    ofParameter<float> noiseSeedSpeed{"Noise Speed", 0, 0,1};
+    
+    
+    ofParameter<float> light{"Light Amount", 0, 0, 1};
+    ofParameter<ofVec3f> lightRotation{"Light Rotation", ofVec3f(90,90,90), ofVec3f(-90,-90,-90) ,ofVec3f(180,90,90)};
+    
+   
+    
+    ofParameterGroup params {"triangles",
+        enabled,
+        divideTriangleSize,
+        divideRadius,
+        divideInvert,
+        syphonOpacity,
+        syphonMeshDistortion,
+        meshDistortion,
+        color,
+        fillAlpha,
+        wireframeAlpha,
+        wireframeLineWidth,
+        noise,
+        noiseSeedSpeed,
+        light,
+        lightRotation
+    };
+    
+    Triangles() {
+        ContentScene::params = params;
+    }
+    
+    
     void setup();
     void draw();
     void debugDraw();
     void update();
+    void parseOscMessage(ofxOscMessage *m);
+
     float pct;
     
     map<InputTriangle*, SubTriangle* > subTriangles;
-    
     void divide(SubTriangle * triangle, float sizeGoal);
-    
     void collapse(SubTriangle * triangle);
-    
     void drawTriangle(SubTriangle * triangle, float opacity);
     void drawTriangleWireframe(SubTriangle * triangle);
     
+
     ofVec2f center;
-    
-    ofParameter<float> syphonOpacity, syphonMeshDistortion;
-    ofParameter<float> meshDistortion;
     float directTextureOpacity;
-
-    ofParameter<float> transitionTime;
-    ofParameter<float> divideTriangleSize;
-    ofParameter<float> divideRadius;
-    ofParameter<bool> divideInvert;
-    ofParameter<float> wireframeAlpha, fillAlpha;
-    ofParameter<float> wireframeLineWidth;
-
-    ofParameter<float> noise, noiseSeedSpeed;
-    
-    float noiseSeed; ;
-    
-    ofParameter<float> light;
-    ofParameter<ofVec3f> lightRotation;
-
+    float noiseSeed;
     ofVec3f lightPos;
-    
     ofLight pointLight;
     ofMaterial material;
-
-    ofParameter<ofColor> color;
-    //float colorR, colorG, colorB;
     
     ofxAutoReloadedShader fillShader;
     ofxAutoReloadedShader wireframeShader;
-    
-    void parseOscMessage(ofxOscMessage *m);
     
     ofFbo depthFbo;
     ofImage edgeMask;

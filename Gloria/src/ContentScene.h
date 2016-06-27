@@ -6,13 +6,20 @@
 #include "ofxGui.h"
 #include "mapping.h"
 #include "ofxSyphon.h"
+#include "Output.hpp"
 
 class ContentScene {
     
 public:
     
+    ofParameter<bool> enabled {"enabled", true};
+    ofParameterGroup params {"untitled", enabled};
+    
+    OutputManager * outputManager;
+    
     ContentScene(){
         updatingParameter = false;
+        
     }
     
     virtual ~ContentScene(){
@@ -35,9 +42,7 @@ public:
     string name;
     string lastOscUpdatedParam = "";
     
-    ofFbo fbo;
-    //bool enabled;
-    ofParameter<bool>  enabled;
+    OutputFbo * fbo = nullptr;
     
     string panelSettingsPath;
     
@@ -55,23 +60,24 @@ public:
     virtual void setGui();
     virtual void parseOscMessage(ofxOscMessage * m);
     
+    virtual void enable() {};
+    virtual void disable() {};
+    
     void parameterChanged(ofAbstractParameter & parameter);
     
-    ofParameterGroup params;
     ofParameterGroup & getParameters() {
         return params;
     }
     
-    void setSceneGui();
-    void setSceneParameters();
-    void addSlider();
-    void checkMsg();
+    void enableToggled(bool & e);
+    
     void parseSceneOscMessage(ofxOscMessage & m);
-    void setupScene(int _width, int _height, int _i);
+    void setupScene();
     void updateScene();
     void drawScene();
     
     void publishSyphonTexture();
+
     
 
 private:

@@ -288,7 +288,6 @@ void Mapping::updateMeshes() {
             triangles[i]->mesh.setVertex(c, triangles[i]->corners[c]->pos);
         }
     }
-
 }
 
 void Mapping::exit() {
@@ -362,7 +361,6 @@ void Mapping::generateMask() {
     } outputMask.end();
     
 }
-
 
 void Mapping::drawMask() {
     // I guess we need to use a shader forr this - TODO
