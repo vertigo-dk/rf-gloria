@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		024E1E2B1EDF7505728A7A07 /* ChaoticAttractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53F32D64ED588898EA599916 /* ChaoticAttractor.cpp */; };
 		041E6B7C1D200E4100CCFC04 /* ofxParameterFader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041E6B7A1D200E4100CCFC04 /* ofxParameterFader.cpp */; };
+		04A7BA401D21B4D400EB466D /* Output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7BA3E1D21B4D400EB466D /* Output.cpp */; };
 		0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */; };
 		11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */ = {isa = PBXBuildFile; fileRef = E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */; };
 		15E6B1F19E105C5A5FC4B10E /* QuickTrail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58649CC50D663B74D23DA41 /* QuickTrail.cpp */; };
@@ -115,6 +116,8 @@
 		041E6B7B1D200E4100CCFC04 /* ofxParameterFader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ofxParameterFader.hpp; sourceTree = "<group>"; };
 		041E6B7F1D200EC300CCFC04 /* easing_terms_of_use.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = easing_terms_of_use.html; sourceTree = "<group>"; };
 		041E6B801D200EC300CCFC04 /* ofxEasing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxEasing.h; sourceTree = "<group>"; };
+		04A7BA3E1D21B4D400EB466D /* Output.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Output.cpp; sourceTree = "<group>"; };
+		04A7BA3F1D21B4D400EB466D /* Output.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Output.hpp; sourceTree = "<group>"; };
 		057122A817D12571F8C0C7A4 /* ofxCvGrayscaleImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvGrayscaleImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.cpp; sourceTree = SOURCE_ROOT; };
 		057D8E7580EA21E2254ADDDA /* camera.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = camera.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/stitching/detail/camera.hpp; sourceTree = SOURCE_ROOT; };
 		075597E52E99BDE94F8036B2 /* fast_marching_inl.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fast_marching_inl.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/videostab/fast_marching_inl.hpp; sourceTree = SOURCE_ROOT; };
@@ -1302,6 +1305,8 @@
 				1824E38ED9C444679C647007 /* ContentScene.h */,
 				11236C7515098B69C666C26E /* Mapping.cpp */,
 				BCFAE93E90B9663FBBE69B8B /* Mapping.h */,
+				04A7BA3E1D21B4D400EB466D /* Output.cpp */,
+				04A7BA3F1D21B4D400EB466D /* Output.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1503,6 +1508,7 @@
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
+				04A7BA401D21B4D400EB466D /* Output.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,

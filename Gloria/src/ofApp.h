@@ -9,21 +9,20 @@
 #include "ofxOsc.h"
 #include "ofxParameterFader.hpp"
 
+#include "Mapping.h"
 #include "ContentScene.h"
+#include "Output.hpp"
 
 // Scenes
 #include "LampWalker.h"
 #include "QuickTrail.h"
 #include "Triangles.h"
 #include "PerlinWaves.h"
-#include "Mapping.h"
 #include "FluidScene.h"
 #include "BasicParticles.h"
 //#include "petriDish.h"
 //#include "ChaoticAttractor.h"
 #include "CurlyFur.h"
-
-
 
 class ofApp : public ofBaseApp {
 public:
@@ -42,11 +41,7 @@ public:
         //scenes.push_back(make_shared<PetriDish>());
         scenes.push_back(make_shared<CurlyFur>());
         
-        
-        
-        
         for( auto s : scenes) {
-            
             sceneParams.add(s->getParameters());
         }
         
@@ -55,7 +50,6 @@ public:
     }
     
     ofParameterGroup sceneParams;
-    
     ofParameterGroup globalParams;
     
     void setup();
@@ -113,6 +107,8 @@ public:
     bool drawOutput;
     bool outputCombined;
     bool drawMask;
+    
+    OutputManager outputManager;
     
     vector<shared_ptr<ContentScene>> scenes;
     

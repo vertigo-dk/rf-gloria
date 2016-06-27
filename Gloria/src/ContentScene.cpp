@@ -21,27 +21,13 @@ void ContentScene::setGui() {
 void ContentScene::parseOscMessage(ofxOscMessage *m) {
 }
 
-void ContentScene::setupScene(int _width, int _height, int _i) {
-    index = _i;
+void ContentScene::setupScene() {
     
     name = params.getName();
+    enabled.addListener(this, &ContentScene::enableToggled);
     
-    ofFbo::Settings settings;
-    
-    height = _height;
-    width  = _width;
-    
-    settings.height     = _height;
-    settings.width      = _width;
-    settings.numSamples = numSamples;
-    settings.useDepth   = false;
-    settings.internalformat = GL_RGBA;
-    
-    fbo.allocate(settings);
-    
-    fbo.begin();
-    ofClear(0,0,0,0);
-    fbo.end();
+    height = OUTHEIGHT;
+    width  = OUTWIDTH;
     
     setup();
     
@@ -65,6 +51,48 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     
 }
 
+void ContentScene::enableToggled(bool & e) {
+    
+    if(e) {
+        
+        // check if we have memory
+        // max scenes enabled setting
+        
+        fbo = outputManager->getFreeOutputFbo();
+        if(fbo != nullptr) {
+            
+            fbo->isFree = false;
+            
+            ofFbo::Settings settings;
+            settings.width      = width;
+            settings.height     = height;
+            settings.numSamples = numSamples;
+            settings.useDepth   = false;
+            settings.internalformat = GL_RGBA;
+            
+            fbo->allocate(settings);
+            
+            fbo->begin();
+            ofClear(0,0,0,0);
+            fbo->end();
+            
+            enable();
+
+        } else {
+            enabled.disableEvents();
+            enabled.set(false);
+            enabled.enableEvents();
+        }
+        
+    } else {
+        disable();
+        if(fbo != nullptr) {
+            fbo->isFree = true;
+            fbo = nullptr;
+        }
+    }
+    
+}
 
 void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
     
@@ -183,27 +211,28 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
 }
 
 void ContentScene::updateScene() {
-    if(enabled) {
+    
+    if(enabled.get()) {
         update();
     }
 }
 
 void ContentScene::drawScene() {
-    if(enabled) {
+    if(enabled.get()) {
         ofPushMatrix();
         ofPushStyle();
-        fbo.begin();
+        fbo->begin();
         draw();
-        fbo.end();
+        fbo->end();
         ofPopStyle();
         ofPopMatrix();
     }
 }
 
 void ContentScene::publishSyphonTexture() {
-    if (enabled /*|| _force*/ ) {
+    if (enabled.get()) {
         ofFill();
-        syphonOut.publishTexture(&fbo.getTexture());
+        syphonOut.publishTexture(&fbo->getTexture());
     }
 }
 

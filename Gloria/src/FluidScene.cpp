@@ -99,9 +99,9 @@ void FluidScene::update(){
     
     
     if(newFrame) {
-        fbo.begin();
+        fbo->begin();
         fluid.draw(0,0,OUTWIDTH,OUTHEIGHT);
-        fbo.end();
+        fbo->end();
         
         newFrame = false;
     }
