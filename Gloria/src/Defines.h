@@ -9,8 +9,8 @@
 #pragma once
 
 //size of the output FBO's
-#define OUTWIDTH  5700 //5700
-#define OUTHEIGHT 1200 //1200
+#define OUTWIDTH  6000 //5700
+#define OUTHEIGHT 1500 //1200
 #define OSCRECEIVEPORT 9999
 #define OSCSENDPORT 8000
 #define OSCCLIENTONE "BlackMac.local" // Blue mac ip here
