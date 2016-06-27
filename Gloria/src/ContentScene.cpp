@@ -24,6 +24,8 @@ void ContentScene::parseOscMessage(ofxOscMessage *m) {
 void ContentScene::setupScene(int _width, int _height, int _i) {
     index = _i;
     
+    name = params.getName();
+    
     ofFbo::Settings settings;
     
     height = _height;
@@ -41,18 +43,14 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     ofClear(0,0,0,0);
     fbo.end();
     
-    params.add(enabled.set("enabled", false));
-    
     setup();
     
-    params.setName(name);
     ofAddListener(params.parameterChangedE(),this,&ContentScene::parameterChanged);
     
     ofFile file(name+"_settings.xml");
     panelSettingsPath = file.path();
     
     panel.setup(params, panelSettingsPath);
-    panel.setName(name);
     
     //setSceneParameters();
     
@@ -67,9 +65,6 @@ void ContentScene::setupScene(int _width, int _height, int _i) {
     
 }
 
-void ContentScene::setSceneParameters(){
-    
-}
 
 void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
     
@@ -78,14 +73,11 @@ void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
     // clientside
     // what happens if multiple interactions occur before this?
     
-    if(lastOscUpdatedParam == parameter.getEscapedName()) {
+    /*if(lastOscUpdatedParam == parameter.getEscapedName()) {
         
     } else {
         oscSender->sendParameter(parameter);
-    }
-}
-
-void ContentScene::setSceneGui(){
+    }*/
 }
 
 void ContentScene::parseSceneOscMessage(ofxOscMessage & m){

@@ -11,6 +11,9 @@ class ContentScene {
     
 public:
     
+    ofParameter<bool> enabled {"enabled", true};
+    ofParameterGroup params {"untitled", enabled};
+    
     ContentScene(){
         updatingParameter = false;
     }
@@ -36,8 +39,6 @@ public:
     string lastOscUpdatedParam = "";
     
     ofFbo fbo;
-    //bool enabled;
-    ofParameter<bool>  enabled;
     
     string panelSettingsPath;
     
@@ -57,15 +58,10 @@ public:
     
     void parameterChanged(ofAbstractParameter & parameter);
     
-    ofParameterGroup params;
     ofParameterGroup & getParameters() {
         return params;
     }
     
-    void setSceneGui();
-    void setSceneParameters();
-    void addSlider();
-    void checkMsg();
     void parseSceneOscMessage(ofxOscMessage & m);
     void setupScene(int _width, int _height, int _i);
     void updateScene();

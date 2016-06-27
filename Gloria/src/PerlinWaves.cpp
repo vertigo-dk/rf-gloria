@@ -9,18 +9,7 @@
 #include "PerlinWaves.h"
 
 void PerlinWaves::setup(){
-    name = "perlinwaves";
     
-    time.x = 0;
-    time.y = 0;
-    
-    params.add(
-               
-               speed.set("speed", ofVec2f(0, 0), ofVec2f(-1,-1),ofVec2f(1,1)),
-               
-               scatter.set("scatter", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1))
-               
-          );
 }
 
 void PerlinWaves::update(){
@@ -42,8 +31,6 @@ void PerlinWaves::draw(){;
                     (time.x/10) - mapping->triangles[i]->centroid.x
                     / ( scatter.get().x*OUTWIDTH) ) *255 );
    
-         
-         
          
          mapping->triangles[i]->mesh.draw();
          

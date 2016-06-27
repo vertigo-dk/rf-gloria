@@ -19,8 +19,8 @@
 #include "Mapping.h"
 #include "FluidScene.h"
 #include "BasicParticles.h"
-#include "petriDish.h"
-#include "ChaoticAttractor.h"
+//#include "petriDish.h"
+//#include "ChaoticAttractor.h"
 #include "CurlyFur.h"
 
 
@@ -38,15 +38,20 @@ public:
         scenes.push_back(make_shared<Triangles>());
         scenes.push_back(make_shared<PerlinWaves>());
         scenes.push_back(make_shared<BasicParticles>());
-        scenes.push_back(make_shared<ChaoticAttractor>());
-        scenes.push_back(make_shared<PetriDish>());
+        //scenes.push_back(make_shared<ChaoticAttractor>());
+        //scenes.push_back(make_shared<PetriDish>());
         scenes.push_back(make_shared<CurlyFur>());
         
+        
+        
+        
         for( auto s : scenes) {
+            
             sceneParams.add(s->getParameters());
         }
         
         globalParams.add(sceneParams);
+        
     }
     
     ofParameterGroup sceneParams;

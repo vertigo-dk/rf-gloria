@@ -62,8 +62,6 @@ void ofApp::setup() {
     for(int i=0; i<scenes.size(); i++) {
         scenes[i]->mapping  = mapping;
         scenes[i]->syphonIn = syphonIn;
-        scenes[i]->oscSender = &oscSenderOne;
-        scenes[i]->oscReceiver = &oscReceiver;
         scenes[i]->setupScene(OUTWIDTH, OUTHEIGHT, i);
     }
     
@@ -166,7 +164,6 @@ void ofApp::update() {
         
         // When this has been tested and leur updated, remove code above
         fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
-        
         
     }
     
