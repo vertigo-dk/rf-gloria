@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		024E1E2B1EDF7505728A7A07 /* ChaoticAttractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53F32D64ED588898EA599916 /* ChaoticAttractor.cpp */; };
 		041E6B7C1D200E4100CCFC04 /* ofxParameterFader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041E6B7A1D200E4100CCFC04 /* ofxParameterFader.cpp */; };
 		04A7BA401D21B4D400EB466D /* Output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7BA3E1D21B4D400EB466D /* Output.cpp */; };
 		0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */; };
@@ -140,7 +139,6 @@
 		1335F3F49E8A72CB04FA873D /* util_inl.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = util_inl.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/stitching/detail/util_inl.hpp; sourceTree = SOURCE_ROOT; };
 		15F2C6477A769C03A56D1401 /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSlider.cpp; path = ../../../addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		17CE5A4068930946980DE788 /* stabilizer.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stabilizer.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/videostab/stabilizer.hpp; sourceTree = SOURCE_ROOT; };
-		17DE20C89FC52F16E1A2B6B3 /* ChaoticAttractor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChaoticAttractor.h; path = src/ChaoticAttractor.h; sourceTree = SOURCE_ROOT; };
 		17E65988300FBD9AAA2CD0CA /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGui.h; path = ../../../addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
 		1824E38ED9C444679C647007 /* ContentScene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ContentScene.h; path = src/ContentScene.h; sourceTree = SOURCE_ROOT; };
 		18E16A7CA55F6761C64833F7 /* vec_traits.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = vec_traits.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/vec_traits.hpp; sourceTree = SOURCE_ROOT; };
@@ -207,7 +205,6 @@
 		5105862F1606831E9239FEAF /* simd_functions.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = simd_functions.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/gpu/device/simd_functions.hpp; sourceTree = SOURCE_ROOT; };
 		516717F84C0146512C47A3EC /* ofxCvHaarFinder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvHaarFinder.h; path = ../../../addons/ofxOpenCv/src/ofxCvHaarFinder.h; sourceTree = SOURCE_ROOT; };
 		52AFA1F08C420992CAAAE648 /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSlider.h; path = ../../../addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
-		53F32D64ED588898EA599916 /* ChaoticAttractor.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ChaoticAttractor.cpp; path = src/ChaoticAttractor.cpp; sourceTree = SOURCE_ROOT; };
 		56ED74AD5FC73867F5E046F0 /* photo_c.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = photo_c.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/photo/photo_c.h; sourceTree = SOURCE_ROOT; };
 		582921BA98D224ED41833868 /* svgtiny_gradient.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = svgtiny_gradient.cpp; path = ../../../addons/ofxSvg/libs/svgTiny/src/svgtiny_gradient.cpp; sourceTree = SOURCE_ROOT; };
 		586A8EC141BDFA82B3B0518C /* config.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = config.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/config.h; sourceTree = SOURCE_ROOT; };
@@ -490,8 +487,6 @@
 				7B0055EEB8AD49D04B3F5D4D /* Particle.h */,
 				903A1B1BD54EC19B9B13C2EA /* BasicParticles.cpp */,
 				0FA66FCD28767779676F59FA /* BasicParticles.h */,
-				53F32D64ED588898EA599916 /* ChaoticAttractor.cpp */,
-				17DE20C89FC52F16E1A2B6B3 /* ChaoticAttractor.h */,
 				D0623A10FC785EFE29B81ACC /* CurlyFur.cpp */,
 				47F11236C1721EECEEC07390 /* CurlyFur.h */,
 				49BC44029E272F80D23753D9 /* PerlinWaves.cpp */,
@@ -1471,7 +1466,6 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				CF8BF8D262CB3D0D43F07F25 /* BasicParticles.cpp in Sources */,
-				024E1E2B1EDF7505728A7A07 /* ChaoticAttractor.cpp in Sources */,
 				342C3D5945EEC5D41F38609F /* ContentScene.cpp in Sources */,
 				83B8D4ADFA26706330575894 /* CurlyFur.cpp in Sources */,
 				E19A3E5C2363BBE429A3711D /* FluidScene.cpp in Sources */,

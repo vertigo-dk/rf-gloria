@@ -49,6 +49,10 @@ void ContentScene::setupScene() {
         panel.loadFromFile(file.path());
     }
     
+    if(enabled.get()) {
+        enabled.set(true);
+    }
+    
 }
 
 void ContentScene::enableToggled(bool & e) {
@@ -58,11 +62,10 @@ void ContentScene::enableToggled(bool & e) {
         // check if we have memory
         // max scenes enabled setting
         
-        fbo = outputManager->getFreeOutputFbo();
+        if(!fbo) fbo = outputManager->getFreeOutputFbo();
+        
         if(fbo != nullptr) {
-            
-            fbo->isFree = false;
-            
+                        
             ofFbo::Settings settings;
             settings.width      = width;
             settings.height     = height;
@@ -79,15 +82,22 @@ void ContentScene::enableToggled(bool & e) {
             enable();
 
         } else {
-            enabled.disableEvents();
             enabled.set(false);
-            enabled.enableEvents();
         }
         
     } else {
         disable();
         if(fbo != nullptr) {
+            
+            fbo->begin();
+            ofClear(255,0,0,0);
+            fbo->end();
+            
+            ofFill();
+            syphonOut.publishTexture(&fbo->getTexture());
+
             fbo->isFree = true;
+            
             fbo = nullptr;
         }
     }
@@ -101,6 +111,8 @@ void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
     // clientside
     // what happens if multiple interactions occur before this?
     
+    // TODO: update to use parameterSender
+    
     /*if(lastOscUpdatedParam == parameter.getEscapedName()) {
         
     } else {
@@ -110,7 +122,7 @@ void ContentScene::parameterChanged( ofAbstractParameter & parameter ){
 
 void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
     
-    lastOscUpdatedParam = "";
+    /*lastOscUpdatedParam = "";
     
     bool isScene = false;
     
@@ -207,14 +219,16 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
             }
         }
             
-        }
+        }*/
 }
 
 void ContentScene::updateScene() {
     
+    
     if(enabled.get() && fbo) {
         update();
     }
+    
 }
 
 void ContentScene::drawScene() {

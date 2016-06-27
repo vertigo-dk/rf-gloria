@@ -258,8 +258,6 @@ void ofApp::draw() {
      ofDrawBitmapString("Selected Corner: " + ofToString(mapping->selectedCorner->uid) + " pos: " + ofToString(mapping->selectedCorner->pos), ofGetWidth()-600, 20);
      }*/
     
-
-    
     for(int i=0; i<syphonInputs.size(); i++) {
        ofSetColor(255,255,255);
     
@@ -295,9 +293,7 @@ void ofApp::draw() {
     
     
     for(int i=0; i<scenes.size(); i++) {
-        if(scenes[i]->enabled) {
-            scenes[i]->publishSyphonTexture();
-        }
+        scenes[i]->publishSyphonTexture();
     }
     
     //syphonOut.publishTexture(&fboOut.getTexture());
@@ -414,7 +410,6 @@ void ofApp::exit()
         
         settings.setValue(scenes[i]->name+"_panel_pos_x", scenes[i]->panel.getPosition().x);
         settings.setValue(scenes[i]->name+"_panel_pos_y", scenes[i]->panel.getPosition().y);
-        
         scenes[i]->exit();
     }
     
