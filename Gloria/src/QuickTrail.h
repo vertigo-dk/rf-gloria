@@ -20,11 +20,48 @@ struct Walker {
     Corner * dst;
 };
 
-
-
 class QuickTrail : public ContentScene {
 
 public:
+    
+    ofParameter<float> speed{"speed", 0,0,1};
+    
+    ofParameter<bool> trails{"Trailse", false};
+    ofParameter<bool> walkersDots{"walkersDots", false};
+    ofParameter<bool> circles{"circles", false};
+    ofParameter<bool> linesPath{"linesPath", false};
+    ofParameter<bool> linesInters{"linesInters", false};
+    
+    ofParameter<float> circleRadius{"circleRadius", 0,0,200};
+    
+    ofParameter<bool> random{"random", false};
+    ofParameter<bool> clear{"clear", false};
+    
+    ofParameter<int> numtrails{"numtrails", 0,0,8};
+    ofParameter<float> length{"length", 0,0,20};
+    
+    
+    
+    ofParameterGroup params{
+        "quicktrail",
+        enabled,
+        speed,
+        trails,
+        walkersDots,
+        circles,
+        linesPath,
+        linesInters,
+        circleRadius,
+        random,
+        clear,
+        numtrails,
+        length
+    };
+    
+    QuickTrail() {
+        ContentScene::params = params;
+
+    }
     
     void setup();
     void draw();
@@ -33,25 +70,14 @@ public:
     
     vector<Walker> walkers;
     
-    ofParameter<int> numtrails = 3;
-    ofParameter<float> length;
+
     int long lastadded;
-    
-    ofParameter<float> circleRadius;
-    
-    ofParameter<bool> random = false;
-    ofParameter<bool> clear;
+
     
     void parseOscMessage(ofxOscMessage * m);
     //void setGui();
     
     float time;
     float interval = 1;
-    ofParameter<float> speed;
 
-    ofParameter<bool> trails = false;
-    ofParameter<bool> walkersDots = true;
-    ofParameter<bool> circles = false;
-    ofParameter<bool> linesPath = false;
-    ofParameter<bool> linesInters = false;
 };
