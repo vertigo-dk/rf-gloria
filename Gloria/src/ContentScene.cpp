@@ -212,13 +212,13 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
 
 void ContentScene::updateScene() {
     
-    if(enabled.get()) {
+    if(enabled.get() && fbo) {
         update();
     }
 }
 
 void ContentScene::drawScene() {
-    if(enabled.get()) {
+    if(enabled.get() && fbo) {
         ofPushMatrix();
         ofPushStyle();
         fbo->begin();
@@ -230,7 +230,7 @@ void ContentScene::drawScene() {
 }
 
 void ContentScene::publishSyphonTexture() {
-    if (enabled.get()) {
+    if (enabled.get() && fbo) {
         ofFill();
         syphonOut.publishTexture(&fbo->getTexture());
     }
