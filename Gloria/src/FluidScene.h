@@ -48,7 +48,6 @@ public:
     ofParameter<float> temperatureDissipation{"temperatureDissipation", 0.99, 0, 1};
     ofParameter<float> pressureDissipation{"pressureDissipation", 0.99, 0, 1};
     
-    ofParameter<bool> reset{"reset", false};
     ofParameter<float> spacing{"spacing", 0, 0, 1};
     
     ofParameter<float> speed{"speed", 0, 0,1};
@@ -71,12 +70,10 @@ public:
         emitters,
         rotation,
         rotationSpeed,
-        noiseDisplaceLine,
         dissipation,
         velocityDissipation,
         temperatureDissipation,
         pressureDissipation,
-        reset,
         spacing,
         speed
     };

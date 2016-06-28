@@ -7,7 +7,6 @@
 #include "CurlyFur.h"
 
 void CurlyFur::setup(){
-    name = "curly";
     
     myfbo.allocate(OUTWIDTH/10, OUTHEIGHT/10, GL_RGBA);
     
@@ -15,11 +14,6 @@ void CurlyFur::setup(){
     density = 50;
     totalCount = 1000;
     fade = 5;
-    
-    params.add(plength.set("length", 1, 1, 10),
-               density.set("density", 50, 50, 500),
-               totalCount.set("totalcount", 500, 500, 5000),
-               fade.set("fade", 1, 1, 10));
     
     
 }

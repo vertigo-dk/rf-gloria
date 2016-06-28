@@ -43,7 +43,7 @@ public:
         for( auto s : scenes) {
             globalParams.add(s->getParameters());
         }
-                
+        
     }
     
     ofParameterGroup sceneParams;

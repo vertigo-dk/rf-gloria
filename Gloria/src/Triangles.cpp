@@ -257,7 +257,8 @@ void Triangles::draw(){
     pointLight.setOrientation(lightRotation);
     if(fillAlpha > 0){
         ofSetColor(color.get(), 255*fillAlpha);
-        syphonIn->bind();
+        
+        if(syphonIn->isSetup()) syphonIn->bind();
 
         fillShader.begin();
         //debugShader.setUniformTexture("depthTex", depthFbo.getTexture(), 2);
@@ -290,7 +291,7 @@ void Triangles::draw(){
         ofDisableLighting();
         
         fillShader.end();
-        syphonIn->unbind();
+        if(syphonIn->isSetup()) syphonIn->unbind();
     }
     
     ofNoFill();
