@@ -159,7 +159,7 @@ void ofApp::update() {
             fadeManager->parseOscMessageForParameterGroup(m, &s->params);
         }
         
-        fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
+        //fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
 
         
         // When this has been tested and lemur updated, remove code above
