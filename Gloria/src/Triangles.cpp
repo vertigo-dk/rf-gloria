@@ -270,7 +270,6 @@ void Triangles::draw(){
        // material.setShininess(15);
        
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-          
         
         ofEnableLighting();
 
@@ -283,7 +282,6 @@ void Triangles::draw(){
             drawTriangle(subTriangles[mapping->triangles[i]],1);
         }
         glEnd();
-        
         
         //material.end();
         

@@ -11,7 +11,6 @@
 void FluidScene::setup(){
     
     rotationVal= 0;
-    name = "fluid";
     
     float scaleFactor = 1.0;
     
@@ -34,21 +33,21 @@ void FluidScene::update(){
     
     ofSetColor(255, 255, 255, 255);
     
-    fluid.dissipation = dissipation;
-    fluid.velocityDissipation = velocityDissipation;
-    fluid.temperatureDissipation = temperatureDissipation;
-    fluid.pressureDissipation = pressureDissipation;
-    fluid.setGravity(gravity.get()*speed);
+    fluid.dissipation = dissipation.get();
+    fluid.velocityDissipation = velocityDissipation.get();
+    fluid.temperatureDissipation = temperatureDissipation.get();
+    fluid.pressureDissipation = pressureDissipation.get();
+    fluid.setGravity(gravity.get()*speed.get());
     
     ofPoint m = emitPos.get() * ofVec2f(drawWidth, drawHeight);
     ofPoint d = (m - oldM)*10.0;
     oldM = m;
     
-    fluid.addTemporalForce(m, d*speed, color.get(), radius, temperature, density);
+    fluid.addTemporalForce(m, d*speed.get(), color.get(), radius, temperature, density);
     
     ofVec2f center = ofVec2f(drawWidth/2, drawHeight/2);
     
-    rotationVal += rotationSpeed*30/ofGetFrameRate();
+    rotationVal += rotationSpeed.get() * ofGetFrameRate()/60;
     
     if(rotationVal>=360) {
         rotationVal = 0;
@@ -56,7 +55,7 @@ void FluidScene::update(){
     
     for(int i =0; i<emitters; i++) {
         
-        ofVec2f pos = ofVec2f((drawWidth*spacing)/(emitters+1)*(i+1), drawHeight*0.5);
+        ofVec2f pos = ofVec2f((drawWidth*spacing.get())/(emitters+1)*(i+1), drawHeight*0.5);
         
         pos.x = pos.x + (drawWidth-(drawWidth*spacing))/2;
         
@@ -73,7 +72,6 @@ void FluidScene::update(){
         
         fluid.addTemporalForce(
                                ofVec2f(pos), emitLineDir.get()*10.0*speed, colorLine.get(), radiusLine, temperature, density);
-        
     }
     
     if(clear) {
@@ -88,9 +86,7 @@ void FluidScene::update(){
         //fluid.drawVelocity();
     }*/
     
-    
     //
-    
     
     style = ofGetStyle();
     fluid.update();
@@ -108,7 +104,6 @@ void FluidScene::update(){
 }
 
 void FluidScene::draw(){
-    
     
     newFrame = true;
     //ofDisableBlendMode();

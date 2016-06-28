@@ -41,8 +41,6 @@ public:
     ofParameter<float> rotation{"rotation", 0, 0, 360};
     ofParameter<float> rotationSpeed{"rotationSpeed", 0, 0, 1};
     
-    ofParameter<float> noiseDisplaceLine{};
-    
     ofParameter<float> dissipation{"dissipation", 0.99, 0, 1};
     ofParameter<float> velocityDissipation{"velocityDissipation", 0.99, 0, 1};
     ofParameter<float> temperatureDissipation{"temperatureDissipation", 0.99, 0, 1};
