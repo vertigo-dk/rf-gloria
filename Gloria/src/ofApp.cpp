@@ -155,12 +155,14 @@ void ofApp::update() {
         ofxOscMessage m;
         oscReceiver.getNextMessage(m);
         
-        //for(int i=0; i<scenes.size();i++) {
-        //    scenes[i]->parseSceneOscMessage(m);
-        //}
+        for(auto s : scenes) {
+            fadeManager->parseOscMessageForParameterGroup(m, &s->params);
+        }
         
-        // When this has been tested and leur updated, remove code above
         fadeManager->parseOscMessageForParameterGroup(m, &globalParams);
+
+        
+        // When this has been tested and lemur updated, remove code above
         
     }
     

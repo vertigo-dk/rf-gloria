@@ -9,4 +9,20 @@
 	<pressureDissipation>0.99</pressureDissipation>
 	<clear>0</clear>
 <fluid/>
+<enabled>1</enabled>
+	<emitLine>0, 0</emitLine>
+	<emitLineDir>0, 0</emitLineDir>
+	<color>255, 255, 255, 255</color>
+	<colorLine>255, 255, 255, 255</colorLine>
+	<density>0</density>
+	<temperature>0</temperature>
+	<radius>0</radius>
+	<radiusLine>0</radiusLine>
+	<emitters>0</emitters>
+	<rotation>0</rotation>
+	<rotationSpeed>0</rotationSpeed>
+	<UnknownName>0</UnknownName>
+	<reset>0</reset>
+	<spacing>0</spacing>
+	<speed>0</speed>
 </fluid>

@@ -29,7 +29,6 @@ public:
     
     ofApp() {
         
-        sceneParams.setName("scenes");
         globalParams.setName("gloria");
         
         scenes.push_back(make_shared<FluidScene>());
@@ -42,11 +41,9 @@ public:
         scenes.push_back(make_shared<CurlyFur>());
         
         for( auto s : scenes) {
-            sceneParams.add(s->getParameters());
+            globalParams.add(s->getParameters());
         }
-        
-        globalParams.add(sceneParams);
-        
+                
     }
     
     ofParameterGroup sceneParams;

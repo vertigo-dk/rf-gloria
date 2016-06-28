@@ -8,4 +8,14 @@
 	<fade>5</fade>
 	<trace>0</trace>
 <basicparticles/>
+<untitled>
+		<enabled>0</enabled>
+		<size>20</size>
+		<speed>5</speed>
+		<fadeparticle>0.03</fadeparticle>
+		<kill>10</kill>
+		<totalcount>10000</totalcount>
+		<fade>5</fade>
+		<trace>0</trace>
+	</untitled>
 </basicparticles>

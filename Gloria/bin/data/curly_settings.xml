@@ -5,4 +5,11 @@
 	<totalcount>500</totalcount>
 	<fade>1</fade>
 <curly/>
+<untitled>
+		<enabled>0</enabled>
+		<length>1</length>
+		<density>50</density>
+		<totalcount>500</totalcount>
+		<fade>1</fade>
+	</untitled>
 </curly>

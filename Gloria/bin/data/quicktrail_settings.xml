@@ -12,4 +12,18 @@
 	<clear>0</clear>
 	<circleRadius>0</circleRadius>
 <quicktrail/>
+<untitled>
+		<enabled>1</enabled>
+		<Trailse>0</Trailse>
+		<walkersDots>0</walkersDots>
+		<circles>0</circles>
+		<linesPath>0</linesPath>
+		<linesInters>0</linesInters>
+		<speed>0</speed>
+		<length>0</length>
+		<numtrails>0</numtrails>
+		<random>0</random>
+		<clear>0</clear>
+		<circleRadius>0</circleRadius>
+	</untitled>
 </quicktrail>

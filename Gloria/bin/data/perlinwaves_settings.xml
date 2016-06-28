@@ -3,4 +3,5 @@
 	<speed>0, 0</speed>
 	<scatter>0, 0</scatter>
 <perlinwaves/>
+<enabled>1</enabled>
 </perlinwaves>

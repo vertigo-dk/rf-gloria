@@ -1,4 +1,4 @@
-<syphonInputSelected>1</syphonInputSelected>
+<syphonInputSelected>9</syphonInputSelected>
 <FluidScene_panel_pos_x>478.000000000</FluidScene_panel_pos_x>
 <FluidScene_panel_pos_y>36.000000000</FluidScene_panel_pos_y>
 <QuickTrail_panel_pos_x>739.000000000</QuickTrail_panel_pos_x>
@@ -15,8 +15,8 @@
 <fluid_panel_pos_y>236.000000000</fluid_panel_pos_y>
 <quicktrail_panel_pos_x>828.000000000</quicktrail_panel_pos_x>
 <quicktrail_panel_pos_y>240.000000000</quicktrail_panel_pos_y>
-<triangles_panel_pos_x>1104.000000000</triangles_panel_pos_x>
-<triangles_panel_pos_y>185.000000000</triangles_panel_pos_y>
+<triangles_panel_pos_x>1078.000000000</triangles_panel_pos_x>
+<triangles_panel_pos_y>91.000000000</triangles_panel_pos_y>
 <perlinwaves_panel_pos_x>466.000000000</perlinwaves_panel_pos_x>
 <perlinwaves_panel_pos_y>58.000000000</perlinwaves_panel_pos_y>
 <basicparticles_panel_pos_x>676.000000000</basicparticles_panel_pos_x>
