@@ -38,7 +38,10 @@ public:
     
     OutputFbo * getFreeOutputFbo() {
         for( auto fbo : outputFbos) {
-            if(fbo->isFree) return fbo;
+            if(fbo->isFree) {
+                fbo->isFree = false;
+                return fbo;
+            }
         }
         return nullptr;
     }

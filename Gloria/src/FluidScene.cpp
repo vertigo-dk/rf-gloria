@@ -26,7 +26,6 @@ void FluidScene::setup(){
     fluid.setUseObstacles(false);
     
     //fluid.setPasses(2);
-
     
    }
 
@@ -82,7 +81,6 @@ void FluidScene::update(){
         //fluid.setObstacles(obstacles);
         clear.set(false);
     }
-    
     
     /*if(drawObstacles) {
         ofSetColor(255,255,255,255);

@@ -84,22 +84,6 @@ void QuickTrail::setup(){
     
     ofSetCircleResolution(100);
     
-    
-    params.add(
-               trails.set("Trailse", false),
-               walkersDots.set("walkersDots", false),
-               circles.set("circles", false),
-               linesPath.set("linesPath", false),
-               linesInters.set("linesInters", false),
-               
-               speed.set("speed", 0,0,1),
-               length.set("length", 0,0,20),
-               numtrails.set("numtrails", 0,0,8),
-               random.set("random", false),
-               clear.set("clear", false),
-               circleRadius.set("circleRadius", 0,0,200)
-               );
-    
    
 }
 
@@ -302,10 +286,7 @@ void QuickTrail::draw(){;
 }
 
 
-
-
 void QuickTrail::parseOscMessage(ofxOscMessage *m){
-
 }
 
 /*
