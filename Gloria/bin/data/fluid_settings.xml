@@ -1,7 +1,7 @@
 <fluid>
 	<Enabled>0</Enabled>
-	<gravity>0.0816326, -0.714286</gravity>
-	<emit>0.795918, 0.382653</emit>
+	<gravity>0.458937, 0.16</gravity>
+	<emit>0.874016, 0.629921</emit>
 	<intensity>0</intensity>
 	<dissipation>0.99</dissipation>
 	<velocityDissipation>0.99</velocityDissipation>
@@ -10,16 +10,16 @@
 	<clear>0</clear>
 <fluid/>
 <enabled>1</enabled>
-	<emitLine>-0.142857, 0.510204</emitLine>
-	<emitLineDir>0.22449, 0</emitLineDir>
+	<emitLine>0.726597, -0.270814</emitLine>
+	<emitLineDir>-0.062802, 0.196262</emitLineDir>
 	<color>255, 255, 255, 255</color>
 	<colorLine>255, 255, 255, 255</colorLine>
-	<density>0.8</density>
+	<density>1</density>
 	<temperature>7.9</temperature>
-	<radius>18.15</radius>
-	<radiusLine>12.45</radiusLine>
-	<emitters>19.8</emitters>
-	<rotation>151.2</rotation>
+	<radius>15.5906</radius>
+	<radiusLine>11.7801</radiusLine>
+	<emitters>2.55</emitters>
+	<rotation>25.2</rotation>
 	<rotationSpeed>0</rotationSpeed>
 	<UnknownName>0</UnknownName>
 	<reset>0</reset>

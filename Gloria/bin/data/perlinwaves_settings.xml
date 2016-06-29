@@ -4,4 +4,5 @@
 	<scatter>0, 0</scatter>
 <perlinwaves/>
 <enabled>1</enabled>
+<color>255, 81, 213, 255</color>
 </perlinwaves>

@@ -42,6 +42,9 @@ void Triangles::setup(){
         divideRadius = 0;
     }
     
+    for(int i=0;i<mapping->triangles.size();i++){
+        
+    }
     
     //Duplicate the joined corners
     for(int i=0;i<mapping->triangles.size();i++){
@@ -337,8 +340,10 @@ void Triangles::draw(){
 
 void Triangles::update(){
     
+    if(syphonIn->isSetup()) {
     if(!depthFbo.isAllocated() || depthFbo.getWidth() != syphonIn->getWidth() || depthFbo.getHeight() != syphonIn->getHeight()){
         depthFbo.allocate(syphonIn->getWidth(), syphonIn->getHeight(), GL_RGB);
+    }
     }
     
     /*depthFbo.begin();{
@@ -350,9 +355,9 @@ void Triangles::update(){
     
     
     
-    noiseSeed += noiseSeedSpeed * 1.0/MAX(10,ofGetFrameRate());
-    if(noiseSeed > 1)
-        noiseSeed = 0;
+    //noiseSeed += noiseSeedSpeed * 1.0/MAX(10,ofGetFrameRate());
+    //if(noiseSeed > 1)
+    //    noiseSeed = 0;
     for(int i=0;i<mapping->triangles.size();i++){
         SubTriangle * triangle = subTriangles[mapping->triangles[i]];
         float dist = triangle->getCenter().distance(ofPoint(OUTWIDTH*0.5,OUTHEIGHT));
@@ -363,8 +368,8 @@ void Triangles::update(){
             triangle->drawLevelGoal = MIN(divideTriangleSize.get(),MAX(1,divideTriangleSize.get() * dist/divideRadius.get()));
         }
         
-        triangle->noise = noise;
-        triangle->noiseSeed = noiseSeed;
+       // triangle->noise = noise;
+        //triangle->noiseSeed = noiseSeed;
         
         triangle->update();
     }

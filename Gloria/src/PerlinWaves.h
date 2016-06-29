@@ -19,12 +19,15 @@ public:
     
     ofParameter<ofVec2f> scatter {"scatter", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)};
     
+    ofParameter<ofColor> color {"color", ofColor(0,0,0,0), ofColor(0,0,0,0), ofColor(255,255,255,255)};
+    
     ofVec2f time;
     
     ofParameterGroup params {"perlinwaves",
         enabled,
         speed,
-        scatter
+        scatter,
+        color
         
     };
     

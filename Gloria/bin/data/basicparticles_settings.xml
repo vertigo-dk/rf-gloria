@@ -1,10 +1,10 @@
 <basicparticles>
 	<Enabled>0</Enabled>
-	<size>20</size>
-	<speed>5</speed>
+	<size>0.425197</size>
+	<speed>0</speed>
 	<fadeparticle>0.03</fadeparticle>
 	<kill>10</kill>
-	<totalcount>10000</totalcount>
+	<totalcount>0</totalcount>
 	<fade>5</fade>
 	<trace>0</trace>
 <basicparticles/>

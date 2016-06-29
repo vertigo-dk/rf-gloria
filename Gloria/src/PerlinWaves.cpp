@@ -25,7 +25,9 @@ void PerlinWaves::draw(){;
     
      for(int i =0; i<mapping->triangles.size();i++) {
          
-         ofSetColor( 255, 255, 255,
+         
+         
+         ofSetColor( color.get().r, color.get().g, color.get().b,
                     ofNoise((time.y/10) - mapping->triangles[i]->centroid.y
                             / ( scatter.get().y*OUTHEIGHT),
                     (time.x/10) - mapping->triangles[i]->centroid.x

@@ -119,14 +119,16 @@ public:
     }
     
     ofVec3f getPos(int i){
-        float f = MIN(1,MAX(0,drawLevel-level));
-        srand(corners[i]->randomSeed.x*100 + noiseSeed*100.);
-        float rx = (rand()%100)*noise * corners[i]->randomSeed.x;
-
-        srand(corners[i]->randomSeed.y*100+ noiseSeed*100.);
-        float ry = (rand()%100)*noise * corners[i]->randomSeed.y;
         
-        return corners[i]->getPos(f) + ofVec2f(rx, ry);
+        
+        float f = MIN(1,MAX(0,drawLevel-level));
+       //// srand(corners[i]->randomSeed.x*100 + noiseSeed*100.);
+       // float rx = (rand()%100)*noise * corners[i]->randomSeed.x;
+
+//        srand(corners[i]->randomSeed.y*100+ noiseSeed*100.);
+       // float ry = (rand()%100)*noise * corners[i]->randomSeed.y;
+        
+        return corners[i]->getPos(f) ;//+ ofVec2f(rx, ry);
     }
     
     float getLowestAge(){
@@ -302,8 +304,8 @@ public:
     ofParameter<ofColor> color{ "Color", ofFloatColor(1,1,1,1), ofFloatColor(0,0,0,0), ofFloatColor(1,1,1,1)};
 
     
-    ofParameter<float> noise{"Noise Amount", 0, 0, 2};
-    ofParameter<float> noiseSeedSpeed{"Noise Speed", 0, 0,1};
+  //  ofParameter<float> noise{"Noise Amount", 0, 0, 2};
+  //  ofParameter<float> noiseSeedSpeed{"Noise Speed", 0, 0,1};
     
     
     ofParameter<float> light{"Light Amount", 0, 0, 1};
@@ -323,8 +325,8 @@ public:
         fillAlpha,
         wireframeAlpha,
         wireframeLineWidth,
-        noise,
-        noiseSeedSpeed,
+        //noise,
+        //noiseSeedSpeed,
         light,
         lightRotation
     };

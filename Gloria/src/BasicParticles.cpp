@@ -139,20 +139,8 @@ void BasicParticles::draw(){;
     }
     syphonFbo.end();
     
-    //syphonFbo.draw(0,0);
 }
 
-/*
-void BasicParticles::setGui(){
-    
-    gui->addSlider("/size/x", 5, 50, &psize);
-    gui->addSlider("/speed/x", 0.1, 50, &pspeed);
-    gui->addSlider("/kill/x", 10, 1000, &pkill);
-    gui->addSlider("/totalcount/x", 500, 40000, &totalCount);
-    gui->addSlider("/fadeparticle/x", 0, 1, &pFadeWithAge);
-    gui->addSlider("/fade/x", 0, 10, &fade);
-    gui->addToggle("/trace/x", &trace);
-}*/
 
 void BasicParticles::createParticle() {
     BasicParticle p;
