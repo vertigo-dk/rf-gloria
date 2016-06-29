@@ -31,6 +31,7 @@ public:
     Mapping * mapping;
     ofxSyphonClient * syphonIn;
     ofxSyphonServer syphonOut;
+    ofxSyphonServer syphonOutFixture;
     
     ofxPanel panel;
     
@@ -52,13 +53,14 @@ public:
     int height;
     int numSamples = 4;
     
-    virtual void init();
-    virtual void setup();
-    virtual void update();
-    virtual void draw();
+    virtual void init() {};
+    virtual void setup() {};
+    virtual void update() {};
+    virtual void draw() {};
+    virtual void drawFixtures() {};
     virtual void exit();
-    virtual void setGui();
-    virtual void parseOscMessage(ofxOscMessage * m);
+    virtual void setGui() {};
+    virtual void parseOscMessage(ofxOscMessage * m) {};
     
     virtual void enable() {};
     virtual void disable() {};
@@ -77,7 +79,8 @@ public:
     void drawScene();
     
     void publishSyphonTexture();
-
+    
+    bool hasFixtureOutput = false;
     
 
 private:

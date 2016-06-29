@@ -64,8 +64,23 @@ ofVec3f InputTriangle::getCenter(){
     return center;
 }
 
-void Mapping::load(string _xmlfile, string _svgfile) {
+void InputFixture::debugDraw() {
     
+}
+
+void Mapping::loadFixtures(string _xmlfile, string _svgfile) {
+    
+    fixtureXmlFilename = _xmlfile;
+    fixtureSvgFilename = _svgfile;
+    
+    generateFixtures();
+    
+    // we dont really use the xml anyway
+
+}
+
+
+void Mapping::load(string _xmlfile, string _svgfile) {
     selectedCorner = NULL;
     selectedCornerId = 0;
     
@@ -153,6 +168,44 @@ void Mapping::save() {
     } settings.popTag();
     
     settings.saveFile(xmlFilename);
+}
+
+void Mapping::generateFixtures() {
+    
+    svg.load(fixtureSvgFilename);
+    
+    int svgHeight = svg.getHeight();
+    int svgWidth  = svg.getWidth();
+    
+    int maxFixtureSize   = 1000000;
+    int numFixtures      = 0;
+    int numTriangles     = 0;
+    
+    for (int i = 0; i < svg.getNumPath(); i++){
+        ofPath p = svg.getPathAt(i);
+        
+        // svg defaults to non zero winding which doesn't look so good as contours
+        //p.setPolyWindingMode(OF_POLY_WINDING_ODD);
+        const vector<ofPolyline>& lines = p.getOutline();
+        
+        for(int j=0;j<(int)lines.size();j++){
+            
+            if(lines[j].getArea() < maxFixtureSize) {
+             
+                InputFixture * fixture = new InputFixture;
+                
+                fixture->uid = numFixtures;
+                fixture->polyline = lines[j];
+                fixture->centroid = lines[j].getCentroid2D();
+                
+                fixture->rect = lines[j].getBoundingBox();
+                
+                fixtures.push_back(fixture);
+                ++numFixtures;
+                
+            }
+        }
+    }    
 }
 
 void Mapping::generate() {
@@ -368,13 +421,11 @@ void Mapping::drawMask() {
 }
 
 void Mapping::nextCorner() {
-    
     ++selectedCornerId;
     
     if(selectedCornerId > corners.size()-1) selectedCornerId = 0;
     cout<<selectedCornerId<<endl;
     selectedCorner = corners[selectedCornerId];
-    
 }
 
 
@@ -393,7 +444,8 @@ void Mapping::selectCornerAt(int _x, int _y, int r) {
     /*for(int i=0; i < corners.size(); i++) {
         if(corners[i]->pos.x - _x)
     }*/
-    
 }
+
+
 
 

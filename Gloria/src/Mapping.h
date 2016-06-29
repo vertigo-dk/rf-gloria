@@ -76,17 +76,37 @@ public:
     ofVec3f getCenter();
 };
 
+class InputFixture {
+public:
+    
+    int uid;
+    void debugDraw();
+    
+    ofPoint centroid;
+    ofPolyline polyline;
+    
+    ofRectangle rect;
+};
+
 class Mapping {	
 public:
     Mapping() {};
     virtual ~Mapping() {};
     
+    vector<InputFixture*> fixtures;
+    
     vector<InputTriangle*> triangles;
     vector<Corner*> corners;
     
     void load(string xmlfile, string svgfile);
+    void loadFixtures(string xmlfile, string svgfile);
+    
     void generate();
+    void generateFixtures();
+    
     void save();
+    void saveFixtures();
+    
     void exit();
     void debugDraw();
     void drawGuide();
@@ -98,17 +118,23 @@ public:
     void nextCorner();
     void prevCorner();
     void selectCornerAt(int x, int y, int r);
-    void updateMeshes();
     
+    void updateMeshes();
     void drawMask();
     void generateMask();
+    
     ofFbo outputMask;
 
-    
 protected:
+    
     string svgFilename;
     string xmlFilename;
+    
+    string fixtureSvgFilename;
+    string fixtureXmlFilename;
+    
     ofxXmlSettings settings;
     ofxSVG svg;
+    
 };
 

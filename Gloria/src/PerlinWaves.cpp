@@ -25,8 +25,6 @@ void PerlinWaves::draw(){;
     
      for(int i =0; i<mapping->triangles.size();i++) {
          
-         
-         
          ofSetColor( color.get().r, color.get().g, color.get().b,
                     ofNoise((time.y/10) - mapping->triangles[i]->centroid.y
                             / ( scatter.get().y*OUTHEIGHT),
@@ -44,6 +42,27 @@ void PerlinWaves::draw(){;
          mapping->triangles[i]->mesh.draw();
          */
      }
+    
+}
+
+
+void PerlinWaves::drawFixtures() {
+    
+      for(int i =0; i<mapping->fixtures.size();i++) {
+      
+          
+          ofSetColor( color.get().r, color.get().g, color.get().b,
+                     ofNoise((time.y/10) - mapping->fixtures[i]->centroid.y
+                             / ( scatter.get().y*LEDOUTHEIGHT),
+                             (time.x/10) - mapping->fixtures[i]->centroid.x
+                             / ( scatter.get().x*LEDOUTWIDTH) ) *255 );
+          
+          ofFill();
+          ofDrawRectangle(mapping->fixtures[i]->rect);
+          
+          
+      }
+    
 }
 
 void PerlinWaves::parseOscMessage(ofxOscMessage *m){

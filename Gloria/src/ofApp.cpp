@@ -38,6 +38,8 @@ void ofApp::setup() {
     mapping = new Mapping();
     mapping->load("mapping.xml", "input1.svg");
     
+    mapping->loadFixtures("fixtures.xml", "LedInput.svg");
+    
     // effects scenes
     // Set up the scenes, all scenes is a subclass of SceneContent, don't call draw, setup and update directly it is taken care of thorugh the scene.
     
@@ -92,6 +94,8 @@ void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
         ofLogNotice("ofxSyphonServerDirectory Server Announced")<<" Server Name: "<<dir.serverName <<" | App Name: "<<dir.appName;
         
         bool found = false;
+        
+        
         for(int i=0; i<syphonInputs.size(); i++) {
             if(syphonInputs[i].getServerName() == dir.serverName && syphonInputs[i].getApplicationName() == dir.appName) {
                 
@@ -105,6 +109,8 @@ void ofApp::serverAnnounced(ofxSyphonServerDirectoryEventArgs &arg)
             ofxSyphonClient client;
             client.setup();
             client.set(dir.serverName, dir.appName);
+            
+            
             syphonInputs.push_back(client);
         }
     }
@@ -268,7 +274,10 @@ void ofApp::draw() {
             if(i*(syphonRowHeight+syphonRowMargin) > ofGetHeight()-100){
                 ofTranslate(syphonRowWidth+20, -ofGetHeight()+40);
             }
+            
             syphonInputs[i].draw(0, 10, syphonRowWidth, syphonRowHeight);
+            
+            
             
             if(syphonInputs[i].getApplicationName() == "GloriaDebug"){
                 ofSetColor(150, 150, 255);

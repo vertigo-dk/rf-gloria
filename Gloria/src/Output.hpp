@@ -18,13 +18,15 @@ public:
     OutputFbo() {
         isFree = true;
     }
+    
+    ofFbo fixtureFbo;
 };
 
 class OutputManager {
 public:
     
-    OutputManager() {
-        for(int i=0; i<MAX_SCENES; i++) {
+    OutputManager(int max_fbos=MAX_SCENES) {
+        for(int i=0; i<max_fbos; i++) {
             outputFbos.push_back(new OutputFbo());
         }
     }
@@ -48,5 +50,6 @@ public:
     
 private:
     vector<OutputFbo *> outputFbos;
+    vector<OutputFbo *> outputFixtureFbos;
     
 };
