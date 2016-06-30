@@ -19,7 +19,7 @@ void CurlyFur::setup(){
 
 void CurlyFur::update(){
     
-    ofSeedRandom();
+    //ofSeedRandom();
     
     for (int i=0; i<particles.size(); i++) {
         particles[i].update();
