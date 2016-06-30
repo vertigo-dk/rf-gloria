@@ -24,7 +24,7 @@ public:
     ofParameter<ofVec2f> scatterLED {"scatterled", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)};
     ofParameter<ofColor> colorLED {"colorled", ofColor(0,0,0,0), ofColor(0,0,0,0), ofColor(255,255,255,255)};
     
-    ofParameter<ofVec2f> ledRectScale {"ledrectscale", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(10,10)};
+    ofParameter<ofVec2f> ledRectScale {"ledrectscale", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)};
     
     ofParameter<bool> useMappingLED {"usemappingLED", false};
     

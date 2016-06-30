@@ -61,26 +61,31 @@ void PerlinWaves::drawFixtures() {
     if(useMappingLED) {
     
       for(int i =0; i<mapping->fixtures.size();i++) {
-      
+          
+          ofRectangle r = mapping->fixtures[i]->rect;
+
+          
+          float alpha = ofNoise((timeLED.y/10) - r.y
+                                / ( scatterLED.get().y*LEDOUTHEIGHT),
+                                (timeLED.x/10) - r.x
+                                / ( scatterLED.get().x*LEDOUTWIDTH));
+          
           
           ofSetColor( color.get().r, color.get().g, color.get().b,
-                     ofNoise((timeLED.y/10) - mapping->fixtures[i]->centroid.y
-                             / ( scatterLED.get().y*LEDOUTHEIGHT),
-                             (timeLED.x/10) - mapping->fixtures[i]->centroid.x
-                             / ( scatterLED.get().x*LEDOUTWIDTH) ) *255 );
+                     alpha*255 );
           
           ofFill();
-
+          
+          
           
           ofSetRectMode(OF_RECTMODE_CENTER);
           
-          ofDrawRectangle(mapping->fixtures[i]->rect.x,mapping->fixtures[i]->rect.y, mapping->fixtures[i]->rect.width * ledRectScale.get().x, mapping->fixtures[i]->rect.height * ledRectScale.get().y);
+          ofDrawRectangle(r.x, r.y,(r.width * ledRectScale.get().x*100 * alpha), (r.height * ledRectScale.get().y*100 * alpha));
           
           
           ofSetRectMode(OF_RECTMODE_CORNER);
 
 
-          
       }
         
         
@@ -91,18 +96,23 @@ void PerlinWaves::drawFixtures() {
             n++;
             if(n>numRectsLed.get()*200) break;
             
+            
+            float alpha = ofNoise((timeLED.y/10) - r.y
+                                  / ( scatterLED.get().y*LEDOUTHEIGHT),
+                                  (timeLED.x/10) - r.x
+                                  / ( scatterLED.get().x*LEDOUTWIDTH));
+            
+            
+            
             ofSetColor( colorLED.get().r, colorLED.get().g, colorLED.get().b,
-                       ofNoise((timeLED.y/10) - r.y
-                               / ( scatterLED.get().y*LEDOUTHEIGHT),
-                               (timeLED.x/10) - r.x
-                               / ( scatterLED.get().x*LEDOUTWIDTH) ) * 255 );
+                       alpha*255);
             
             ofFill();
             
             
             ofSetRectMode(OF_RECTMODE_CENTER);
             
-            ofDrawRectangle(r.x,r.y, r.width * ledRectScale.get().x, r.height * ledRectScale.get().y);
+            ofDrawRectangle(r.x, r.y,(r.width * ledRectScale.get().x*100 * alpha), (r.height * ledRectScale.get().y*100 * alpha));
             
             
             ofSetRectMode(OF_RECTMODE_CORNER);
