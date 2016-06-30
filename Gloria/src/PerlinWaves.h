@@ -20,13 +20,23 @@ public:
     ofParameter<ofColor> color {"color", ofColor(0,0,0,0), ofColor(0,0,0,0), ofColor(255,255,255,255)};
 
     
+    ofParameter<ofVec2f> speedLED {"speedled", ofVec2f(0, 0), ofVec2f(-1,-1),ofVec2f(1,1)};
+    ofParameter<ofVec2f> scatterLED {"scatterled", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)};
+    ofParameter<ofColor> colorLED {"colorled", ofColor(0,0,0,0), ofColor(0,0,0,0), ofColor(255,255,255,255)};
+    
+    
     ofVec2f time;
+    ofVec2f timeLED;
+
     
     ofParameterGroup params {"perlinwaves",
         enabled,
         speed,
         scatter,
-        color
+        color,
+        speedLED,
+        scatterLED,
+        colorLED
     };
     
     PerlinWaves() {
@@ -36,6 +46,9 @@ public:
         
         time.x = 0;
         time.y = 0;
+        
+        timeLED.x = 0;
+        timeLED.y = 0;
     }
     
     void setup();

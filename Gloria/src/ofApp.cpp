@@ -493,7 +493,7 @@ void ofApp::exit()
     settings.saveFile("appSettings.xml");
     mapping->save();
     
-    delete syphonIn;
+    //delete syphonIn;
     delete mapping;
 }
 
