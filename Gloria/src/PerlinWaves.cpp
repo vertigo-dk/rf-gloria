@@ -7,9 +7,9 @@
 //
 
 #include "PerlinWaves.h"
+#include "ofxEasing.h"
 
-void PerlinWaves::setup(){
-    
+void PerlinWaves::setup() {
     
     for(int i=0; i<200; i++) {
         randomRects.push_back(ofRectangle(ofRandom(0,LEDOUTWIDTH),ofRandom(0,LEDOUTHEIGHT), 10, 10));
@@ -18,8 +18,31 @@ void PerlinWaves::setup(){
 }
 
 void PerlinWaves::update(){
-    time += speed.get();
-    timeLED += speedLED.get();
+    
+    if(speed.get().x > 0) {
+        time.x += ofxeasing::map(speed.get().x, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+    } else {
+        time.x += ofxeasing::map(speed.get().x, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+    }
+    
+    if(speed.get().y > 0) {
+        time.y += ofxeasing::map(speed.get().y, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+    } else {
+        time.y += ofxeasing::map(speed.get().y, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+    }
+    
+    
+    if(speed.get().x > 0) {
+        timeLED.x += ofxeasing::map(speed.get().x, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+    } else {
+        timeLED.x += ofxeasing::map(speed.get().x, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+    }
+    
+    if(speedLED.get().y > 0) {
+        timeLED.y += ofxeasing::map(speedLED.get().y, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+    } else {
+        timeLED.y += ofxeasing::map(speedLED.get().y, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+    }
     
 }
 
@@ -35,9 +58,9 @@ void PerlinWaves::draw(){;
          
          float alpha;
          
-         if(concentricLED) {
+         if(concentric) {
              
-             alpha = ofNoise((time.y/10) - mapping->triangles[i]->centroid.distance(ofPoint(OUTWIDTH/2,OUTHEIGHT/2))
+             alpha = ofNoise((time.x/10) - mapping->triangles[i]->centroid.distance(ofPoint(OUTWIDTH/2,OUTHEIGHT*0.82))
                              / ( scatter.get().x*OUTHEIGHT));
              
          } else {
@@ -62,7 +85,6 @@ void PerlinWaves::draw(){;
          mapping->triangles[i]->mesh.draw();
          */
      }
-    
 }
 
 
