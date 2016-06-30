@@ -171,7 +171,7 @@ void ContentScene::drawScene() {
 }
 
 void ContentScene::publishSyphonTexture() {
-    if (enabled.get() && fbo) {
+    if (enabled.get()) {
         
         if(fbo) {
             ofFill();

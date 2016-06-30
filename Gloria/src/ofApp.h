@@ -24,6 +24,9 @@
 //#include "ChaoticAttractor.h"
 #include "CurlyFur.h"
 
+
+
+
 class ofApp : public ofBaseApp {
 public:
     
@@ -110,6 +113,11 @@ public:
     vector<shared_ptr<ContentScene>> scenes;
     
     void selectSyphonInput(int input);
+    void selectSyphonInput(ofxSyphonClient client);
+    
+    bool mRelease = false;
+    ofPoint mReleasePos;
+    
     
     vector<ofxPanel *> scenePanels;
     
@@ -118,3 +126,8 @@ public:
     }
     
 };
+
+
+
+
+
