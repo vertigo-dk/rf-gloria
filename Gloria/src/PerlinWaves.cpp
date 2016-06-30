@@ -91,7 +91,7 @@ void PerlinWaves::drawFixtures() {
             n++;
             if(n>numRectsLed.get()*200) break;
             
-            ofSetColor( color.get().r, color.get().g, color.get().b,
+            ofSetColor( colorLED.get().r, colorLED.get().g, colorLED.get().b,
                        ofNoise((timeLED.y/10) - r.y
                                / ( scatterLED.get().y*LEDOUTHEIGHT),
                                (timeLED.x/10) - r.x
