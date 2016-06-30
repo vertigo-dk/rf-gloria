@@ -32,21 +32,26 @@ public:
 ,1};
     
     
+    ofParameter<bool> concentric {"concentric", true};
+  
+    ofParameter<bool> concentricLED {"concentricled", true};
+    
     ofVec2f time;
     ofVec2f timeLED;
-
     
     ofParameterGroup params {"perlinwaves",
         enabled,
         speed,
         scatter,
         color,
+        concentric,
         speedLED,
         scatterLED,
         colorLED,
         ledRectScale,
         useMappingLED,
-        numRectsLed
+        numRectsLed,
+        //concentricLED
     };
     
     PerlinWaves() {

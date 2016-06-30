@@ -32,11 +32,24 @@ void PerlinWaves::draw(){;
     
      for(int i =0; i<mapping->triangles.size();i++) {
          
+         
+         float alpha;
+         
+         if(concentricLED) {
+             
+             alpha = ofNoise((time.y/10) - mapping->triangles[i]->centroid.distance(ofPoint(OUTWIDTH/2,OUTHEIGHT/2))
+                             / ( scatter.get().x*OUTHEIGHT));
+             
+         } else {
+             alpha = ofNoise((time.y/10) - mapping->triangles[i]->centroid.y
+                             / ( scatter.get().y*OUTHEIGHT),
+                             (time.x/10) - mapping->triangles[i]->centroid.x
+                             / ( scatter.get().x*OUTWIDTH) );
+         }
+         
+         
          ofSetColor( color.get().r, color.get().g, color.get().b,
-                    ofNoise((time.y/10) - mapping->triangles[i]->centroid.y
-                            / ( scatter.get().y*OUTHEIGHT),
-                    (time.x/10) - mapping->triangles[i]->centroid.x
-                    / ( scatter.get().x*OUTWIDTH) ) *255 );
+                    alpha *255 );
    
          
          mapping->triangles[i]->mesh.draw();
@@ -65,10 +78,21 @@ void PerlinWaves::drawFixtures() {
           ofRectangle r = mapping->fixtures[i]->rect;
 
           
-          float alpha = ofNoise((timeLED.y/10) - r.y
+          
+          float alpha;
+          
+          if(concentricLED) {
+              alpha = ofNoise((timeLED.y/10) - r.y
+                              / ( scatterLED.get().y *LEDOUTHEIGHT),
+                              (timeLED.x/10) - r.x
+                              / ( scatterLED.get().x *LEDOUTWIDTH));
+          } else {
+          
+              alpha = ofNoise((timeLED.y/10) - r.y
                                 / ( scatterLED.get().y*LEDOUTHEIGHT),
                                 (timeLED.x/10) - r.x
                                 / ( scatterLED.get().x*LEDOUTWIDTH));
+          }
           
           
           ofSetColor( color.get().r, color.get().g, color.get().b,
