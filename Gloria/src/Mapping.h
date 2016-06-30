@@ -74,6 +74,8 @@ public:
     ~InputTriangle();
     
     ofVec3f getCenter();
+    
+    bool bDraw = true;
 };
 
 class InputFixture {

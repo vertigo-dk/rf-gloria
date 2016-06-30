@@ -9,7 +9,7 @@
 	<pressureDissipation>0.99</pressureDissipation>
 	<clear>0</clear>
 <fluid/>
-<enabled>1</enabled>
+<enabled>0</enabled>
 	<emitLine>0.726597, -0.270814</emitLine>
 	<emitLineDir>-0.062802, 0.196262</emitLineDir>
 	<color>255, 255, 255, 255</color>

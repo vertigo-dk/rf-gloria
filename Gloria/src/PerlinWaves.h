@@ -28,13 +28,14 @@ public:
     
     ofParameter<bool> useMappingLED {"usemappingLED", false};
     
-    ofParameter<float> numRectsLed {"numrectsled", 0.5,0
-,1};
+    ofParameter<float> numRectsLed {"numrectsled", 0.5,0,1};
     
     
     ofParameter<bool> concentric {"concentric", true};
   
     ofParameter<bool> concentricLED {"concentricled", true};
+    
+    ofParameter<float> propability {"propability", 1,0,1};
     
     ofVec2f time;
     ofVec2f timeLED;
@@ -51,6 +52,7 @@ public:
         ledRectScale,
         useMappingLED,
         numRectsLed,
+        propability
         //concentricLED
     };
     

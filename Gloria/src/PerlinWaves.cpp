@@ -74,8 +74,8 @@ void PerlinWaves::draw(){;
          ofSetColor( color.get().r, color.get().g, color.get().b,
                     alpha *255 );
    
-         
-         mapping->triangles[i]->mesh.draw();
+         if(ofRandom(1)>propability.get()) mapping->triangles[i]->bDraw = !mapping->triangles[i]->bDraw;
+         if(mapping->triangles[i]->bDraw) mapping->triangles[i]->mesh.draw();
          
          /*
          ofSetColor( 255, 255, 255,

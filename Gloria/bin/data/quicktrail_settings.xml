@@ -6,11 +6,11 @@
 	<linesPath>0</linesPath>
 	<linesInters>0</linesInters>
 	<speed>0.188976</speed>
-	<length>0.464567</length>
-	<numtrails>0</numtrails>
+	<length>15.2</length>
+	<numtrails>7</numtrails>
 	<random>1</random>
 	<clear>0</clear>
-	<circleRadius>0</circleRadius>
+	<circleRadius>164</circleRadius>
 <quicktrail/>
 <untitled>
 		<enabled>1</enabled>
@@ -26,5 +26,5 @@
 		<clear>0</clear>
 		<circleRadius>0</circleRadius>
 	</untitled>
-<enabled>1</enabled>
+<enabled>0</enabled>
 </quicktrail>
