@@ -10,6 +10,11 @@
 
 void PerlinWaves::setup(){
     
+    
+    for(int i=0; i<200; i++) {
+        randomRects.push_back(ofRectangle(ofRandom(0,LEDOUTWIDTH),ofRandom(0,LEDOUTHEIGHT), 10, 10));
+    }
+    
 }
 
 void PerlinWaves::update(){
@@ -53,6 +58,8 @@ void PerlinWaves::drawFixtures() {
     ofClear(0,0,0,0);
 
     
+    if(useMappingLED) {
+    
       for(int i =0; i<mapping->fixtures.size();i++) {
       
           
@@ -63,14 +70,55 @@ void PerlinWaves::drawFixtures() {
                              / ( scatterLED.get().x*LEDOUTWIDTH) ) *255 );
           
           ofFill();
-          ofDrawRectangle(mapping->fixtures[i]->rect);
+
           
+          ofSetRectMode(OF_RECTMODE_CENTER);
+          
+          ofDrawRectangle(mapping->fixtures[i]->rect.x,mapping->fixtures[i]->rect.y, mapping->fixtures[i]->rect.width * ledRectScale.get().x, mapping->fixtures[i]->rect.height * ledRectScale.get().y);
+          
+          
+          ofSetRectMode(OF_RECTMODE_CORNER);
+
+
           
       }
+        
+        
+    } else {
+        
+        int n =0;
+        for(auto r : randomRects) {
+            n++;
+            if(n>numRectsLed.get()*200) break;
+            
+            ofSetColor( color.get().r, color.get().g, color.get().b,
+                       ofNoise((timeLED.y/10) - r.y
+                               / ( scatterLED.get().y*LEDOUTHEIGHT),
+                               (timeLED.x/10) - r.x
+                               / ( scatterLED.get().x*LEDOUTWIDTH) ) * 255 );
+            
+            ofFill();
+            
+            
+            ofSetRectMode(OF_RECTMODE_CENTER);
+            
+            ofDrawRectangle(r.x,r.y, r.width * ledRectScale.get().x, r.height * ledRectScale.get().y);
+            
+            
+            ofSetRectMode(OF_RECTMODE_CORNER);
+
+
+            
+        }
+        
+        
+    }
     
 }
 
 void PerlinWaves::parseOscMessage(ofxOscMessage *m){
     
+    
+
         
 }

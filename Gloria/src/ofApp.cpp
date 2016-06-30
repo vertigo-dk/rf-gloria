@@ -208,7 +208,7 @@ void ofApp::draw() {
                 
                 ofSetColor(255,255,255,255);
                 if(syphonIn->getServerName() == syphon.getServerName() && syphonIn->getApplicationName() == syphon.getApplicationName()) {
-                    ofSetColor(255,180,180,255);
+                    ofSetColor(255,20,20,255);
                 }
                 
                 ofDrawBitmapString(s->name, 0, 5);
@@ -452,17 +452,12 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button){
     
 
-    
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    
     mRelease = true;
     mReleasePos = ofPoint(x,y);
-    
-    
 }
 
 //--------------------------------------------------------------

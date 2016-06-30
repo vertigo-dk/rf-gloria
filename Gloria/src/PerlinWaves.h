@@ -24,6 +24,13 @@ public:
     ofParameter<ofVec2f> scatterLED {"scatterled", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(1,1)};
     ofParameter<ofColor> colorLED {"colorled", ofColor(0,0,0,0), ofColor(0,0,0,0), ofColor(255,255,255,255)};
     
+    ofParameter<ofVec2f> ledRectScale {"ledrectscale", ofVec2f(0, 0), ofVec2f(0,0),ofVec2f(10,10)};
+    
+    ofParameter<bool> useMappingLED {"usemappingLED", false};
+    
+    ofParameter<float> numRectsLed {"numrectsled", 0.5,0
+,1};
+    
     
     ofVec2f time;
     ofVec2f timeLED;
@@ -36,7 +43,10 @@ public:
         color,
         speedLED,
         scatterLED,
-        colorLED
+        colorLED,
+        ledRectScale,
+        useMappingLED,
+        numRectsLed
     };
     
     PerlinWaves() {
@@ -60,6 +70,9 @@ public:
     void update();
     
     void parseOscMessage(ofxOscMessage * m);
+    
+    
+    vector<ofRectangle> randomRects;
     
     
 };
