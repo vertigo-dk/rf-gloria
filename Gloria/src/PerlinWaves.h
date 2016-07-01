@@ -11,6 +11,11 @@
 #include "ContentScene.h"
 #include "mapping.h"
 
+class myRectangle : public ofRectangle{
+public:
+   bool bDraw = true;    
+};
+
 class PerlinWaves : public ContentScene {
 
 public:
@@ -39,6 +44,7 @@ public:
     
     ofVec2f time;
     ofVec2f timeLED;
+    float prob;
     
     ofParameterGroup params {"perlinwaves",
         enabled,
@@ -79,7 +85,7 @@ public:
     void parseOscMessage(ofxOscMessage * m);
     
     
-    vector<ofRectangle> randomRects;
+    vector<myRectangle> randomRects;
     
     
 };
