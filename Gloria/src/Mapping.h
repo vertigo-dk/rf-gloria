@@ -70,11 +70,12 @@ public:
     ofMesh mesh;
     ofColor color;
     
+    ofMesh modMesh;
+    
     InputTriangle();
     ~InputTriangle();
     
     ofVec3f getCenter();
-    
     bool bDraw = true;
 };
 
@@ -114,7 +115,6 @@ public:
     void debugDraw();
     void drawGuide();
     
-    //InputTriangle * selectedTriangle;
     Corner * selectedCorner;
     int selectedCornerId = 0;
     

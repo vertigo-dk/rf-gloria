@@ -212,17 +212,11 @@ void ofApp::draw() {
                 }
                 
                 ofDrawBitmapString(s->name, 0, 5);
-
                 ofSetColor(255,255,255,255);
-
                 syphon.draw(0, 10, 400, 100);
-                
-                
                 
                 if(mRelease) {
                     if(ofRectangle(dX,dY,400,100).inside(mReleasePos)) {
-                        
-                        
                         
                         selectSyphonInput(syphon);
                         mRelease = false;

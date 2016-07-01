@@ -268,6 +268,9 @@ void Mapping::generate() {
                     // if we are scaling the output differently than the mapping
                     vert = vert / ofVec2f(svgWidth/OUTWIDTH, svgHeight/OUTHEIGHT);
                     
+                    
+                    
+                    
                     // Loop through all corners in all triangels and set a pointer if the corner already exists
                     for(int ti=0; ti<triangles.size(); ti++) {
                         
@@ -293,7 +296,6 @@ void Mapping::generate() {
                         corners.push_back(triangle->corners[vi]);
                         triangle->corners[vi]->addTriangleReference(triangle);
                     }
-                    
                 }
                 
                 triangle->color.set(ofRandom(100,255));
@@ -301,6 +303,7 @@ void Mapping::generate() {
                 // add as a mesh - maybe add a normal pointing out for light effects
                 for(int c=0; c<3; c++) {
                     triangle->mesh.addVertex(triangle->corners[c]->pos);
+                    triangle->mesh.addTexCoord(triangle->corners[c]->pos);
                 }
                 triangle->mesh.addTriangle(0, 1, 2);
                 
@@ -330,7 +333,6 @@ void Mapping::generate() {
     }
     
     ofLogNotice("Mapping")<<"Created: "<<triangles.size()<<" triangles with "<<corners.size()<<" unique corners"<<endl;
-    
 }
 
 
@@ -352,7 +354,6 @@ void Mapping::drawGuide() {
 
 void Mapping::debugDraw() {
     
-    
     ofPushStyle();
     
     for(int i =0; i<triangles.size();i++) {
@@ -360,7 +361,6 @@ void Mapping::debugDraw() {
     }
     
     for(int i=0; i < corners.size(); i++) {
-        
     }
     
     ofFill();

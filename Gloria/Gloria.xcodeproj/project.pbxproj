@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041E6B7C1D200E4100CCFC04 /* ofxParameterFader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041E6B7A1D200E4100CCFC04 /* ofxParameterFader.cpp */; };
+		042990F81D26CC2000D4C567 /* Wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042990F61D26CC2000D4C567 /* Wrapper.cpp */; };
 		04A7BA401D21B4D400EB466D /* Output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7BA3E1D21B4D400EB466D /* Output.cpp */; };
 		0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BF3AA0D4FAA89D0F8A0E545 /* OscReceivedElements.cpp */; };
 		11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */ = {isa = PBXBuildFile; fileRef = E723BEF4C55D236E24639608 /* ofxSyphonServerDirectory.mm */; };
@@ -115,6 +116,8 @@
 		041E6B7B1D200E4100CCFC04 /* ofxParameterFader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ofxParameterFader.hpp; sourceTree = "<group>"; };
 		041E6B7F1D200EC300CCFC04 /* easing_terms_of_use.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = easing_terms_of_use.html; sourceTree = "<group>"; };
 		041E6B801D200EC300CCFC04 /* ofxEasing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxEasing.h; sourceTree = "<group>"; };
+		042990F61D26CC2000D4C567 /* Wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wrapper.cpp; sourceTree = "<group>"; };
+		042990F71D26CC2000D4C567 /* Wrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Wrapper.hpp; sourceTree = "<group>"; };
 		04A7BA3E1D21B4D400EB466D /* Output.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Output.cpp; sourceTree = "<group>"; };
 		04A7BA3F1D21B4D400EB466D /* Output.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Output.hpp; sourceTree = "<group>"; };
 		057122A817D12571F8C0C7A4 /* ofxCvGrayscaleImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxCvGrayscaleImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.cpp; sourceTree = SOURCE_ROOT; };
@@ -497,6 +500,8 @@
 				75620E400AD8B5AB014E9E66 /* QuickTrail.h */,
 				2DDD15DAEC85EBCBCC1200F8 /* Triangles.cpp */,
 				A5CEFE3952AB11ED6D9DC1B0 /* Triangles.h */,
+				042990F61D26CC2000D4C567 /* Wrapper.cpp */,
+				042990F71D26CC2000D4C567 /* Wrapper.hpp */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1468,6 +1473,7 @@
 				CF8BF8D262CB3D0D43F07F25 /* BasicParticles.cpp in Sources */,
 				342C3D5945EEC5D41F38609F /* ContentScene.cpp in Sources */,
 				83B8D4ADFA26706330575894 /* CurlyFur.cpp in Sources */,
+				042990F81D26CC2000D4C567 /* Wrapper.cpp in Sources */,
 				E19A3E5C2363BBE429A3711D /* FluidScene.cpp in Sources */,
 				FAF47C64B48F6FAA98C5FA8B /* Mapping.cpp in Sources */,
 				C6792CBAAA54D5A713D25ADF /* Particle.cpp in Sources */,

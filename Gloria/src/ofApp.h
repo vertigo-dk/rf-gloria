@@ -23,7 +23,7 @@
 //#include "petriDish.h"
 //#include "ChaoticAttractor.h"
 #include "CurlyFur.h"
-
+#include "Wrapper.hpp"
 
 
 
@@ -31,7 +31,6 @@ class ofApp : public ofBaseApp {
 public:
     
     ofApp() {
-        
         globalParams.setName("gloria");
         
         scenes.push_back(make_shared<FluidScene>());
@@ -42,11 +41,11 @@ public:
         //scenes.push_back(make_shared<ChaoticAttractor>());
         //scenes.push_back(make_shared<PetriDish>());
         scenes.push_back(make_shared<CurlyFur>());
+        scenes.push_back(make_shared<Wrapper>());
         
         for( auto s : scenes) {
             globalParams.add(s->getParameters());
         }
-        
     }
     
     ofParameterGroup sceneParams;
