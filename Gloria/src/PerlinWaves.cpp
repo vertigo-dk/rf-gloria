@@ -20,28 +20,27 @@ void PerlinWaves::setup() {
 void PerlinWaves::update(){
     
     if(speed.get().x > 0) {
-        time.x += ofxeasing::map(speed.get().x, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+        time.x += ofxeasing::map(speed.get().x, 0, 1, 0, 1, ofxeasing::quart::easeIn);
     } else {
-        time.x += ofxeasing::map(speed.get().x, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+        time.x += ofxeasing::map(speed.get().x, -1, 0, -1, 0, ofxeasing::quart::easeOut);
     }
     
     if(speed.get().y > 0) {
-        time.y += ofxeasing::map(speed.get().y, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+        time.y += ofxeasing::map(speed.get().y, 0, 1, 0, 1, ofxeasing::quart::easeIn);
     } else {
-        time.y += ofxeasing::map(speed.get().y, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+        time.y += ofxeasing::map(speed.get().y, -1, 0, -1, 0, ofxeasing::quart::easeOut);
     }
     
-    
-    if(speed.get().x > 0) {
-        timeLED.x += ofxeasing::map(speed.get().x, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+    if(speedLED.get().x > 0) {
+        timeLED.x += ofxeasing::map(speedLED.get().x, 0, 1, 0, 1, ofxeasing::quart::easeIn);
     } else {
-        timeLED.x += ofxeasing::map(speed.get().x, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+        timeLED.x += ofxeasing::map(speedLED.get().x, -1, 0, -1, 0, ofxeasing::quart::easeOut);
     }
     
     if(speedLED.get().y > 0) {
-        timeLED.y += ofxeasing::map(speedLED.get().y, 0, 1, 0, 1, ofxeasing::exp::easeIn);
+        timeLED.y += ofxeasing::map(speedLED.get().y, 0, 1, 0, 1, ofxeasing::quart::easeIn);
     } else {
-        timeLED.y += ofxeasing::map(speedLED.get().y, -1, 0, -1, 0, ofxeasing::exp::easeIn);
+        timeLED.y += ofxeasing::map(speedLED.get().y, -1, 0, -1, 0, ofxeasing::quart::easeOut);
     }
     
 }
