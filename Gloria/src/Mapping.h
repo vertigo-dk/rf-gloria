@@ -74,6 +74,8 @@ public:
     ~InputTriangle();
     
     ofVec3f getCenter();
+    
+    bool bDraw = true;
 };
 
 class InputFixture {
@@ -86,6 +88,7 @@ public:
     ofPolyline polyline;
     
     ofRectangle rect;
+    bool bDraw = true;
 };
 
 class Mapping {	

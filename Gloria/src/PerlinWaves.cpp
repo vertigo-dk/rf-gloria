@@ -12,7 +12,10 @@
 void PerlinWaves::setup() {
     
     for(int i=0; i<200; i++) {
-        randomRects.push_back(ofRectangle(ofRandom(0,LEDOUTWIDTH),ofRandom(0,LEDOUTHEIGHT), 10, 10));
+        myRectangle myRect;
+        myRect.set(ofRandom(0,LEDOUTWIDTH),ofRandom(0,LEDOUTHEIGHT), 10, 10);
+        myRect.bDraw = true;
+        randomRects.push_back(myRect);
     }
     
 }
@@ -43,6 +46,8 @@ void PerlinWaves::update(){
         timeLED.y += ofxeasing::map(speedLED.get().y, -1, 0, -1, 0, ofxeasing::quart::easeOut);
     }
     
+    prob = ofxeasing::map(propability.get(), 0, 1, 0, 1, ofxeasing::quart::easeOut);
+    
 }
 
 void PerlinWaves::draw(){;
@@ -51,7 +56,8 @@ void PerlinWaves::draw(){;
     
     ofSetLineWidth(4);
     glEnable(GL_LINES);
-    
+
+
      for(int i =0; i<mapping->triangles.size();i++) {
          
          
@@ -73,8 +79,9 @@ void PerlinWaves::draw(){;
          ofSetColor( color.get().r, color.get().g, color.get().b,
                     alpha *255 );
    
-         
-         mapping->triangles[i]->mesh.draw();
+
+         if(ofRandom(1)>prob) mapping->triangles[i]->bDraw = !mapping->triangles[i]->bDraw;
+         if(mapping->triangles[i]->bDraw) mapping->triangles[i]->mesh.draw();
          
          /*
          ofSetColor( 255, 255, 255,
@@ -116,6 +123,7 @@ void PerlinWaves::drawFixtures() {
           }
           
           
+          
           ofSetColor( color.get().r, color.get().g, color.get().b,
                      alpha*255 );
           
@@ -125,7 +133,8 @@ void PerlinWaves::drawFixtures() {
           
           ofSetRectMode(OF_RECTMODE_CENTER);
           
-          ofDrawRectangle(r.x, r.y,(r.width * ledRectScale.get().x*100 * alpha), (r.height * ledRectScale.get().y*100 * alpha));
+          if(ofRandom(1)>prob) mapping->fixtures[i]->bDraw = !mapping->fixtures[i]->bDraw;
+          if(mapping->fixtures[i]->bDraw) ofDrawRectangle(r.x, r.y,(r.width * ledRectScale.get().x*100 * alpha), (r.height * ledRectScale.get().y*100 * alpha));
           
           
           ofSetRectMode(OF_RECTMODE_CORNER);
@@ -157,7 +166,8 @@ void PerlinWaves::drawFixtures() {
             
             ofSetRectMode(OF_RECTMODE_CENTER);
             
-            ofDrawRectangle(r.x, r.y,(r.width * ledRectScale.get().x*100 * alpha), (r.height * ledRectScale.get().y*100 * alpha));
+            if(ofRandom(1)>prob) r.bDraw = !r.bDraw;
+            if(r.bDraw) ofDrawRectangle(r.x, r.y,(r.width * ledRectScale.get().x*100 * alpha), (r.height * ledRectScale.get().y*100 * alpha));
             
             
             ofSetRectMode(OF_RECTMODE_CORNER);
