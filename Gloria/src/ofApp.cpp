@@ -259,7 +259,7 @@ void ofApp::draw() {
             syphon.draw(0, 10, syphon.getWidth()/15, syphon.getHeight()/15);
             
             if(mRelease) {
-                if(ofRectangle(dX,dY,400+dX,100+dY).inside(mReleasePos)) {
+                if(ofRectangle(dX,dY,400,100).inside(mReleasePos)) {
                     selectSyphonInput(syphon);
                     mRelease = false;
                 }

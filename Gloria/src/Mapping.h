@@ -88,6 +88,7 @@ public:
     ofPolyline polyline;
     
     ofRectangle rect;
+    bool bDraw = true;
 };
 
 class Mapping {	
