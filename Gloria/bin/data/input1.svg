@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="6000px" height="1500px"
- viewBox="0 0 6000 1500"
+<svg width="1693.33mm" height="733.778mm"
+ viewBox="0 0 4800 2080"
  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
 <title>MadMapper SVG export</title>
 <desc>MadMapper SVG export</desc>
@@ -9,1068 +9,364 @@
 <g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<rect x="0" y="0" width="6000" height="1500"/>
+<rect x="0" y="0" width="4800" height="2080"/>
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="none" stroke="#ffffff" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<rect vector-effect="non-scaling-stroke" x="0" y="0" width="6000" height="1500"/>
+<rect vector-effect="non-scaling-stroke" x="0" y="0" width="4800" height="2080"/>
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="0" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 <polyline fill="none" vector-effect="none" points="0,0 100,100 " />
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.04614,0,0,1.04614,142.194,1336.1)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,238.045,1030.21)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.04614,0,0,1.04614,142.194,1336.1)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,238.045,1030.21)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.143472,156.081 L-135.431,-77.9753 L135.287,-78.106 L0.143472,156.081"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-67.3346,-349.957 L-269.331,-0.0852456 L336.665,350.043 L-67.3346,-349.957"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.04614,0,0,1.04614,142.194,1336.1)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,238.045,1030.21)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,142.071,1173.27)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,542.519,1222.62)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,142.071,1173.27)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,542.519,1222.62)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.106,78.521 L-137.014,78.6532 L-0.0919063,-157.174 L137.106,78.521"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-94.3224,-512.25 L-400.355,4.49971 L494.678,507.75 L-94.3224,-512.25"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,142.071,1173.27)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,542.519,1222.62)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,283.018,1092.69)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,864.052,1115.81)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,283.018,1092.69)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,864.052,1115.81)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.681893,156.511 L-136.516,-79.1846 L135.834,-77.3259 L0.681893,156.511"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-51.1666,-265.957 L-204.667,-0.0867337 L255.833,266.043 L-51.1666,-265.957"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,283.018,1092.69)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,864.052,1115.81)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,822.705,1106.9)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1097.31,1462.88)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,822.705,1106.9)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1097.31,1462.88)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.0650632,379.395 L328.932,-190.289 L-328.997,-189.106 L0.0650632,379.395"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-67.2604,-349.999 L-269.479,-0.00128019 L336.74,350.001 L-67.2604,-349.999"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,822.705,1106.9)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1097.31,1462.88)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1020.65,828.54)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,1136.44,681.14)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1020.65,828.54)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,1136.44,681.14)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.221449,-158.323 L137.344,79.1369 L-137.123,79.1859 L-0.221449,-158.323"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-98.1664,-510.03 L-392.667,0.0596543 L490.834,509.97 L-98.1664,-510.03"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1020.65,828.54)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,1136.44,681.14)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1161.15,748.081)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1545.86,1173.83)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1161.15,748.081)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1545.86,1173.83)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M134.871,-76.5687 L1.34714,157.014 L-136.218,-80.4455 L134.871,-76.5687"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-115.59,-600 L-461.82,0.00027975 L577.41,600 L-115.59,-600"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1161.15,748.081)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1545.86,1173.83)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1345.04,986.678)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,1623.76,576.337)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1345.04,986.678)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,1623.76,576.337)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M329.142,189.576 L-329.463,190.237 L0.321683,-379.813 L329.142,189.576"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-51.1666,-265.957 L-204.667,-0.0867337 L255.833,266.043 L-51.1666,-265.957"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1345.04,986.678)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,1623.76,576.337)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1005.22,1346.9)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1862.64,608.934)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1005.22,1346.9)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1862.64,608.934)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.648,79.3538 L-0.553573,-158.422 L-137.094,79.0684 L137.648,79.3538"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-67.2604,-349.999 L-269.479,-0.00128019 L336.74,350.001 L-67.2604,-349.999"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1005.22,1346.9)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,1862.64,608.934)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1146.86,1265.28)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,2063.63,1224.85)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1146.86,1265.28)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,2063.63,1224.85)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.556258,158.353 L-137.645,-79.4233 L137.089,-78.9294 L0.556258,158.353"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-67.3346,-349.957 L-269.331,-0.0852456 L336.665,350.043 L-67.3346,-349.957"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1146.86,1265.28)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,2063.63,1224.85)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1288.95,1347.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,2389.02,1170.52)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1288.95,1347.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,2389.02,1170.52)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-136.976,78.9164 L137.42,79.4493 L-0.443803,-158.366 L-136.976,78.9164"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-392.667,-340 L196.333,-340 L196.333,680 L-392.667,-340"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1288.95,1347.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,2389.02,1170.52)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1430.54,1265.68)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,2681.2,630.49)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1430.54,1265.68)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,2681.2,630.49)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.123,-79.1778 L0.370458,158.496 L-137.493,-79.3186 L137.123,-79.1778"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-204.667,-177.333 L102.333,-177.333 L102.333,354.667 L-204.667,-177.333"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1430.54,1265.68)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,2681.2,630.49)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1483.92,678.557)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3003.88,789.04)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1483.92,678.557)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3003.88,789.04)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M131.676,-74.2955 L-134.106,-81.5795 L2.42967,155.875 L131.676,-74.2955"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-462,-400 L231,-400 L231,800 L-462,-400"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,1483.92,678.557)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3003.88,789.04)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,482.639,1303.26)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,3250.68,1311.04)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,482.639,1303.26)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,3250.68,1311.04)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M329.219,189.336 L-329.375,189.83 L0.156487,-379.166 L329.219,189.336"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-392.667,-340 L196.333,-340 L196.333,680 L-392.667,-340"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,482.639,1303.26)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,3250.68,1311.04)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2084.53,443.619)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3571.62,1251.63)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2084.53,443.619)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3571.62,1251.63)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M329.015,-190.831 L-328.981,-189.32 L-0.0348624,380.15 L329.015,-190.831"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-269.333,-233.333 L134.667,-233.333 L134.667,466.667 L-269.333,-233.333"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2084.53,443.619)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3571.62,1251.63)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2282.58,164.426)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,3693.28,788.221)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2282.58,164.426)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,3693.28,788.221)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.321,79.4034 L-136.916,78.7254 L-0.404471,-158.129 L137.321,79.4034"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-204.667,-177.333 L102.333,-177.333 L102.333,354.667 L-204.667,-177.333"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2282.58,164.426)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,3693.28,788.221)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2424.51,82.8273)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3902.52,1002.7)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2424.51,82.8273)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3902.52,1002.7)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.0544601,158.384 L137.834,-79.2349 L-137.779,-79.1486 L-0.0544601,158.384"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-204.667,-177.333 L102.333,-177.333 L102.333,354.667 L-204.667,-177.333"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2424.51,82.8273)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,3902.52,1002.7)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2500.87,279.326)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,4176.71,1183.49)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2500.87,279.326)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,4176.71,1183.49)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-136.676,79.5102 L136.635,79.0218 L0.0413584,-158.532 L-136.676,79.5102"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-392.667,-340 L196.333,-340 L196.333,680 L-392.667,-340"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2500.87,279.326)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,4176.71,1183.49)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2500.81,443.165)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,4709.57,1051.72)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2500.81,443.165)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,4709.57,1051.72)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-136.611,-79.0711 L136.7,-79.5596 L-0.0896923,158.631 L-136.611,-79.0711"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-204.667,-177.333 L102.333,-177.333 L102.333,354.667 L-204.667,-177.333"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2500.81,443.165)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(-0.866025,-0.5,0.5,-0.866025,4709.57,1051.72)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2359.49,525.14)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,4491.41,902.898)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2359.49,525.14)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,4491.41,902.898)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.172569,-158.416 L-136.866,79.1301 L136.694,79.2858 L0.172569,-158.416"/>
+<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-269.333,-233.333 L134.667,-233.333 L134.667,466.667 L-269.333,-233.333"/>
 </g>
 
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2359.49,525.14)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2821.68,321.873)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2821.68,321.873)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-136.12,-78.2817 L136.217,-79.2 L-0.0974827,157.482 L-136.12,-78.2817"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2821.68,321.873)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2962.69,403.062)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2962.69,403.062)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M136.853,78.8851 L-0.269201,-157.783 L-136.584,78.8983 L136.853,78.8851"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2962.69,403.062)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3138.97,380.419)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3138.97,380.419)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.139718,157.681 L-136.591,-78.9589 L136.452,-78.7221 L0.139718,157.681"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3138.97,380.419)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3138.97,217.654)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3138.97,217.654)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.141307,-157.404 L-136.592,78.5834 L136.451,78.8201 L0.141307,-157.404"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3138.97,217.654)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2998.29,136.474)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2998.29,136.474)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M136.308,-78.8281 L-0.42552,157.159 L-135.882,-78.3307 L136.308,-78.8281"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2998.29,136.474)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3483.74,238.123)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3483.74,238.123)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.491,-79.0043 L-0.459911,157.723 L-137.031,-78.7189 L137.491,-79.0043"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3483.74,238.123)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3669.22,471.122)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3669.22,471.122)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M327.978,189.507 L-327.709,189.378 L-0.268489,-378.886 L327.978,189.507"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3669.22,471.122)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3965.03,424.265)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3965.03,424.265)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M138.868,-79.8982 L0.184801,158.628 L-139.053,-78.7303 L138.868,-79.8982"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3965.03,424.265)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4108.67,505.82)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4108.67,505.82)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.157686,-158.836 L-138.841,79.6911 L138.999,79.1445 L-0.157686,-158.836"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4108.67,505.82)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4846.36,767.048)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4846.36,767.048)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M328.566,-189.969 L-328.319,-189.764 L-0.246587,379.733 L328.566,-189.969"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4846.36,767.048)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4704.69,1078.12)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4704.69,1078.12)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.228352,-158.369 L-136.647,79.7216 L136.875,78.6472 L-0.228352,-158.369"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4704.69,1078.12)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4562.66,1322.86)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4562.66,1322.86)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.829124,-157.166 L-138.286,79.0254 L137.457,78.141 L0.829124,-157.166"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4562.66,1322.86)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4705.07,1241.15)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4705.07,1241.15)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.0885694,157.23 L-136.717,-78.0777 L136.805,-79.152 L-0.0885694,157.23"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4705.07,1241.15)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4520.71,1065.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4520.71,1065.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.966447,158.39 L-136.643,-79.1204 L135.676,-79.27 L0.966447,158.39"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4520.71,1065.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4999.96,1286.14)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4999.96,1286.14)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M328.309,190.066 L-327.86,189.708 L-0.448643,-379.774 L328.309,190.066"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,4999.96,1286.14)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5338.6,1090.37)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5338.6,1090.37)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M327.088,-189.25 L-327.923,-190.295 L0.834742,379.545 L327.088,-189.25"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5338.6,1090.37)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5142.07,811.546)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5142.07,811.546)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M1.43135,-157.341 L-137.997,79.5867 L136.566,77.7541 L1.43135,-157.341"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5142.07,811.546)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5423.17,811.96)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5423.17,811.96)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-1.51707,-157.092 L-135.511,77.3532 L137.028,79.7387 L-1.51707,-157.092"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5423.17,811.96)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5282.77,730.175)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5282.77,730.175)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M134.374,-77.9318 L0.380181,156.513 L-134.755,-78.5816 L134.374,-77.9318"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5282.77,730.175)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5820.79,975.719)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5820.79,975.719)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M138.055,-79.8871 L1.57533,158.161 L-139.63,-78.2737 L138.055,-79.8871"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5820.79,975.719)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5680.08,1220.87)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5680.08,1220.87)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.47,-79.1206 L-1.74153,158.022 L-135.729,-78.9013 L137.47,-79.1206"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5680.08,1220.87)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5679.7,1057.77)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5679.7,1057.77)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-135.065,78.9577 L138.135,78.7384 L-3.07032,-157.696 L-135.065,78.9577"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5679.7,1057.77)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5538.72,1302.52)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5538.72,1302.52)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-136.191,78.9485 L135.089,78.9873 L1.10165,-157.936 L-136.191,78.9485"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5538.72,1302.52)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5857.2,1241.13)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5857.2,1241.13)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-137.811,78.7124 L137.546,79.0559 L0.264471,-157.768 L-137.811,78.7124"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,5857.2,1241.13)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3077.53,992.073)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3077.53,992.073)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.752738,-158.324 L-136.484,79.0222 L137.237,79.302 L-0.752738,-158.324"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3077.53,992.073)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3078.13,1155.58)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3078.13,1155.58)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.408244,158.19 L-137.065,-79.2349 L136.657,-78.9551 L0.408244,158.19"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3078.13,1155.58)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2894.99,1170.51)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2894.99,1170.51)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.0295576,-158.518 L-137.524,79.0221 L137.554,79.4964 L-0.0295576,-158.518"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2894.99,1170.51)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2895.1,1334.51)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2895.1,1334.51)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.176284,158.968 L-137.627,-79.7211 L137.451,-79.2468 L0.176284,158.968"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2895.1,1334.51)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3037.45,1416.66)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3037.45,1416.66)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.333631,-158.758 L-137.608,79.4563 L137.942,79.302 L-0.333631,-158.758"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3037.45,1416.66)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2428.13,1333.62)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2428.13,1333.62)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.0647485,157.232 L-137.248,-78.6107 L137.312,-78.6213 L-0.0647485,157.232"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2428.13,1333.62)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2285.97,1415.3)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2285.97,1415.3)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.538,78.1664 L0.355227,-157.676 L-137.893,79.5099 L137.538,78.1664"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2285.97,1415.3)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2570.14,1415.57)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2570.14,1415.57)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-137.514,77.9079 L137.651,80.0376 L-0.136968,-157.945 L-137.514,77.9079"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2570.14,1415.57)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2427.07,1171.44)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2427.07,1171.44)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-2.12336,-156.705 L-136.218,78.3578 L138.342,78.3472 L-2.12336,-156.705"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2427.07,1171.44)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2356.31,966.456)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2356.31,966.456)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.407574,157.889 L-137.962,-78.4932 L137.554,-79.3955 L0.407574,157.889"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2356.31,966.456)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2356.53,802.78)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2356.53,802.78)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.834122,-158.958 L-138.175,79.9304 L137.341,79.0281 L0.834122,-158.958"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2356.53,802.78)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2214.47,1048.1)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2214.47,1048.1)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.694,78.8618 L-0.675123,-157.52 L-137.019,78.6583 L137.694,78.8618"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2214.47,1048.1)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2214.44,1210.66)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2214.44,1210.66)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M137.72,-78.4758 L-0.727273,157.155 L-136.993,-78.6793 L137.72,-78.4758"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,2214.44,1210.66)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3619.69,1334.78)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3619.69,1334.78)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-0.620373,157.626 L-137.654,-78.7739 L138.274,-78.8519 L-0.620373,157.626"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3619.69,1334.78)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.17,1416.21)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.17,1416.21)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M-137.562,78.8092 L136.229,78.8592 L1.33262,-157.668 L-137.562,78.8092"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.17,1416.21)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3477.95,1416.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3477.95,1416.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M136.576,78.6647 L-0.457358,-157.735 L-136.119,79.0704 L136.576,78.6647"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3477.95,1416.35)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3620.1,1171.38)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3620.1,1171.38)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.172992,-158.677 L-138.051,79.3776 L137.878,79.2997 L0.172992,-158.677"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3620.1,1171.38)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.85,1089.2)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.85,1089.2)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.677401,158.842 L-137.027,-79.1351 L136.35,-79.7067 L0.677401,158.842"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.85,1089.2)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.92,925.518)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.92,925.518)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.807172,-158.02 L-137.092,79.2959 L136.285,78.7244 L0.807172,-158.02"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3761.92,925.518)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3545.26,971.548)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-</g>
-
-<g fill="none" stroke="#ffffff" stroke-opacity="0.501961" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3545.26,971.548)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
->
-<path vector-effect="non-scaling-stroke" fill-rule="nonzero" d="M0.562141,157.691 L-136.405,-80.2009 L135.843,-77.4898 L0.562141,157.691"/>
-</g>
-
-<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.03315,0,0,1.03315,3545.26,971.548)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(0.866025,0.5,-0.5,0.866025,4491.41,902.898)"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 
 <g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
-font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal"
+font-family=".SF NS Text" font-size="10" font-weight="400" font-style="normal" 
 >
 </g>
 </g>

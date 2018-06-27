@@ -1,7 +1,7 @@
 <quicktrail>
 	<Enabled>0</Enabled>
-	<Trailse>0</Trailse>
-	<walkersDots>0</walkersDots>
+	<Trailse>1</Trailse>
+	<walkersDots>1</walkersDots>
 	<circles>0</circles>
 	<linesPath>0</linesPath>
 	<linesInters>0</linesInters>
@@ -10,7 +10,7 @@
 	<numtrails>7</numtrails>
 	<random>1</random>
 	<clear>0</clear>
-	<circleRadius>164</circleRadius>
+	<circleRadius>20</circleRadius>
 <quicktrail/>
 <untitled>
 		<enabled>1</enabled>

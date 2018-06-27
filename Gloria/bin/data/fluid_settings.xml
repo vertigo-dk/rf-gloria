@@ -1,7 +1,7 @@
 <fluid>
 	<Enabled>0</Enabled>
-	<gravity>0.458937, 0.16</gravity>
-	<emit>0.874016, 0.629921</emit>
+	<gravity>0.581633, -0.306122</gravity>
+	<emit>0.397959, 0.629921</emit>
 	<intensity>0</intensity>
 	<dissipation>0.99</dissipation>
 	<velocityDissipation>0.99</velocityDissipation>
@@ -18,7 +18,7 @@
 	<temperature>7.9</temperature>
 	<radius>15.5906</radius>
 	<radiusLine>11.7801</radiusLine>
-	<emitters>2.55</emitters>
+	<emitters>13.5</emitters>
 	<rotation>25.2</rotation>
 	<rotationSpeed>0</rotationSpeed>
 	<UnknownName>0</UnknownName>
