@@ -20,9 +20,7 @@ void Wrapper::update(){
         ofPoint p1 = ofPoint(0,0);
         ofPoint p2 = ofPoint(1,0);
         ofPoint p3 = ofPoint(0,1);
-        
-        
-        //
+		
         p1.interpolate(ofPoint(0.5,0.5), zoom);
         p2.interpolate(ofPoint(0.5,0.5), zoom);
         p3.interpolate(ofPoint(0.5,0.5), zoom);
@@ -38,39 +36,23 @@ void Wrapper::update(){
 }
 
 void Wrapper::draw(){;
-    
     ofEnableNormalizedTexCoords();
-    //glEnable(GL_REPEAT);
-    
-    //ofSetTextureWrap(GL_REPEAT);
-    
     ofClear(0,0,0,0);
     
     ofSetColor(255);
     for(auto t : mapping->triangles) {
-        
         ofPushMatrix();
-        
         syphonIn->bind();
         
         ofTranslate(t->getCenter());
         ofScale(canvasScale, canvasScale);
         ofTranslate(-t->getCenter());
 
-        
         t->modMesh.draw();
         
         syphonIn->unbind();
         
         ofPopMatrix();
-        
     }
-    
     ofDisableNormalizedTexCoords();
-    
-}
-
-
-void Wrapper::drawFixtures() {
-    
 }

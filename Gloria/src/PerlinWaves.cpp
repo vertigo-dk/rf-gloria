@@ -10,12 +10,12 @@
 #include "ofxEasing.h"
 
 void PerlinWaves::setup() {
-	//	for (int i = 0; i < 200; i++) {
-	//		myRectangle myRect;
-	//		myRect.set(ofRandom(0, LEDOUTWIDTH), ofRandom(0, LEDOUTHEIGHT), 10, 10);
-	//		myRect.bDraw = true;
-	//		randomRects.push_back(myRect);
-	//	}
+	for (int i = 0; i < 200; i++) {
+		myRectangle myRect;
+		myRect.set(ofRandom(0, LEDOUTWIDTH), ofRandom(0, LEDOUTHEIGHT), 10, 10);
+		myRect.bDraw = true;
+		randomRects.push_back(myRect);
+	}
 }
 
 void PerlinWaves::update() {
@@ -50,7 +50,6 @@ void PerlinWaves::update() {
 		timeLED.y += ofxeasing::map(speedLED.get().y, -1, 0, -1, 0,
 									ofxeasing::quart::easeOut);
 	}
-	
 	prob = ofxeasing::map(propability.get(), 0, 1, 0, 1, ofxeasing::quart::easeOut);
 }
 
@@ -81,35 +80,21 @@ void PerlinWaves::draw() {
 			mapping->triangles[i]->bDraw = !mapping->triangles[i]->bDraw;
 		if (mapping->triangles[i]->bDraw)
 			mapping->triangles[i]->mesh.draw();
-		
-		/*
-		 ofSetColor( 255, 255, 255,
-		 ofNoise( (time.x/10) - mapping->triangles[i]->centroid.x
-		 / ( scatter.get().x*OUTWIDTH) ) *255 );
-		 
-		 mapping->triangles[i]->mesh.draw();
-		 */
 	}
 }
 
 void PerlinWaves::drawFixtures() {
-	
 	ofClear(0, 0, 0, 0);
 	
 	if (useMappingLED) {
-		
 		for (int i = 0; i < mapping->fixtures.size(); i++) {
-			
 			ofRectangle r = mapping->fixtures[i]->rect;
-			
 			float alpha;
-			
 			if (concentricLED) {
 				alpha = ofNoise(
 								(timeLED.y / 10) - r.y / (scatterLED.get().y * LEDOUTHEIGHT),
 								(timeLED.x / 10) - r.x / (scatterLED.get().x * LEDOUTWIDTH));
 			} else {
-				
 				alpha = ofNoise(
 								(timeLED.y / 10) - r.y / (scatterLED.get().y * LEDOUTHEIGHT),
 								(timeLED.x / 10) - r.x / (scatterLED.get().x * LEDOUTWIDTH));
@@ -155,7 +140,6 @@ void PerlinWaves::drawFixtures() {
 				ofDrawRectangle(r.x, r.y,
 								(r.width * ledRectScale.get().x * 100 * alpha),
 								(r.height * ledRectScale.get().y * 100 * alpha));
-			
 			ofSetRectMode(OF_RECTMODE_CORNER);
 		}
 	}

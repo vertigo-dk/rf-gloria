@@ -135,7 +135,6 @@ void ContentScene::parseSceneOscMessage(ofxOscMessage & m){
 }
 
 void ContentScene::updateScene() {
-    
     if(enabled.get() && fbo) {
         update();
     }
