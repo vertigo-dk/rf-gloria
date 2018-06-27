@@ -10,27 +10,19 @@
 
 
 void Wrapper::setup() {
-    
     for(auto t : mapping->triangles) {
         t->modMesh = t->mesh;
     }
-    
-    
 }
 
 void Wrapper::update(){
-    
-    
     for(auto t : mapping->triangles) {
-        
-        
         ofPoint p1 = ofPoint(0,0);
         ofPoint p2 = ofPoint(1,0);
         ofPoint p3 = ofPoint(0,1);
         
         
         //
-        
         p1.interpolate(ofPoint(0.5,0.5), zoom);
         p2.interpolate(ofPoint(0.5,0.5), zoom);
         p3.interpolate(ofPoint(0.5,0.5), zoom);
@@ -38,19 +30,11 @@ void Wrapper::update(){
         p1 += transform.get();
         p2 += transform.get();
         p3 += transform.get();
-        
-        
-        
-        
-        
+
         t->modMesh.setTexCoord(0,  p1 );
         t->modMesh.setTexCoord(1,  p2 );
         t->modMesh.setTexCoord(2,  p3 );
-      
-       
     }
-    
-    
 }
 
 void Wrapper::draw(){;

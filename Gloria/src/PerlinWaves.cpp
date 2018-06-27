@@ -10,12 +10,12 @@
 #include "ofxEasing.h"
 
 void PerlinWaves::setup() {
-	for (int i = 0; i < 200; i++) {
-		myRectangle myRect;
-		myRect.set(ofRandom(0, LEDOUTWIDTH), ofRandom(0, LEDOUTHEIGHT), 10, 10);
-		myRect.bDraw = true;
-		randomRects.push_back(myRect);
-	}
+	//	for (int i = 0; i < 200; i++) {
+	//		myRectangle myRect;
+	//		myRect.set(ofRandom(0, LEDOUTWIDTH), ofRandom(0, LEDOUTHEIGHT), 10, 10);
+	//		myRect.bDraw = true;
+	//		randomRects.push_back(myRect);
+	//	}
 }
 
 void PerlinWaves::update() {
@@ -51,13 +51,10 @@ void PerlinWaves::update() {
 									ofxeasing::quart::easeOut);
 	}
 	
-	prob =
-	ofxeasing::map(propability.get(), 0, 1, 0, 1, ofxeasing::quart::easeOut);
+	prob = ofxeasing::map(propability.get(), 0, 1, 0, 1, ofxeasing::quart::easeOut);
 }
 
 void PerlinWaves::draw() {
-	;
-	
 	ofClear(0, 0, 0, 0);
 	
 	ofSetLineWidth(4);
@@ -68,12 +65,9 @@ void PerlinWaves::draw() {
 		float alpha;
 		
 		if (concentric) {
-			
-			alpha =
-			ofNoise((time.x / 10) - mapping->triangles[i]->centroid.distance(
-																			 ofPoint(OUTWIDTH / 2, OUTHEIGHT * 0.82)) /
-					(scatter.get().x * OUTHEIGHT));
-			
+			alpha = ofNoise((time.x / 10) - mapping->triangles[i]->centroid.distance(
+																					 ofPoint(OUTWIDTH / 2, OUTHEIGHT * 0.82)) /
+							(scatter.get().x * OUTHEIGHT));
 		} else {
 			alpha = ofNoise((time.y / 10) - mapping->triangles[i]->centroid.y /
 							(scatter.get().y * OUTHEIGHT),
