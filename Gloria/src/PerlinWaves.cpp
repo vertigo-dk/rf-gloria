@@ -10,7 +10,6 @@
 #include "ofxEasing.h"
 
 void PerlinWaves::setup() {
-	
 	for (int i = 0; i < 200; i++) {
 		myRectangle myRect;
 		myRect.set(ofRandom(0, LEDOUTWIDTH), ofRandom(0, LEDOUTHEIGHT), 10, 10);
@@ -20,7 +19,6 @@ void PerlinWaves::setup() {
 }
 
 void PerlinWaves::update() {
-	
 	if (speed.get().x > 0) {
 		time.x +=
 		ofxeasing::map(speed.get().x, 0, 1, 0, 1, ofxeasing::quart::easeIn);
@@ -140,7 +138,6 @@ void PerlinWaves::drawFixtures() {
 		}
 		
 	} else {
-		
 		int n = 0;
 		for (auto r : randomRects) {
 			n++;
