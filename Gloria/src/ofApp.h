@@ -18,11 +18,6 @@
 #include "QuickTrail.h"
 #include "Triangles.h"
 #include "PerlinWaves.h"
-#include "FluidScene.h"
-#include "BasicParticles.h"
-//#include "petriDish.h"
-//#include "ChaoticAttractor.h"
-#include "CurlyFur.h"
 #include "Wrapper.hpp"
 
 
@@ -33,14 +28,9 @@ public:
     ofApp() {
         globalParams.setName("gloria");
         
-        scenes.push_back(make_shared<FluidScene>());
         scenes.push_back(make_shared<QuickTrail>());
         scenes.push_back(make_shared<Triangles>());
         scenes.push_back(make_shared<PerlinWaves>());
-        scenes.push_back(make_shared<BasicParticles>());
-        //scenes.push_back(make_shared<ChaoticAttractor>());
-        //scenes.push_back(make_shared<PetriDish>());
-        scenes.push_back(make_shared<CurlyFur>());
         scenes.push_back(make_shared<Wrapper>());
         
         for( auto s : scenes) {
