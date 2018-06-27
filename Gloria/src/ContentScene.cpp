@@ -138,7 +138,6 @@ void ContentScene::updateScene() {
     if(enabled.get() && fbo) {
         update();
     }
-    
 }
 
 void ContentScene::drawScene() {
