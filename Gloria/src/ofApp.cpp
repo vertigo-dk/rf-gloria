@@ -205,10 +205,6 @@ void ofApp::draw() {
 					}
 				}
 				
-			} else if (syphon.getServerName() == s->name + "_LED") {
-				ofSetColor(255, 255, 255, 255);
-				ofDrawBitmapString("LED", 400, 5);
-				syphon.draw(400, 10, 72, 128);
 			}
 		}
 		ofPopMatrix();

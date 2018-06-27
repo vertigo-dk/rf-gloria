@@ -53,8 +53,6 @@ public:
     };
     
     PerlinWaves() {
-        hasFixtureOutput = true;
-        
         ContentScene::params = params;
         
         time.x = 0;
@@ -66,9 +64,6 @@ public:
     
     void setup();
     void draw();
-    
-    void drawFixtures();
-    
     void debugDraw();
     void update();
     

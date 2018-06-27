@@ -11,7 +11,6 @@
 class ContentScene {
     
 public:
-    
     ofParameter<bool> enabled {"enabled", true};
     ofParameterGroup params {"untitled", enabled};
     
@@ -57,7 +56,6 @@ public:
     virtual void setup() {};
     virtual void update() {};
     virtual void draw() {};
-    virtual void drawFixtures() {};
     virtual void exit();
     virtual void setGui() {};
     virtual void parseOscMessage(ofxOscMessage * m) {};
@@ -79,9 +77,6 @@ public:
     void drawScene();
     
     void publishSyphonTexture();
-    
-    bool hasFixtureOutput = false;
-    
 
 private:
 
