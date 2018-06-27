@@ -4,7 +4,7 @@
 	<scatter>0.704082, 0.831633</scatter>
 	<color>255, 255, 255, 206</color>
 	<concentric>0</concentric>
-	<speedled>0.673469, 0.928571</speedled>
+	<speedled>-0.714286, 0.142857</speedled>
 	<scatterled>1, 0.673469</scatterled>
 	<colorled>255, 255, 255, 195</colorled>
 	<ledrectscale>0.193878, 0.908163</ledrectscale>
