@@ -4,7 +4,7 @@
 #include "Defines.h"
 #include "ofxOsc.h"
 #include "ofxGui.h"
-#include "mapping.h"
+#include "Mapping.h"
 #include "ofxSyphon.h"
 #include "Output.hpp"
 
