@@ -15,11 +15,9 @@
 
 // Scenes
 #include "LampWalker.h"
-#include "QuickTrail.h"
 #include "Triangles.h"
 #include "PerlinWaves.h"
 #include "Wrapper.hpp"
-
 
 
 class ofApp : public ofBaseApp {
@@ -28,7 +26,6 @@ public:
     ofApp() {
         globalParams.setName("gloria");
         
-        scenes.push_back(make_shared<QuickTrail>());
         scenes.push_back(make_shared<Triangles>());
         scenes.push_back(make_shared<PerlinWaves>());
         scenes.push_back(make_shared<Wrapper>());
@@ -106,8 +103,7 @@ public:
     
     bool mRelease = false;
     ofPoint mReleasePos;
-    
-    
+
     vector<ofxPanel *> scenePanels;
     
     void paramsChanged(ofAbstractParameter & p) {
@@ -115,8 +111,3 @@ public:
     }
     
 };
-
-
-
-
-

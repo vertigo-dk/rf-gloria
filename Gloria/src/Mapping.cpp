@@ -43,7 +43,6 @@ void Corner::createDivisionCorners(){
             divisionCorner->anchor1 = this;
             divisionCorner->anchor2 = joinedCorners[i];
         }
-        
     }
 }
 

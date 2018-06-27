@@ -58,6 +58,7 @@ void ofApp::setup() {
 		int x = settings.getValue(scenes[i]->name + "_panel_pos_x", 0);
 		int y = settings.getValue(scenes[i]->name + "_panel_pos_y", 1);
 		scenes[i]->panel.setPosition(x, y);
+		scenes[i]->draw(); // draw once to fbo
 	}
 	
 	// Syphon merger (bluemac hack)
@@ -224,8 +225,7 @@ void ofApp::draw() {
 				syphonIn->getApplicationName() == syphon.getApplicationName()) {
 				ofSetColor(255, 180, 180, 255);
 			}
-			ofDrawBitmapString(
-							   syphon.getApplicationName() + ":" + syphon.getServerName(), 0, 5);
+			ofDrawBitmapString(syphon.getApplicationName() + ":" + syphon.getServerName(), 0, 5);
 			
 			ofSetColor(255, 255, 255, 255);
 			syphon.draw(0, 10, syphon.getWidth() / 15, syphon.getHeight() / 15);

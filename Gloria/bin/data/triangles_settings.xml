@@ -1,14 +1,14 @@
 <triangles>
 	<Enabled>0</Enabled>
-	<Triangles_Size>1.6</Triangles_Size>
+	<Triangles_Size>3.425</Triangles_Size>
 	<Triangle_Divide_Radius>2626.5</Triangle_Divide_Radius>
-	<Triangle_Divide_Invert>1</Triangle_Divide_Invert>
-	<Syphon_Texture>1</Syphon_Texture>
+	<Triangle_Divide_Invert>0</Triangle_Divide_Invert>
+	<Syphon_Texture>0.24</Syphon_Texture>
 	<Syphon_Mesh_Distortion>0.53</Syphon_Mesh_Distortion>
-	<Mesh_Distortion>-0.09</Mesh_Distortion>
+	<Mesh_Distortion>0.37</Mesh_Distortion>
 	<Light_Amount>0.36</Light_Amount>
-	<Color>149, 110, 202, 126</Color>
-	<Fill_alpha>1</Fill_alpha>
+	<Color>149, 110, 100, 126</Color>
+	<Fill_alpha>0.275</Fill_alpha>
 	<Wireframe_alpha>0.5</Wireframe_alpha>
 	<Noise_Amount>0.944882</Noise_Amount>
 	<Noise_Speed>0.472441</Noise_Speed>
