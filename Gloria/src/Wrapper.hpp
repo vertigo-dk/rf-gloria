@@ -11,7 +11,7 @@
 
 #include "ofMain.h"
 #include "ContentScene.h"
-#include "mapping.h"
+#include "Mapping.h"
 
 
 class Wrapper : public ContentScene {

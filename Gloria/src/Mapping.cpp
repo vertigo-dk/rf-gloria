@@ -68,14 +68,9 @@ void InputFixture::debugDraw() {
 }
 
 void Mapping::loadFixtures(string _xmlfile, string _svgfile) {
-    
     fixtureXmlFilename = _xmlfile;
     fixtureSvgFilename = _svgfile;
-    
     generateFixtures();
-    
-    // we dont really use the xml anyway
-
 }
 
 
@@ -336,7 +331,6 @@ void Mapping::generate() {
 
 
 void Mapping::updateMeshes() {
-
     for(int i=0; i<triangles.size(); i++) {
         for(int c=0; c<3; c++) {
             triangles[i]->mesh.setVertex(c, triangles[i]->corners[c]->pos);
@@ -352,7 +346,6 @@ void Mapping::drawGuide() {
 }
 
 void Mapping::debugDraw() {
-    
     ofPushStyle();
     
     for(int i =0; i<triangles.size();i++) {
@@ -397,10 +390,8 @@ void InputTriangle::debugDraw() {
 
 
 void Mapping::generateMask() {
-    
     outputMask.allocate(OUTWIDTH, OUTHEIGHT);
-    
-    
+
     outputMask.begin(); {
         
         ofClear(0,0,0,0);
@@ -429,12 +420,10 @@ void Mapping::nextCorner() {
 
 
 void Mapping::prevCorner() {
-    
     --selectedCornerId;
     if(selectedCornerId < 0) selectedCornerId = corners.size()-1;
     cout<<selectedCornerId<<endl;
     selectedCorner = corners[selectedCornerId];
-    
 }
 
 void Mapping::selectCornerAt(int _x, int _y, int r) {
@@ -444,7 +433,3 @@ void Mapping::selectCornerAt(int _x, int _y, int r) {
         if(corners[i]->pos.x - _x)
     }*/
 }
-
-
-
-
