@@ -2,7 +2,7 @@
 
 int syphonRowHeight = 70;
 int syphonRowMargin = 32;
-float syphonRowWidth = syphonRowHeight * 4.75;
+float syphonRowWidth = syphonRowHeight * OUTWIDTH/OUTHEIGHT;
 
 void ofApp::setup() {
 	ofEnableAlphaBlending();
@@ -36,9 +36,9 @@ void ofApp::setup() {
 	dirIdx = settings.getValue("syphonInputSelected", -1);
 	
 	mapping = new Mapping();
-	mapping->load("mapping.xml", "input1.svg");
+	mapping->load("mapping.xml", "input2.svg");
 	
-	mapping->loadFixtures("fixtures.xml", "LedInput.svg");
+//	mapping->loadFixtures("fixtures.xml", "LedInput.svg");
 	
 	for (auto s : scenes) {
 		s->outputManager = &outputManager;
@@ -178,8 +178,9 @@ void ofApp::draw() {
 	
 	float dX = 10;
 	float dY = 10;
-	float rowHeight = 120;
-	float colWidth = 400;
+	float scaleF = 15;
+	float rowHeight = OUTHEIGHT/scaleF+2*dY;
+	float colWidth = OUTWIDTH/scaleF+2*dX;
 	
 	for (auto s : scenes) {
 		ofSetColor(255, 255, 255, 255);
@@ -196,7 +197,7 @@ void ofApp::draw() {
 				
 				ofDrawBitmapString(s->name, 0, 5);
 				ofSetColor(255, 255, 255, 255);
-				syphon.draw(0, 10, 400, 100);
+				syphon.draw(0, 10, OUTWIDTH/scaleF, OUTHEIGHT/scaleF);
 				
 				if (mRelease) {
 					if (ofRectangle(dX, dY, 400, 100).inside(mReleasePos)) {

@@ -1,15 +1,15 @@
 <perlinwaves>
 	<enabled>1</enabled>
-	<speed>-0.826531, -0.0306122</speed>
+	<speed>-0.826531, -0.357143</speed>
 	<scatter>0.704082, 0.831633</scatter>
-	<color>255, 255, 255, 206</color>
+	<color>150, 114, 102, 206</color>
 	<concentric>0</concentric>
-	<speedled>-0.714286, 0.142857</speedled>
-	<scatterled>1, 0.673469</scatterled>
-	<colorled>255, 255, 255, 195</colorled>
-	<ledrectscale>0.193878, 0.908163</ledrectscale>
+	<speedled>-0.297143, 0.0658308</speedled>
+	<scatterled>0.60929, 0.77116</scatterled>
+	<colorled>170, 134, 140, 195</colorled>
+	<ledrectscale>0.520202, 0.565957</ledrectscale>
 	<usemappingLED>0</usemappingLED>
-	<numrectsled>0.385</numrectsled>
-	<propability>0.37</propability>
+	<numrectsled>0.255</numrectsled>
+	<propability>0.135</propability>
 <perlinwaves/>
 </perlinwaves>

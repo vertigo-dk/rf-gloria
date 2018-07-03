@@ -1,19 +1,19 @@
 <triangles>
 	<Enabled>0</Enabled>
-	<Triangles_Size>1.9</Triangles_Size>
+	<Triangles_Size>3.95</Triangles_Size>
 	<Triangle_Divide_Radius>0</Triangle_Divide_Radius>
-	<Triangle_Divide_Invert>1</Triangle_Divide_Invert>
+	<Triangle_Divide_Invert>0</Triangle_Divide_Invert>
 	<Syphon_Texture>0</Syphon_Texture>
-	<Syphon_Mesh_Distortion>0.76</Syphon_Mesh_Distortion>
-	<Mesh_Distortion>0.67</Mesh_Distortion>
-	<Light_Amount>0</Light_Amount>
+	<Syphon_Mesh_Distortion>0.26</Syphon_Mesh_Distortion>
+	<Mesh_Distortion>-0.28</Mesh_Distortion>
+	<Light_Amount>0.0357143</Light_Amount>
 	<Color>255, 255, 255, 163</Color>
 	<Fill_alpha>0.035</Fill_alpha>
-	<Wireframe_alpha>1</Wireframe_alpha>
+	<Wireframe_alpha>0.395</Wireframe_alpha>
 	<Noise_Amount>0.944882</Noise_Amount>
 	<Noise_Speed>0.472441</Noise_Speed>
 <triangles/>
 <enabled>1</enabled>
-	<Wireframe_line_width>10</Wireframe_line_width>
-	<Light_Rotation>106.99, 37.6531, 50.5102</Light_Rotation>
+	<Wireframe_line_width>4.6</Wireframe_line_width>
+	<Light_Rotation>-41.9178, -26.4706, 50.5102</Light_Rotation>
 </triangles>

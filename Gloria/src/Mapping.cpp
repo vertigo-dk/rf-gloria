@@ -170,7 +170,7 @@ void Mapping::generateFixtures() {
     
     int svgHeight = svg.getHeight();
     int svgWidth  = svg.getWidth();
-    
+	
     int maxFixtureSize   = 1000000;
     int numFixtures      = 0;
     int numTriangles     = 0;
@@ -234,7 +234,12 @@ void Mapping::generate() {
     
     int svgHeight = svg.getHeight();
     int svgWidth  = svg.getWidth();
-    
+//
+//	cout<<"SVG size"<<endl;
+//	cout<<svgWidth<<endl;
+//	cout<<svgHeight<<endl;
+//	cout << endl;
+	
     for (int i = 0; i < svg.getNumPath(); i++){
 		ofPath p = svg.getPathAt(i);
         
